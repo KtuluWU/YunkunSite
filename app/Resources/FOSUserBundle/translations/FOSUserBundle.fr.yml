@@ -1,0 +1,183 @@
+group:
+    edit:
+        submit: 'Mettre à jour le groupe'
+    show:
+        name: 'Nom du groupe'
+    new:
+        submit: 'Créer le groupe'
+    flash:
+        updated: 'Le groupe a été mis à jour.'
+        created: 'Le groupe a été créé.'
+        deleted: 'Le groupe a été supprimé.'
+security:
+    login:
+        username: 'Nom d''utilisateur'
+        password: 'Mot de passe'
+        remember_me: 'Se souvenir de moi'
+        submit: Connexion
+profile:
+    show:
+        username: 'Nom d''utilisateur'
+        email: 'Adresse e-mail'
+    edit:
+        submit: 'Mettre à jour'
+    flash:
+        updated: 'Le profil a été mis à jour.'
+change_password:
+    submit: 'Modifier le mot de passe'
+    flash:
+        success: 'Le mot de passe a été modifié.'
+
+registration:
+    check_email: 'Un e-mail a été envoyé à l''adresse %email%. Il contient un lien d''activation sur lequel il vous faudra cliquer afin d''activer votre compte.'
+    confirmed: 'Félicitations %username%, votre compte est maintenant activé.'
+    back: 'Retour à la page d''origine.'
+    submit: 'Créer un compte'
+    flash:
+        user_created: 'L''utilisateur a été créé avec succès.'
+    email:
+        subject: 'Bienvenue %username% !'
+        message: |
+            Bonjour %username% !
+
+            Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%
+
+            Ce lien ne peut être utilisé qu'une seule fois pour valider votre compte.
+
+            Cordialement,
+            L'équipe Yunkun
+
+resetting:
+    check_email: |
+        Un e-mail a été envoyé. Il contient un lien sur lequel il vous faudra cliquer pour réinitialiser votre mot de passe.
+        Remarque : Vous ne pouvez demander un nouveau mot de passe que toutes les %tokenLifetime% heures.
+
+        Si vous ne recevez pas un email, vérifiez votre dossier spam ou essayez à nouveau.
+
+    request:
+        username: 'Nom d''utilisateur ou adresse e-mail'
+        submit: 'Réinitialiser le mot de passe'
+    reset:
+        submit: 'Modifier le mot de passe'
+    flash:
+        success: 'Le mot de passe a été réinitialisé avec succès.'
+    email:
+        subject: 'Réinitialisation de votre mot de passe'
+        message: |
+            Bonjour %username% !
+
+            Pour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%
+
+            Cordialement,
+            L'équipe YunKun
+
+layout:
+    logout: Déconnexion
+    login: Connexion
+    register: Inscription
+    logged_in_as: 'Connecté en tant que %username%'
+form:
+    group_name: 'Nom du groupe'
+    username: 'Nom d''utilisateur'
+    email: 'Adresse e-mail'
+    current_password: 'Mot de passe actuel'
+    password: 'Mot de passe'
+    password_confirmation: 'Répéter le mot de passe'
+    new_password: 'Nouveau mot de passe'
+    new_password_confirmation: 'Répéter le nouveau mot de passe'
+    ##################### Yunkun
+    phone: Tél
+    firstname: Prénom
+    lastname: Nom
+    blog: 
+        title: Titre
+        article: Article
+        image1: Image principale
+        image2: Image gauche
+        image3: Image droite
+    #####################
+
+#######################
+#    Yunkun pages     #
+#######################
+summury: 
+    home: Accueil
+    aboutus: À propos de nous
+    blog: Blog
+    addblog: Ajouter un blog
+    editblog: Modification
+    projects: Projets
+    contactus: Contact
+    cv: Curriculum Vitae
+    error: 
+        title1: OOOPPS.
+        title2: 404
+        title3: Vous n'êtes pas autorisé à accéder à cette page.
+        title4: 403
+    admin: 
+        text1: Bonjour %firstname% %lastname%
+        text2: Dernière connexion %lastlogin%
+        text3: (Paris UTC+2)
+    login: 
+        email_or_username: Nom d’utilisateur ou Email
+    lang: Langue/语言
+
+variables:
+    sex:
+        M: Monsieur
+        F: Madame
+    roles:
+        ROLE_SUPER_ADMIN: Super Administrateur
+        ROLE_ADMIN: Administrateur
+        ROLE_CV_ACCES: Recruteur
+        ROLE_USER: Utilisateur
+    
+error_page: 
+    text1: Désolé！La page que vous voulez visiter n'existe pas...
+    text2: La page que vous consultez peut être supprimée, renommée ou temporairement indisponible. Essayez de chercher une page ：
+    text3: Recherche...
+    text4: Chercher
+    text5: Désolé！Vous n'êtes pas autorisé à accéder à cette page...
+    text6: Cette page est reservée aux administrateurs, veuillez contacter l'administrateur du site. Essayez de cherche une page ：
+
+user_page:
+    title1: Profil
+    title2: Profil
+    title3: Modification du profil
+
+cv_page:
+    title1: Curriculum Vitae
+    title2: Curriculum Vitae
+
+profile_page:
+    username: Nom d’utilisateur
+    truename: Vrai nom
+    sex: État civil
+    role: Niveau d'accès
+    email: Email
+    lastlogin: Dernière connexion
+    phone: Tél
+    registerdate: Date d'enregistrement
+    edit: Modifier les informations
+    back: Retour
+    change_password: Modifier le mot de passe
+
+reset_page: 
+    title1: Modifier le mot de passe
+    title2: Modifier le mot de passe
+
+blog_page:
+    author: Auteur
+    button: Valider
+    textarea: Commencez à écrire un article ...
+    textarea_pre: Commencez à écrire un avant-propos ...
+    title_pre: Avant-propos
+    title_article: Article
+    readmore: Lire la suite
+    popular: Poste populaire
+    editblog: Modifier
+    deleteblog: Supprimer
+    modal:
+        title: Êtes-vous sûr de vouloir supprimer ce blog? Cette opération ne peut pas être reprise.
+        yes: Oui, supprimer
+        no: Non, annuler

@@ -1,0 +1,57 @@
+/*===== Colors =====//*/
+/*===== Font Family =====//*/
+/*===== Line Height =====//*/
+/*===== Radius  =====//*/
+/*==== Font size =====//*/
+/*===== Border color ======//*/
+/*===== Alerts color  =====//*/
+/*===== Social Colors =====//*/
+/* Layouts*/
+.modal-lang .backgroud {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(129, 173, 123, 0.4); }
+.modal-lang .window {
+  position: fixed;
+  z-index: 1001;
+  top: 128px;
+  left: calc(50% - 40% / 2);
+  right: calc(50% - 40% / 2);
+  max-width: 40%;
+  max-height: 500px;
+  padding: 24px;
+  background: #fefefe;
+  border-radius: 4px; }
+  .modal-lang .window .title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px; }
+  .modal-lang .window .lang-block {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-around; }
+    .modal-lang .window .lang-block .lang {
+      margin: 0 20px;
+      border: 2px solid rgba(129, 173, 123, 0.4);
+      border-radius: 5px;
+      padding: 5px 10px;
+      transition: .4s;
+      cursor: pointer; }
+      .modal-lang .window .lang-block .lang:hover {
+        background: rgba(129, 173, 123, 0.4); }
+
+@media only screen and (max-width: 1000px) {
+  .modal-lang .window {
+    left: calc(40% - 40% / 2);
+    right: calc(40% - 40% / 2);
+    max-width: 70%; }
+    .modal-lang .window .lang-block {
+      display: inline; } }
+
+/*# sourceMappingURL=index_page.css.map */

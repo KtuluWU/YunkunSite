@@ -1,0 +1,26 @@
+{% trans_default_domain 'FOSUserBundle' %} {% extends 'base_yun.html.twig' %} {% block stylesheets %} {{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/pages/reset_page.css') }}" /> {% endblock %} {% set bradcaump_title = 'reset_page.title1'|trans %} {% set breadcrumb_item = 'reset_page.title2'|trans
+%} {% block content %}
+<!-- Start Reset PAge -->
+
+<div class="reset_container">
+    {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset'
+    } }) }} {# {{ form_widget(form) }} #}
+    <table>
+        <tr>
+            <th>{{ form_label(form.plainPassword.first) }}</th>
+            <td>{{ form_errors(form.plainPassword.first) }} {{ form_widget(form.plainPassword.first) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label(form.plainPassword.second) }}</th>
+            <td>{{ form_errors(form.plainPassword.second) }} {{ form_widget(form.plainPassword.second) }}</td>
+        </tr>
+    </table>
+    <div class="text-center">
+        <a href="/profile" class="pr__btn">{{ 'profile_page.back'|trans }}</a>
+        <input type="submit" value="{{ 'resetting.reset.submit'|trans }}" class="pr__btn" />
+    </div>
+</div>
+{{ form_end(form) }}
+<!-- End Reset PAge -->
+{% endblock %}

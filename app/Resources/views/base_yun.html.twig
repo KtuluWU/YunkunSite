@@ -1,0 +1,436 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>
+        {% block title %}Yunkun{% endblock %}
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google font (font-family: 'Raleway', sans-serif; 'Lato', sans-serif;) -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> {% block stylesheets %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('yunkun_favicon.png') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/plugins.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" /> {% endblock %}
+</head>
+
+<body>
+    {% block header %}
+    <!-- Main wrapper -->
+    <div class="wrapper" id="wrapper">
+        <!-- Start Header Area -->
+        <header class="header pr__header header--three var--2">
+            <!-- Start Header Top -->
+            <div class="pr__header__top bg--cart-1">
+                <div class="container container-yunkun">
+                    <div class="row align-items-center">
+                        <div class="col-lg-11 col-md-11 d-none d-lg-block">
+                            <nav class="mainmenu__nav">
+                                <ul class="mainmenu">
+                                    <li>
+                                        <a href="/">{{'summury.home'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
+                                    </li>
+                                    {% if app.user %}
+                                        {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
+                                        <li class="drop">
+                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                            <ul class="dropdown">
+                                                <li><a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a></li>
+                                            </ul>
+                                        </li>
+                                        {% else %}
+                                        <li>
+                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        </li>
+                                        {% endif %}
+                                    {% else %}
+                                        <li>
+                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        </li>
+                                    {% endif %}
+                                    <li>
+                                        <a href="#">{{'summury.projects'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/CV">{{'summury.cv'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Contact">{{'summury.contactus'|trans}}</a>
+                                    </li>
+                                    <li class="drop">
+                                        <a>{{'summury.lang'|trans}}</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}"><img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a></li>
+                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"><img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a></li>
+                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a></li>
+                                        </ul>
+                                    </li>
+                                    {% if not app.user %}
+                                    <li>
+                                        <a href="/login">{{'layout.login'|trans}}</a>
+                                    </li>
+                                    {% elseif app.user %}
+                                    <li class="drop">
+                                        <a>
+                                            <b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%':
+                                                app.user.lastname}, 'FOSUserBundle')}}</b>
+                                        </a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')}, 'FOSUserBundle')}}
+                                                    <br> {{'summury.admin.text3'|trans}}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/profile">{{'user_page.title1'|trans}}</a>
+                                            </li>
+                                            <li>
+                                                <a href="/logout">{{'layout.logout'|trans}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+                            <div class="search__trigger">
+                                <a class="search__active" href="#">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row  d-none">
+                        <div class="col-lg-12">
+                            <nav class="mobilemenu__nav">
+                                <ul>
+                                    <li>
+                                        <a href="/">{{'summury.home'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
+                                    </li>
+                                    {% if app.user %}
+                                        {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
+                                        <li class="drop">
+                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                            <ul class="dropdown">
+                                                <li><a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a></li>
+                                            </ul>
+                                        </li>
+                                        {% else %}
+                                        <li>
+                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        </li>
+                                        {% endif %}
+                                    {% else %}
+                                        <li>
+                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        </li>
+                                    {% endif %}
+                                    <li>
+                                        <a href="#">{{'summury.projects'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/CV">{{'summury.cv'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Contact">{{'summury.contactus'|trans}}</a>
+                                    </li>
+                                    <li class="drop">
+                                        <a>{{'summury.lang'|trans}}</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}"><img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a></li>
+                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"><img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a></li>
+                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a></li>
+                                        </ul>
+                                    </li>
+                                    {% if not app.user %}
+                                    <li>
+                                        <a href="/login">{{'layout.login'|trans}}</a>
+                                    </li>
+                                    {% elseif app.user %}
+                                    <li class="drop">
+                                        <a>
+                                            <b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%':
+                                                app.user.lastname}, 'FOSUserBundle')}}</b>
+                                        </a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')}, 'FOSUserBundle')}}
+                                                    <br> {{'summury.admin.text3'|trans}}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/profile">{{'user_page.title1'|trans}}</a>
+                                            </li>
+                                            <li>
+                                                <a href="/logout">{{'layout.logout'|trans}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="mobile-menu d-block d-lg-none"></div>
+                    <!-- Mobile Menu -->
+                </div>
+            </div>
+            <!-- End Header Top -->
+            <!-- Start Logo -->
+            <div class="yunkun__logo__sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="{{ asset('images/logo/yunkun_Logo1.png') }}" class="index-logo" alt="yunkun blog">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Logo -->
+        </header>
+        <!-- End Header Area -->
+        <!-- Start Search Popup -->
+        <div class="box-search-content search_active block-bg close__top">
+            <form id="search_mini_form" class="minisearch" action="#">
+                <div class="field__search">
+                    <input type="text" placeholder="Search entire store here...">
+                    <div class="action">
+                        <a href="#">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                </div>
+            </form>
+            <div class="close__wrap">
+                <span>close</span>
+            </div>
+        </div>
+        <!-- End Search Popup -->
+        {% endblock %} {% block Bradcaump %}
+        <!-- Start Bradcaump area -->
+        <div class="pr__bradcaump__area bg-image--7">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bradcaump__inner text-center">
+                            <h2 class="bradcaump-title">
+                                {{ bradcaump_title }}
+                            </h2>
+                            <nav class="bradcaump-content">
+                                <a class="breadcrumb_item" href="/">{{'summury.home'|trans}}</a>
+                                <span class="brd-separetor">/</span>
+                                <span class="breadcrumb_item active">
+                                    {{ breadcrumb_item }}
+                                </span>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        {% endblock %} {% if app.request.hasPreviousSession %} {% for type, messages in app.session.flashbag.all() %} {% for message
+        in messages %}
+        <div class="flash-{{ type }}" id="flash_{{ type }}">
+            {{ message }}
+        </div>
+        {% endfor %} {% endfor %} {% endif %} {% block content %}{% endblock %} {% block footer %}
+        <!-- Start Footer ARea -->
+        <footer class="panora__footer">
+            <div class="bg--cart-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="blog__cat">
+                                <li>
+                                    <a href="#">categories</a>
+                                </li>
+                                <li>
+                                    <a href="#">fashion</a>
+                                </li>
+                                <li>
+                                    <a href="#">lifestyle</a>
+                                </li>
+                                <li>
+                                    <a href="#">beauty</a>
+                                </li>
+                                <li>
+                                    <a href="#">contact</a>
+                                </li>
+                                <li>
+                                    <a href="#">archives</a>
+                                </li>
+                            </ul>
+                            <ul class="pn-sociable-default">
+                                <li>
+                                    <div class="icon">
+                                        <a href="#">
+                                            <i class="fa fa-tumblr"></i>
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h6>
+                                            <a href="#">tumblr</a>
+                                        </h6>
+                                        <span>100</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <a href="#">
+                                            <i class="fa fa-rss"></i>
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h6>
+                                            <a href="#">rss</a>
+                                        </h6>
+                                        <span>100</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <a href="#">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h6>
+                                            <a href="#">twitter</a>
+                                        </h6>
+                                        <span>100</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <a href="#">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h6>
+                                            <a href="#">google plus</a>
+                                        </h6>
+                                        <span>100</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <a href="#">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h6>
+                                            <a href="#">facebook</a>
+                                        </h6>
+                                        <span>100</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <a href="#">
+                                            <i class="fa fa-youtube-play"></i>
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h6>
+                                            <a href="#">youtube</a>
+                                        </h6>
+                                        <span>100</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Instagram Area -->
+            <div class="panora__instagram">
+                <ul class="instagram__list owl-carousel owl-theme">
+                    <li>
+                        <a href="#">
+                            <img src="{{ asset('images/instagram/1.jpg') }}" alt="panora blog">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{ asset('images/instagram/2.jpg') }}" alt="panora blog">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{ asset('images/instagram/3.jpg') }}" alt="panora blog">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{ asset('images/instagram/4.jpg') }}" alt="panora blog">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{ asset('images/instagram/5.jpg') }}" alt="panora blog">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{ asset('images/instagram/6.jpg') }}" alt="panora blog">
+                        </a>
+                    </li>
+                </ul>
+                <div class="instagram__title">
+                    <h2>Follow Us On instagram</h2>
+                </div>
+            </div>
+            <!-- End Instagram Area -->
+            <!-- Copyright Area -->
+            <div class="copyright__area bg--white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 col-sm-6">
+                            <div class="ft__left">
+                                <p>Copyright © 2017-{{date()|date('Y')}}, Yun &amp; Kun. All Rights Reserved</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12 col-sm-6">
+                            <div class="ft__right">
+                                <p>Develop by Yun</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright Area -->
+        </footer>
+    </div>
+    <!-- //Main wrapper -->
+    {% endblock %} {% block javascripts %}
+    <script src="{{ asset('js/vendor/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/plugins.js') }}"></script>
+    <script src="{{ asset('js/active.js') }}"></script>
+    {% endblock %}
+</body>
+
+</html>

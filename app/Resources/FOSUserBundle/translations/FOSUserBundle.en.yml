@@ -1,0 +1,188 @@
+group:
+    edit:
+        submit: 'Update group'
+    show:
+        name: 'Group name'
+    new:
+        submit: 'Create group'
+    flash:
+        updated: 'The group has been updated.'
+        created: 'The group has been created.'
+        deleted: 'The group has been deleted.'
+
+security:
+    login:
+        username: Username
+        password: Password
+        remember_me: 'Remember me'
+        submit: 'Log in'
+
+profile:
+    show:
+        username: Username
+        email: Email
+    edit:
+        submit: Update
+    flash:
+        updated: 'The profile has been updated.'
+
+change_password:
+    submit: 'Change password'
+    flash:
+        success: 'The password has been changed.'
+
+registration:
+    check_email: |
+        An email has been sent to %email%. It contains an activation link you must click to activate your account.
+    confirmed: 'Congrats %username%, your account is now activated.'
+    back: 'Back to the originating page.'
+    submit: Register
+    flash:
+        user_created: 'The user has been created successfully.'
+    email:
+        subject: 'Welcome %username%!'
+        message: |
+            Hello %username%!
+
+            To finish activating your account - please visit %confirmationUrl%
+
+            This link can only be used once to validate your account.
+
+            Regards,
+            the Team.
+
+resetting:
+    check_email: |
+        An email has been sent. It contains a link you must click to reset your password.
+        Note: You can only request a new password once within %tokenLifetime% hours.
+
+        If you don't get an email check your spam folder or try again.
+    request:
+        username: 'Username or email address'
+        submit: 'Reset password'
+    reset:
+        submit: 'Change password'
+    flash:
+        success: 'The password has been reset successfully.'
+    email:
+        subject: 'Reset Password'
+        message: |
+            Hello %username%!
+
+            To reset your password - please visit %confirmationUrl%
+
+            Regards,
+            the Team YunKun.
+
+# Global strings
+layout:
+    logout: 'Log out'
+    login: 'Log in'
+    register: Register
+    logged_in_as: 'Logged in as %username%'
+
+form:
+    group_name: 'Group name'
+    username: Username
+    email: Email
+    current_password: 'Current password'
+    password: Password
+    password_confirmation: 'Repeat password'
+    new_password: 'New password'
+    new_password_confirmation: 'Repeat new password'
+    ##################### Yunkun
+    phone: Telephone
+    firstname: Firstname
+    lastname: Lastname
+    blog: 
+        title: Title
+        article: Article
+        image1: Main image
+        image2: Left image
+        image3: Right image
+    #####################
+
+#######################
+#    Yunkun pages     #
+#######################
+summury: 
+    home: Home
+    aboutus: About us
+    blog: Blog
+    addblog: Add Blog
+    editblog: Edit Blog
+    projects: Projects
+    contactus: Contact us
+    cv: Curriculum Vitae
+    error: 
+        title1: OOOPPS.
+        title2: 404
+        title3: You are not allowed to access the current page.
+        title4: 403
+    admin: 
+        text1: Hi %firstname% %lastname%
+        text2: Last connection%lastlogin%
+        text3: (Paris UTC+2)
+    login: 
+        email_or_username: Username or Email
+    lang: Language/语言
+
+variables:
+    sex:
+        M: Male
+        F: Female
+    roles:
+        ROLE_SUPER_ADMIN: Super Administrator
+        ROLE_ADMIN: Administrator
+        ROLE_CV_ACCES: Recruiter
+        ROLE_USER: User
+
+error_page: 
+    text1: Try the search below to find matching pages...
+    text2: The page you are viewing may be deleted, renamed, or temporarily unavailable. Try to search below to find matching pages ：
+    text3: Search for pages...
+    text4: Search
+    text5: Sorry！You are not allowed to access the current page...
+    text6: This page is reserved for administrators, please contact the administrator of the site。Try the search below to find matching pages ：
+
+user_page:
+    title1: Profile
+    title2: Profile
+    title3: Profile modification
+
+cv_page:
+    title1: Curriculum Vitae
+    title2: Curriculum Vitae
+
+profile_page:
+    username: Username
+    truename: Truename
+    sex: Sex
+    role: Access level
+    email: Email
+    lastlogin: Last connection
+    phone: Telephone
+    registerdate: Registration Date
+    edit: Edit the informations
+    back: Back
+    change_password: Change the password
+
+reset_page: 
+    title1: Resseting Password
+    title2: Resseting Password
+
+blog_page:
+    author: Author
+    button: Submit
+    textarea: Start writing an article ...
+    textarea_pre: Start writing a foreword ...
+    title_pre: Foreword
+    title_article: Article
+    readmore: Read More
+    popular: Popular post
+    editblog: Edit
+    deleteblog: Delete
+    modal:
+        title: Are you sure you want to delete this blog? This operation can not be resumed.
+        yes: Yes, delete
+        no: No, cancel

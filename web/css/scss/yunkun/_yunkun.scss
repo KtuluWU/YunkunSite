@@ -1,0 +1,73 @@
+
+div[id^='flash_'] {
+    color: $color-danger;
+    text-align: center;
+    padding: 50px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.container-yunkun {
+    max-width: 1300px !important;
+}
+
+.pr__btn {
+    background: #444444 none repeat scroll 0 0;
+    border-radius: $theme-radius;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 17px;
+    text-transform: uppercase;
+    -webkit-transform: perspective(1px) translateZ(0px);
+    transform: perspective(1px) translateZ(0px);
+    -webkit-transform-origin: 0 100% 0;
+    transform-origin: 0 100% 0;
+    letter-spacing: 3px;
+    &.btn--large {
+        padding: 0 20px;
+        border-radius: 6px;
+    }
+    &.green__btn {
+        background: $theme-color none repeat scroll 0 0;
+        color: #fff;
+        &:hover {
+            background: #444444 none repeat scroll 0 0;
+            color: #fff;
+        }
+    }
+}
+
+.pr__btn:hover {
+    background: $theme-color none repeat scroll 0 0;
+    color: #fff;
+}
+
+.pr__btn:hover,
+.pr__btn:focus,
+.pr__btn:active {
+    -webkit-animation-name: pr__btn;
+    animation-name: pr__btn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+.flag {
+    margin-right: 10px;
+}
+
+.red__btn {
+    background: $color-danger none repeat scroll 0 0 !important;
+    color: #fff !important;
+    &:hover {
+        background: #444444 none repeat scroll 0 0 !important;
+        color: #fff !important;
+    }
+}

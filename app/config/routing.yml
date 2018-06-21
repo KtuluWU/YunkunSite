@@ -1,0 +1,52 @@
+yunkun:
+    resource: "@YunkunBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+# Index:
+#    path: /{_locale}/
+#    defaults: { _controller: YunkunBundle:Index:index }
+#    requirements:
+#        _locale: '%locales%'
+#AboutUs:
+#    path: /{_locale}/AboutUs
+#    defaults: { _controller: YunkunBundle:Index:index }
+#    requirements:
+#        _locale: '%locales%'
+#Blog:
+#    path: /{_locale}/Blog/
+#    defaults: { _controller: YunkunBundle:Index:index }
+#    requirements:
+#        _locale: '%locales%'
+#CV:
+#    path: /{_locale}/CV
+#    defaults: { _controller: YunkunBundle:Index:index }
+#    requirements:
+#        _locale: '%locales%'
+#Contact:
+#    path: /{_locale}/Contact
+#    defaults: { _controller: YunkunBundle:Index:index }
+#    requirements:
+#        _locale: '%locales%'
+#NotFound:
+#    path: /{_locale}/NotFound
+#    defaults: { _controller: YunkunBundle:Index:index }
+#    requirements:
+#        _locale: '%locales%'
+#Login:
+#    path: /{_locale}/login
+#    defaults: { _controller: FOSUserBundle:Security:login }
+#    requirements:
+#        _locale: '%locales%'
+#Profile:
+#    path: /{_locale}/profile
+#    defaults: { _controller: FOSUserBundle:Profile:show }
+#    requirements:
+#        _locale: '%locales%'

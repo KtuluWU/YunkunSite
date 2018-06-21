@@ -1,0 +1,82 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends 'base_yun.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pages/blog_page.css') }}"/>
+{% endblock %}
+{% set bradcaump_title = 'summury.blog'|trans %}
+{% set breadcrumb_item = 'summury.blog'|trans %}
+{% block content %}
+<!-- Start Blog Area -->
+<div class="pnora__blog__area ptb--60 bg--white blog-index">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Start Single Blog -->
+                {% for blog in blogs_to_index %}
+                <article class="blog">
+                    <div class="title">
+                        <h4>
+                            <a href="./Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
+                        </h4>
+                        <ul>
+                            <li>{{'blog_page.author'|trans}} {{blog['author']}}
+                            </li>
+                            <li>{{blog['post_date']|date('Y-m-d')}}</li>
+                        </ul>
+                    </div>
+                    <div class="thumb text-center">
+                        <a href="./Blog-detail/{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:800px"></a>
+                    </div>
+                    <div class="content">
+                        {{blog['pre_html']|raw}} ...
+                    </div>
+                    <div class="blog__btn">
+                        <a class="pr__btn green__btn" href="./Blog-detail/{{blog['title']}}">{{'blog_page.readmore'|trans}}</a>
+                    </div>
+                    <div class="blog__footer">
+                        <!-- <div class="share">
+                            <p>share</p>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="blog__comment">
+                            <p>
+                                <a href="#">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    Comments
+                                    <span>0</span></a>
+                            </p>
+                        </div> -->
+                    </div>
+                </article>
+                <!-- End Single Blog -->
+                {% endfor %}
+                <!-- Start Banner Area -->
+                <div class="pn__banner__area mt--50">
+                    <a href="#">
+                        <img src="{{ asset('images/bg/4.jpg') }}" alt="yunkun blog">
+                    </a>
+                </div>
+                <!-- End Banner Area -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Blog Area -->
+{% endblock %}

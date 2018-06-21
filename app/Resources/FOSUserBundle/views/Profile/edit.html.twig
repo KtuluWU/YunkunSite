@@ -1,0 +1,45 @@
+{% trans_default_domain 'FOSUserBundle' %} {% extends 'base_yun.html.twig' %} {% block stylesheets %} {{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/pages/profile_page.css') }}" /> {% endblock %} {% set bradcaump_title = 'user_page.title1'|trans %} {% set breadcrumb_item = 'user_page.title3'|trans %}
+{% block content %}
+<!-- Start Profile Edit PAge -->
+<div class="profile_edit_container">
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }} {# {{ form_widget(form)
+    }} #}
+    <table>
+        <tr>
+            <th>{{ form_label(form.username) }}</th>
+            <td>{{ form_errors(form.username) }} {{ form_widget(form.username) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label(form.firstname) }}</th>
+            <td>{{ form_errors(form.firstname) }} {{ form_widget(form.firstname) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label(form.lastname) }}</th>
+            <td>{{ form_errors(form.lastname) }} {{ form_widget(form.lastname) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label(form.email) }}</th>
+            <td>{{ form_errors(form.email) }} {{ form_widget(form.email) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label(form.phone) }}</th>
+            <td>{{ form_errors(form.phone) }} {{ form_widget(form.phone) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label(form.current_password) }}</th>
+            <td>{{ form_errors(form.current_password) }} {{ form_widget(form.current_password) }}</td>
+        </tr>
+
+    </table>
+
+    {{ form_rest(form) }}
+
+    <div class="text-center">
+        <a href="/profile" class="pr__btn">{{ 'profile_page.back'|trans }}</a>
+        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" class="pr__btn"/>
+    </div>
+    {{ form_end(form) }}
+</div>
+<!-- End Profile Edit PAge -->
+{% endblock %}

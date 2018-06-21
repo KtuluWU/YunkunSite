@@ -1,0 +1,97 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends 'base_yun.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pages/blog_page.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('editormd/css/editormd.css') }}"/>
+{% endblock %}
+{% set bradcaump_title = title %}
+{% set breadcrumb_item = 'summury.blog'|trans %}
+{% block content %}
+<!-- Start Blog Details -->
+<div class="pr__blog__details ptb--70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Start Single Blog -->
+                    <article class="blog">
+                        <div class="title">
+                            <h4><a>{{title}}</a></h4>
+                            <ul>
+                                <li>{{'blog_page.author'|trans}} {{author}}</li>
+                                <li>{{post_date|date('Y-m-d')}}</li>
+                            </ul>
+                        </div>
+                        <div class="thumb text-center">
+                            <img src="{{ asset('uploads/images/blog/' ~ imageName1) }}" alt="panora blog" style="max-height:800px">
+                        </div>
+                        <div class="content">
+                            {{pre_html|raw}}
+                        </div>
+                    </article>
+                    <!-- End Single Blog -->
+                    <div class="blog__quote">
+                        {{article_html|raw}}
+                        <ul class="blog__img text-center">
+                            <li><img src="{{ asset('uploads/images/blog/' ~ imageName2) }}" alt="panora blog" class="img_left" style="max-height:400px;max-width:550px"></li>
+                            <li><img src="{{ asset('uploads/images/blog/' ~ imageName3) }}" alt="panora blog" class="img_right" style="max-height:400px;max-width:550px"></li>
+                        </ul>
+                       <!--  <div class="bl__dtl__meta">
+                            <div class="share">
+                                <p>share</p>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div> -->
+                    </div>
+                    {% if app.user %}
+                        {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
+                            <div class="links__edit__delete text-center">
+                                <a class="pr__btn green__btn btn__blog__detail" href="/Blog/Edit/{{title}}">{{'blog_page.editblog'|trans}}</a>
+                                <a class="pr__btn red__btn btn__blog__detail" id="delete_confirm">{{'blog_page.deleteblog'|trans}}</a>
+                            </div>
+                            <div class="modal__conrfim__delete">
+                                <div class="backgroud"></div>
+                                <div class="window text-center">
+                                    <div class="title">{{'blog_page.modal.title'|trans}}</div>
+                                    <div>
+                                        <a class="pr__btn red__btn btn__blog__detail" href="/Blog/DeleteBlog/{{title}}">{{'blog_page.modal.yes'|trans}}</a>
+                                        <a class="pr__btn green__btn btn__blog__detail" id="cancel_delete">{{'blog_page.modal.no'|trans}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    <!-- Start Popular Post -->
+                    <div class="popular__post">
+                        <h2>{{'blog_page.popular'|trans}}</h2>
+                        <div class="popular__post__active poss--relative owl-carousel owl-theme">
+                            {% for blog in blogs %}
+                            <!-- Start Single Post -->
+                            <div class="popular__post text-center">
+                                <div class="thumb">
+                                    <a href="{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="panora blog" style="max-height:186px" class="popular__post__imgs"></a>
+                                </div>
+                                <div class="content">
+                                    <h3><a href="{{blog['title']}}">{{blog['title']}}</a></h3>
+                                    <span>{{blog['post_date']|date('Y-m-d')}}</span>
+                                </div>
+                            </div>
+                            <!-- End Single Post -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!-- End Popular Post -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog Details -->
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+    <script src="{{ asset('js/pages/yunkun.js') }}"></script>
+{% endblock %}

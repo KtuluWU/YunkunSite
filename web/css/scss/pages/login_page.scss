@@ -1,0 +1,64 @@
+@import '../variables';
+.login-container {
+    width: 40%; // padding: 50px 100px;
+    border: 1px solid #f7f7f7;
+    border-radius: 15px;
+    background-color: #f7f7f7;
+    margin: 50px auto;
+    .login-error {
+        color: $color-danger;
+    }
+    .login-form {
+        padding: 30px;
+        .login-input-line {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin: 0 !important;
+            label {
+                margin: 0 !important;
+                line-height: 40px;
+            }
+            input {
+                border: 1px solid #f7f7f7;
+                border-radius: 5px;
+                height: 40px;
+            }
+            #remember_me {
+                vertical-align: middle;
+            }
+            .remember_me {
+                cursor: pointer;
+            }
+        }
+        .pr__btn {
+            background: $theme-color none repeat scroll 0 0;
+            border: 0 none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 800;
+            height: 47px;
+            line-height: 49px;
+            margin-top: 32px;
+            padding: 0 29px;
+            text-transform: uppercase;
+            transition: 0.5s;
+            &:hover {
+                background: #f2f2f2;
+                color: $theme-color;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .login-container {
+        width: 60%;
+    }
+}
+
+@media #{$sm-layout} {
+    .login-container {
+        width: 100%;
+    }
+}

@@ -1,0 +1,24 @@
+{% trans_default_domain 'FOSUserBundle' %} {% extends 'base_yun.html.twig' %} {% block stylesheets %} {{ parent() }} 
+<link rel="stylesheet" href="{{ asset('css/pages/reset_page.css') }}" /> {% endblock %} {% set bradcaump_title = 'reset_page.title1'|trans %} {% set breadcrumb_item = 'reset_page.title2'|trans
+%} {% block content %}
+<!-- Start Request PAge -->
+<div class="request_container">
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+        <table>
+            <tr>
+                <th>
+                    <label for="username">{{ 'resetting.request.username'|trans }}</label>
+                </th>
+                <td>
+                    <input type="text" id="username" name="username" required="required" />
+                </td>
+            </tr>
+        </table>
+        <div class="text-center">
+            <input type="submit" value="{{ 'resetting.request.submit'|trans }}" class="pr__btn"/>
+        </div>
+
+    </form>
+</div>
+<!-- End Request PAge -->
+{% endblock %}

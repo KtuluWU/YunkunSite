@@ -1,0 +1,17 @@
+{% trans_default_domain 'FOSUserBundle' %} 
+{% extends 'base_yun.html.twig' %} 
+{% block stylesheets %} 
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/pages/reset_page.css') }}" /> 
+{% endblock %} 
+{% set bradcaump_title = 'reset_page.title1'|trans %} 
+{% set breadcrumb_item = 'reset_page.title2'|trans %} 
+{% block content %}
+<!-- Start Request PAge -->
+<div class="request_container">
+    <p>
+        {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+    </p>
+</div>
+<!-- End Request PAge -->
+{% endblock %}

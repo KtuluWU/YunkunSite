@@ -1,0 +1,182 @@
+group:
+    edit:
+        submit: 更新小组
+    show:
+        name: 小组名称
+    new:
+        submit: 创建小组
+    flash:
+        updated: 小组已被更新
+        created: 小组已创建
+        deleted: 小组已被删除
+security:
+    login:
+        username: 用户名
+        password: 密码
+        email: 邮箱
+        remember_me: 自动登录
+        submit: 登录
+profile:
+    show:
+        username: 用户名
+        email: 电子邮箱
+    edit:
+        submit: 更新
+    flash:
+        updated: 用户信息已更新
+change_password:
+    submit: 修改密码
+    flash:
+        success: 密码已成功修改
+registration:
+    check_email: 系统向%email%发送了一封包含激活链接的邮件，请访问该链接以启用你的帐户。
+    confirmed: '%username%，恭喜你，你的帐户已启用！'
+    back: 返回前一页面
+    submit: 注册
+    flash:
+        user_created: 用户已创建
+    email:
+        subject: '%username%，欢迎你'
+        message: |
+            %username%，你好！
+
+            要启用你的用户帐号，请访问：%confirmationUrl%
+
+            祝好
+            Yunkun网站团队
+
+resetting:
+    check_email: |
+        系统向您注册的邮箱发送了一封包含激活链接的邮件，请访问该链接以启用你的帐户。
+        注意 : 您只能在 %tokenLifetime% 小时内申请一次重置密码。
+
+        如果您没有收到电子邮件，请检查垃圾邮件文件夹或重试。
+
+    request:
+        username: 用户名或邮箱
+        submit: 重置密码
+    reset:
+        submit: 修改密码
+    flash:
+        success: 密码已重置。
+    email:
+        subject: 重置密码
+        message: |
+            %username%，你好！
+
+            请访问 %confirmationUrl% 以重置你的帐户密码。
+
+            祝好
+            YunKun团队
+
+layout:
+    logout: 退出
+    login: 登录
+    register: 注册
+    logged_in_as: 已登录为：%username%
+form:
+    group_name: 小组名称
+    username: 用户名
+    email: 电子邮箱
+    current_password: 当前密码
+    password: 密码
+    password_confirmation: 确认密码
+    new_password: 新密码
+    new_password_confirmation: 确认新密码
+    ##################### Yunkun
+    phone: 电话
+    firstname: 名字
+    lastname: 姓氏
+    blog: 
+        title: 标题
+        article: 文章
+        image1: 主图
+        image2: 左子图
+        image3: 右子图
+
+    #####################
+
+#######################
+#    Yunkun pages     #
+#######################
+summury: 
+    home: 主页
+    aboutus: 关于我们
+    blog: 博客
+    addblog: 添加博客
+    editblog: 编辑博客
+    projects: 网站项目展示
+    contactus: 联系我们
+    cv: 个人简历
+    error: 
+        title1: 出错啦
+        title2: 404
+        title3: 您无权访问当前页面
+        title4: 403
+    admin: 
+        text1: 您好 %firstname% %lastname%
+        text2: 上次登录时间：%lastlogin%
+        text3: (巴黎时间 UTC+2)
+    login: 
+        email_or_username: 用户名或邮箱
+    lang: 语言/Language
+
+variables:
+    sex:
+        M: 男
+        F: 女
+    roles:
+        ROLE_SUPER_ADMIN: 超级管理员
+        ROLE_ADMIN: 管理员
+        ROLE_CV_ACCES: 招聘者
+        ROLE_USER: 普通用户
+
+error_page: 
+    text1: 抱歉！ 您访问的页面不存在...
+    text2: 您查看的页面可能被删除、更名或者暂时不可用。尝试搜索一下页面吧：
+    text3: 搜索页面...
+    text4: 查询
+    text5: 抱歉！您无权访问当前页面...
+    text6: 该页面仅供超级管理员访问，请联系网站管理员。尝试搜索一下页面吧：
+
+user_page:
+    title1: 个人主页
+    title2: 个人主页
+    title3: 信息修改
+
+cv_page:
+    title1: 个人简历
+    title2: 个人简历
+
+profile_page:
+    username: 用户名：
+    truename: 真实姓名：
+    sex: 性别：
+    role: 级别：
+    email: 邮箱：
+    lastlogin: 上次登录时间：
+    phone: 电话：
+    registerdate: 注册时间：
+    edit: 修改个人信息
+    back: 返回
+    change_password: 修改登录密码
+
+reset_page: 
+    title1: 重置密码
+    title2: 重置密码
+
+blog_page:
+    author: 作者
+    button: 提交
+    textarea: 开始写文章吧
+    textarea_pre: 开始写前言吧
+    title_pre: 前言
+    title_article: 文章
+    readmore: 阅读更多
+    popular: 更多博客
+    editblog: 编辑博客
+    deleteblog: 删除博客
+    modal:
+        title: 确定删除该博客吗？此操作无法恢复
+        yes: 删除
+        no: 取消

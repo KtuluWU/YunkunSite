@@ -1,0 +1,50 @@
+{% trans_default_domain 'FOSUserBundle' %} {% extends 'base_yun.html.twig' %} {% block stylesheets %} {{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/pages/profile_page.css') }}" /> {% endblock %} {% set bradcaump_title = 'user_page.title1' | trans %} {% set breadcrumb_item = 'user_page.title2' | trans
+%} {% block content %}
+<!-- Start Profile PAge -->
+<div class="profile_container">
+    {% if app.user %} {% set sex = 'variables.sex.' ~ app.user.sex %} {% set role = 'variables.roles.' ~ app.user.roles[0] %}
+    <div class="">
+        <table>
+            <tr>
+                <th>{{'profile_page.username'|trans}}</th>
+                <td>{{ app.user.username }}</td>
+            </tr>
+            <tr>
+                <th>{{'profile_page.truename'|trans}}</th>
+                <td>{{ app.user.firstname }} {{ app.user.lastname }}</td>
+            </tr>
+            <tr>
+                <th>{{'profile_page.sex'|trans}}</th>
+                <td>{{ sex|trans }}</td>
+            </tr>
+            <tr>
+                <th>{{'profile_page.role'|trans}}</th>
+                <td>{{ role|trans }}</td>
+            </tr>
+            <tr>
+                <th>{{'profile_page.email'|trans}}</th>
+                <td>{{ app.user.email }}</td>
+            </tr>
+            <tr>
+                <th>{{'profile_page.lastlogin'|trans}}</th>
+                <td>{{ app.user.lastLogin|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>{{'profile_page.phone'|trans}}</th>
+                <td>{{ app.user.phone }}</td>
+            </tr>
+            <tr>
+                <th>{{'profile_page.registerdate'|trans}}</th>
+                <td>{{ app.user.RegisterDate|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="text-center">
+        <a href="edit" class="pr__btn">{{'profile_page.edit'|trans}}</a>
+        <a href="change-password" class="pr__btn">{{'profile_page.change_password'|trans}}</a>
+    </div>
+    {% endif %}
+</div>
+<!-- End Profile PAge -->
+{% endblock %}

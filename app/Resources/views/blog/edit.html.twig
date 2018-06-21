@@ -1,0 +1,66 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends 'base_yun.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pages/blog_page.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('editormd/css/editormd.css') }}"/>
+{% endblock %}
+{% set bradcaump_title = 'summury.editblog'|trans %}
+{% set breadcrumb_item = 'summury.editblog'|trans %}
+{% block content %}
+<div class="addBlog">
+    <div class="container">
+        {{ form_start(form) }}
+        <div class="title">
+            <label for="blog_title" class="required">{{'form.blog.title'|trans}}</label>
+            <input type="text" id="blog_title" name="blog-title" required="required" value="{{article_title}}">
+        </div>
+        <div class="textEdit">
+            <label>{{'blog_page.title_pre'|trans}}</label>
+            <div class="editormd" id="editormd-pre">
+                <textarea class="editormd-markdown-textarea" name="editormd-markdown-doc-pre">{{pre_text}}</textarea>
+                <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+                <textarea class="editormd-html-textarea" name="blog-article-html-pre"></textarea>
+            </div>
+        </div>
+        <div class="textEdit">
+            <label>{{'blog_page.title_article'|trans}}</label>
+            <div class="editormd" id="editormd-article">
+                <label>{{'blog_page.title_article'|trans}}</label>
+                <textarea class="editormd-markdown-textarea" name="editormd-markdown-doc" >{{article_text}}</textarea>
+                <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+                <textarea class="editormd-html-textarea" name="blog-article-html"></textarea>
+            </div>
+        </div>
+        <input type="submit" value="{{'blog_page.button'|trans}}" class="pr__btn"/>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script src="{{ asset('js/vendor/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('editormd/editormd.min.js') }}"></script>
+    
+    <script type="text/javascript">
+        $(function () {
+            editormd("editormd-article", {
+                width: "100%",
+                height: 500,
+                syncScrolling: "single",
+                placeholder: "{{'blog_page.textarea'|trans}}",
+                path: "/editormd/lib/",
+                saveHTMLToTextarea: true
+            });
+            editormd("editormd-pre", {
+                width: "100%",
+                height: 500,
+                syncScrolling: "single",
+                placeholder: "{{'blog_page.textarea_pre'|trans}}",
+                path: "/editormd/lib/",
+                saveHTMLToTextarea: true
+            });
+        });
+    </script>
+{% endblock %}

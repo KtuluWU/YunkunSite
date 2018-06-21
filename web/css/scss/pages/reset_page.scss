@@ -1,0 +1,24 @@
+@import '../variables';
+.request_container,
+.reset_container {
+    width: 50%;
+    margin: 50px auto;
+    label {
+        margin-bottom: 0 !important;
+    }
+    table {
+        line-height: 35px;
+        td,
+        th {
+            border-top: 1px solid #ededed;
+            padding: 6px 10px 6px 5%;
+        }
+        input {
+            border: 1px solid #ededed;
+            border-radius: 5px;
+            width: 60%;
+            height: 35px;
+            text-align: center;
+        }
+    }
+}

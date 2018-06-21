@@ -1,0 +1,230 @@
+<?php
+namespace YunkunBundle\Controller;
+
+use YunkunBundle\Form\BlogType;
+use YunkunBundle\Form\BlogEditType;
+use YunkunBundle\Entity\Blog;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route; /* 路由 */
+use Symfony\Bundle\FrameworkBundle\Controller\Controller; /* 基类 */
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse; /* Json别忘了声明 */
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\Loader\ArrayLoader;
+
+/**
+ * Blog controller.
+ *
+ * @Route("/Blog")
+ */
+
+class BlogController extends Controller
+{
+    /**
+     * @Route("/", name="blogpage")
+     */
+    public function blogsAction()
+    {
+        $blogs = $this->getBlogsArrayFromDB();
+        return $this->render(
+            'blog/index.html.twig', array(
+                'blogs_to_index' => $blogs,
+            )
+        );
+    }
+
+    /**
+     * @Route("/Blog-detail/{blog_title}", name="blogdetailpage" )
+     */
+    public function blogdetailAction($blog_title)
+    {
+        $blogs = $this->getBlogsArrayFromDB();
+
+        $em = $this->getDoctrine()->getManager();
+        $blog_db = $em->getRepository('YunkunBundle:Blog')->findByTitle($blog_title);
+
+        $article_text = $blog_db[0]->getArticleText();
+        $article_html = $blog_db[0]->getArticleHtml();
+        $pre_text = $blog_db[0]->getPreText();
+        $pre_html = $blog_db[0]->getPreHtml();
+
+        $imageName1 = $blog_db[0]->getImage();
+        $imageName2 = $blog_db[0]->getImage2();
+        $imageName3 = $blog_db[0]->getImage3();
+        $title = $blog_db[0]->getTitle();
+        $author = $blog_db[0]->getAuthor();
+        $post_date = $blog_db[0]->getPostDate();
+
+        return $this->render('blog/blog-detail.html.twig', array(
+            'imageName1' => $imageName1,
+            'imageName2' => $imageName2,
+            'imageName3' => $imageName3,
+            'title' => $title,
+            'pre_text' => $pre_text,
+            'pre_html' => $pre_html,
+            'article_text' => $article_text,
+            'article_html' => $article_html,
+            'author' => $author,
+            'post_date' => $post_date,
+            'blogs' => $blogs
+        ));
+    }
+
+    /**
+     * @Route("/AddBlog", name="addblogpage")
+     */
+    public function addblogAction(Request $request)
+    {
+        $blog = new Blog();
+
+        $form = $this->createForm(BlogType::class, $blog);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $image1 = $blog->getImage();
+            $image2 = $blog->getImage2();
+            $image3 = $blog->getImage3();
+
+            $imageName1 = $this->generateUniqueFileName($image1);
+            $imageName2 = $this->generateUniqueFileName($image2);
+            $imageName3 = $this->generateUniqueFileName($image3);
+
+            $image1->move($this->getParameter('blog_images'),$imageName1);
+            $image2->move($this->getParameter('blog_images'),$imageName2);
+            $image3->move($this->getParameter('blog_images'),$imageName3);
+
+            date_default_timezone_set("Europe/Paris");
+            $post_date = date_create(date('Y-m-d'));
+            
+            $user = $this->getUser();
+            $author_firstname = $user->getFirstname();
+            $author_lastname = $user->getLastname();
+            $author = $author_firstname.' '.$author_lastname;
+
+            $title = $blog->getTitle();
+            $article_text = $_POST['editormd-markdown-doc'];
+            $article_html = $_POST['blog-article-html'];
+            $pre_text = $_POST['editormd-markdown-doc-pre'];
+            $pre_html = $_POST['blog-article-html-pre'];
+
+            $blog->setTitle($title);
+            $blog->setAuthor($author);
+            $blog->setImage($imageName1);
+            $blog->setImage2($imageName2);
+            $blog->setImage3($imageName3);
+            $blog->setPreText($pre_text);
+            $blog->setPreHtml($pre_html);
+            $blog->setArticleText($article_text);
+            $blog->setArticleHtml($article_html);
+            $blog->setPostDate($post_date);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($blog);
+            $em->flush();
+
+            return $this->redirectToRoute('blogdetailpage', array('blog_title' => $title));
+        }
+
+        return $this->render('blog/add.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * @Route("/Edit/{blog_title}", name="editblogpage")
+     */
+    public function editblogAction(Request $request, $blog_title=-1)
+    {
+        $blog = new Blog();
+        $form = $this->createForm(BlogEditType::class, $blog);
+        $form->handleRequest($request);
+
+        $em = $this->getDoctrine()->getManager();
+        $blog_db = $em->getRepository('YunkunBundle:Blog')->findByTitle($blog_title);
+
+        $pre_text = $blog_db[0]->getPreText();
+        $pre_html = $blog_db[0]->getPreHtml();
+        $article_text = $blog_db[0]->getArticleText();
+        $article_title = $blog_db[0]->getTitle();
+
+        if ($form->isSubmitted()) {
+            
+            $user = $this->getUser();
+            $author_firstname = $user->getFirstname();
+            $author_lastname = $user->getLastname();
+            $author = $author_firstname.' '.$author_lastname;
+
+            $title = $_POST['blog-title'];
+            $pre_text_edit = $_POST['editormd-markdown-doc-pre'];
+            $pre_html_edit = $_POST['blog-article-html-pre'];
+            $article_text_edit = $_POST['editormd-markdown-doc'];
+            $article_html_edit = $_POST['blog-article-html'];
+
+            $blog_db[0]->setTitle($title);
+            $blog_db[0]->setAuthor($author);
+            $blog_db[0]->setPreText($pre_text_edit);
+            $blog_db[0]->setPreHtml($pre_html_edit);
+            $blog_db[0]->setArticleText($article_text_edit);
+            $blog_db[0]->setArticleHtml($article_html_edit);
+
+            $em->flush();
+
+            return $this->redirectToRoute('blogdetailpage', array('blog_title' => $title));
+        }
+
+        return $this->render('blog/edit.html.twig', array(
+            'form' => $form->createView(),
+            'pre_text' => $pre_text,
+            'pre_html' => $pre_html,
+            'article_text' => $article_text,
+            'article_title' => $article_title
+        ));
+    }
+
+    /**
+     * @Route("/DeleteBlog/{blog_title}", name="deleteblogpage")
+     */
+    public function deleteblogAction(Request $request, $blog_title=-1)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $blog_db = $em->getRepository('YunkunBundle:Blog')->findByTitle($blog_title);
+
+        $em->remove($blog_db[0]);
+        $em->flush();
+        return $this->redirectToRoute('blogpage');
+    }
+
+    /**
+     * @return string
+     */
+    private function generateUniqueFileName($image)
+    {
+        return md5(uniqid()).'.'.$image->guessExtension();;
+    }
+
+    /**
+     * @return array
+     */
+    private function getBlogsArrayFromDB()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $blogs_db = $em->getRepository('YunkunBundle:Blog')->findAll();
+        $blogs_to_index = array();
+
+        foreach($blogs_db as $blog) {
+            array_push($blogs_to_index, array(
+                'title'=>$blog->getTitle(), 
+                'author'=>$blog->getAuthor(),
+                'pre_text'=>$blog->getPreText(),
+                'pre_html'=>$blog->getPreHtml(),
+                'article_text'=>$blog->getArticleText(),
+                'article_html'=>$blog->getArticleHtml(),
+                'image'=>$blog->getImage(),
+                'post_date'=>$blog->getPostDate()
+            ));
+        }
+
+        return $blogs_to_index;
+    }
+
+}

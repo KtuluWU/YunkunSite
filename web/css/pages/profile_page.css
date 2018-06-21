@@ -1,0 +1,37 @@
+/*===== Colors =====//*/
+/*===== Font Family =====//*/
+/*===== Line Height =====//*/
+/*===== Radius  =====//*/
+/*==== Font size =====//*/
+/*===== Border color ======//*/
+/*===== Alerts color  =====//*/
+/*===== Social Colors =====//*/
+/* Layouts*/
+.profile_container {
+  width: 50%;
+  margin: 50px auto; }
+  .profile_container td,
+  .profile_container th {
+    border-top: 1px solid #ededed;
+    padding: 6px 10px 6px 5%; }
+
+.profile_edit_container {
+  width: 50%;
+  margin: 50px auto;
+  text-align: center; }
+  .profile_edit_container label {
+    margin: 0 !important; }
+  .profile_edit_container table {
+    line-height: 35px; }
+    .profile_edit_container table td,
+    .profile_edit_container table th {
+      border-top: 1px solid #ededed;
+      padding: 6px 10px 6px 5%; }
+    .profile_edit_container table input {
+      border: 1px solid #ededed;
+      border-radius: 5px;
+      width: 60%;
+      height: 35px;
+      text-align: center; }
+
+/*# sourceMappingURL=profile_page.css.map */

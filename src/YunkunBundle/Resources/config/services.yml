@@ -1,0 +1,35 @@
+services:
+#    yunkun.example:
+#        class: YunkunBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+  
+  _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        
+  app.form.profile:
+    class: YunkunBundle\Form\ProfileType
+    tags: 
+      - { name: form.type, alis: app_user_profile }
+
+  app.form.blog:
+    class: YunkunBundle\Form\BlogType
+    tags: 
+      - { name: form.type, alis: app_add_blog }
+
+  app.form.editblog:
+    class: YunkunBundle\Form\BlogEditType
+    tags: 
+      - { name: form.type, alis: app_edit_blog }
+
+#  app.locale_listener:
+#       class: YunkunBundle\EventListener\LocaleListener
+#       arguments: ["%kernel.default_locale%"]
+#       tags:
+#          - { name: kernel.event_subscriber }
+            
+  YunkunBundle\EventSubscriber\LocaleSubscriber:
+        arguments: ['%kernel.default_locale%']
+        # redundant if you're using autoconfigure
+        tags: [kernel.event_subscriber]

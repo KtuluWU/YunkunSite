@@ -1,0 +1,76 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends 'base_yun.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pages/contact_page.css') }}"/>
+{% endblock %}
+{% set bradcaump_title = 'summury.contactus'|trans %}
+{% set breadcrumb_item = 'summury.contactus'|trans %}
+{% block content %}
+<!-- Start Contact Area -->
+    <div class="yunkun__contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="contact__form">
+                        <h2 class="ct__title">TELL US</h2>
+                        <form id="contact-form" action="mail.php" method="post">
+                            <div class="single-contact-form space-between">
+                                <input type="text" name="name" placeholder="Your Name">
+                                <input type="email" name="email" placeholder="Your Email">
+                            </div>
+                            <div class="single-contact-form">
+                                <input type="text" name="subject" placeholder="Subject">
+                            </div>
+                            <div class="single-contact-form message">
+                                <textarea name="message" placeholder="Message"></textarea>
+                            </div>
+                            <div class="contact-btn">
+                                <button type="submit" class="pr__btn">Send message</button>
+                            </div>
+                        </form>
+                        <div class="form-output">
+                            <p class="form-messege"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 sm-mt--30 md-mt--30">
+                    <div class="contact__address">
+                        <h2 class="ct__title">CONTACT US</h2>
+                        <div class="yunkun__address">
+                            <p>We are a team of designers and developers that create high quality Magento, Prestashop, Opencart.</p>
+
+                            <div class="address">
+                                <div class="icon">
+                                    <i class="fa fa-map-marker"></i>
+                                </div>
+                                <p>Address : 7 Avenue de Paris
+                                    <br>
+                                    94300, Vincennes, France.</p>
+                            </div>
+                            <div class="address">
+                                <div class="icon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <p>yun@yunkun.org</p>
+                            </div>
+                            <div class="address">
+                                <div class="icon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <p>06 50 66 53 16</p>
+                            </div>
+                        </div>
+                        {# <div class="working__hours">
+                                <h4>Working hours</h4>
+                                <p>
+                                    <span>Monday - Saturday:</span>
+                                    08AM - 22PM</p>
+                            </div> #}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact Area -->
+{% endblock %}
