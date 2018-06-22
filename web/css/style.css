@@ -2358,12 +2358,12 @@ Blocks Styles
 .pn-sociable-default li:hover .icon a i {
   background: #81ad7b none repeat scroll 0 0; }
 
-.instagram__list {
+.photos__list {
   margin: 0;
   padding: 0;
   list-style: outside none none; }
 
-.panora__instagram {
+.yunkun__instagram {
   position: relative; }
 
 .instagram__title {
@@ -2620,7 +2620,7 @@ Blocks Styles
         display: flex;
         list-style: outside none none;
         margin: 0;
-        padding-left: 0; }
+        padding-left: 27px; }
         .blog--2 .content .blog__top ul li {
           color: #999;
           font-size: 12px;
@@ -3861,5 +3861,12 @@ div[id^='flash_'] {
   background-color: #81ad7b !important;
   color: #ffffff !important;
   border: 1px solid #dddddd !important; }
+
+.yunkun__photos .photos__list img {
+  width: 99%;
+  opacity: 0.9;
+  transition: all 0.8s; }
+  .yunkun__photos .photos__list img:active {
+    transform: scale(1.5); }
 
 /*# sourceMappingURL=style.css.map */

@@ -97,3 +97,16 @@ div[id^='flash_'] {
     color: #ffffff !important;
     border: 1px solid #dddddd !important;
 }
+
+.yunkun__photos {
+    .photos__list {
+        img {
+            width: 99%;
+            opacity:0.9;
+            transition: all 0.8s;
+            &:active {
+                transform: scale(1.5);
+            }
+        }
+    }
+}

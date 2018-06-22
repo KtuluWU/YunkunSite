@@ -16,6 +16,7 @@ class BlogType extends AbstractType {
         $builder
             ->add('title', null, array('label' => 'form.blog.title', 'translation_domain' => 'FOSUserBundle'))
             // ->add('article_text', null, array('label' => 'form.blog.article', 'translation_domain' => 'FOSUserBundle'))
+            ->add('category', null, array('label' => 'form.blog.category', 'translation_domain' => 'FOSUserBundle'))
             ->add('image', FileType::class, array('label' => 'form.blog.image1', 'translation_domain' => 'FOSUserBundle'))
             ->add('image_2', FileType::class, array('label' => 'form.blog.image2', 'translation_domain' => 'FOSUserBundle'))
             ->add('image_3', FileType::class, array('label' => 'form.blog.image3', 'translation_domain' => 'FOSUserBundle'));

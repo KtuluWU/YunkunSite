@@ -16,6 +16,7 @@
                     <!-- Start Single Blog -->
                     <article class="blog">
                         <div class="title">
+                            <span>{{category}}</span>
                             <h4><a>{{title}}</a></h4>
                             <ul>
                                 <li>{{'blog_page.author'|trans}} {{author}}</li>
@@ -46,6 +47,13 @@
                                 </ul>
                             </div>
                         </div> -->
+                    </div>
+                    <div class="blog__footer">
+                        <div class="share">
+                            {% if not edit_date|date('Y-m-d H:i:s') is same as(post_date|date('Y-m-d H:i:s')) or not editor is same as(author) %}
+                            <p>{{'index_page.by'|trans}} {{editor}} {{'index_page.edited'|trans}} {{edit_date|date('Y-m-d H:i:s')}}</p>
+                            {% endif %}
+                        </div>
                     </div>
                     {% if app.user %}
                         {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}

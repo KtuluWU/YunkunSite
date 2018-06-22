@@ -93,6 +93,7 @@ form:
         image1: 主图
         image2: 左子图
         image3: 右子图
+        category: 分类
 
     #####################
 
@@ -187,6 +188,8 @@ index_page:
     youtube: 我们的Youtube频道
     recent: 近期更新
     more_blog: 更多文章
+    by: 由
+    edited: 编辑于
 
 label_next: 下一页
 label_previous: 上一页

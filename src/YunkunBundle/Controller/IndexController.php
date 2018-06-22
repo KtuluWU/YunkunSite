@@ -76,13 +76,16 @@ class IndexController extends Controller
         foreach($blogs_db as $blog) {
             array_push($blogs_to_index, array(
                 'title'=>$blog->getTitle(), 
+                'category'=>$blog->getCategory(),
                 'author'=>$blog->getAuthor(),
+                'editor'=>$blog->getEditor(),
                 'pre_text'=>$blog->getPreText(),
                 'pre_html'=>$blog->getPreHtml(),
                 'article_text'=>$blog->getArticleText(),
                 'article_html'=>$blog->getArticleHtml(),
                 'image'=>$blog->getImage(),
-                'post_date'=>$blog->getPostDate()
+                'post_date'=>$blog->getPostDate(),
+                'edit_date'=>$blog->getEditDate()
             ));
         }
 

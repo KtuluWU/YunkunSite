@@ -17,6 +17,7 @@
                 {% for blog in blogs_paginate %}
                 <article class="blog">
                     <div class="title">
+                        <span>{{blog.category}}</span>
                         <h4>
                             <a href="./Blog-detail/{{blog.Title}}">{{blog.Title}}</a>
                         </h4>
@@ -35,27 +36,19 @@
                     <div class="blog__btn">
                         <a class="pr__btn green__btn" href="./Blog-detail/{{blog.title}}">{{'blog_page.readmore'|trans}}</a>
                     </div>
+                    <div class="blog__footer">
+                        <div class="share">
+                            {% if not blog.EditDate|date('Y-m-d H:i:s') is same as(blog.PostDate|date('Y-m-d H:i:s')) or not blog.Editor is same as(blog.Author) %}
+                            <p>{{'index_page.by'|trans}} {{blog.Editor}} {{'index_page.edited'|trans}} {{blog.EditDate|date('Y-m-d H:i:s')}}</p>
+                            {% endif %}
+                        </div>
+                    </div>
                 </article>
                 <!-- End Single Blog -->
                 {% endfor %}
                 <div class="text-center">
                     {{ knp_pagination_render(blogs_paginate) }}
                 </div>
-                <!-- Start Pagenation -->
-                {# <div class="pr__pagination">
-                    <div class="page__prev">
-                        <a href="#">
-                            <i class="fa fa-angle-double-left"></i>pre post</a>
-                        <p>Half City Half Amazing</p>
-                    </div>
-                    <div class="page__prev">
-                        <a href="#">next post
-                            <i class="fa fa-angle-double-right"></i>
-                        </a>
-                        <p>Blog on Brands Experience</p>
-                    </div>
-                </div> #}
-                <!-- End Pagenation -->
                 <!-- Start Banner Area -->
                 <div class="pn__banner__area mt--50">
                     <a href="/Blog">

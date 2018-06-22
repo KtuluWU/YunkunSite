@@ -112,7 +112,7 @@
 
     /*=============  Instagram List  ==============*/
 
-    $('.instagram__list').owlCarousel({
+    $('.photos__list').owlCarousel({
         loop: true,
         margin: 0,
         nav: false,
