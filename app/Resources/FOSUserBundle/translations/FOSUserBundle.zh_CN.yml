@@ -180,3 +180,13 @@ blog_page:
         title: 确定删除该博客吗？此操作无法恢复
         yes: 删除
         no: 取消
+
+index_page: 
+    blog_author: 作者
+    readmore: 阅读更多
+    youtube: 我们的Youtube频道
+    recent: 近期更新
+    more_blog: 更多文章
+
+label_next: 下一页
+label_previous: 上一页

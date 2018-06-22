@@ -31,7 +31,7 @@
                     </article>
                     <!-- End Single Blog -->
                     <div class="blog__quote">
-                        {{article_html|raw}}
+                        <div class="text-justify">{{article_html|raw}}</div>
                         <ul class="blog__img text-center">
                             <li><img src="{{ asset('uploads/images/blog/' ~ imageName2) }}" alt="panora blog" class="img_left" style="max-height:400px;max-width:550px"></li>
                             <li><img src="{{ asset('uploads/images/blog/' ~ imageName3) }}" alt="panora blog" class="img_right" style="max-height:400px;max-width:550px"></li>
@@ -66,10 +66,10 @@
                         {% endif %}
                     {% endif %}
                     <!-- Start Popular Post -->
-                    <div class="popular__post">
+                    <div class="popular__post popular__post__block">
                         <h2>{{'blog_page.popular'|trans}}</h2>
                         <div class="popular__post__active poss--relative owl-carousel owl-theme">
-                            {% for blog in blogs %}
+                            {% for blog in blogs | reverse %}
                             <!-- Start Single Post -->
                             <div class="popular__post text-center">
                                 <div class="thumb">

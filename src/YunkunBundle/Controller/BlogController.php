@@ -23,12 +23,18 @@ class BlogController extends Controller
     /**
      * @Route("/", name="blogpage")
      */
-    public function blogsAction()
+    public function blogsAction(Request $request)
     {
-        $blogs = $this->getBlogsArrayFromDB();
+        // $blogs = $this->getBlogsArrayFromDB();
+
+        $em = $this->getDoctrine()->getManager();
+        $blogs_db = $em->getRepository('YunkunBundle:Blog')->findBy(array(), array('id' => 'desc'));
+        $blogs_paginate = $this->get('knp_paginator')->paginate($blogs_db, $request->query->get('page',1),2);
+
         return $this->render(
             'blog/index.html.twig', array(
-                'blogs_to_index' => $blogs,
+                // 'blogs_to_index' => $blogs,
+                'blogs_paginate' =>$blogs_paginate,
             )
         );
     }

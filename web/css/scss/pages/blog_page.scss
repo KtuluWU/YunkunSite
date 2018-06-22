@@ -1,19 +1,8 @@
 @import '../variables';
-.blog-index {
-    .add-blog {
-        width: 200px; // color: $heading-color;
-        margin-top: 0 !important;
-        margin: 60px auto;
-        padding: 20px;
-        border: 2px solid $theme-color;
-        border-radius: 6px;
-        transition: .5s;
-        .add-blog-link {
-            padding: 20px 50px;
-        }
-        &:hover {
-            background-color: $theme-color; // color: $pchart-color-hover;
-        }
+.pnora__blog__area {
+    .blog {
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 }
 
@@ -76,10 +65,10 @@
                 }
             }
         }
-        .links__edit__delete a, .modal__conrfim__delete a {
+        .links__edit__delete a,
+        .modal__conrfim__delete a {
             cursor: pointer;
         }
-
         .modal__conrfim__delete {
             display: none;
             .backgroud {
@@ -142,7 +131,8 @@
         .btn__blog__detail {
             padding: 0 40px;
         }
-        .popular__post {
+        .popular__post__block {
+            margin-top: 100px;
             .popular__post__imgs {
                 margin: auto;
             }

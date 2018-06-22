@@ -1,5 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {% extends 'base_yun.html.twig' %}
+{% block title %}Yunkun Blog{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/pages/blog_page.css') }}"/>
@@ -13,63 +14,51 @@
         <div class="row">
             <div class="col-lg-12">
                 <!-- Start Single Blog -->
-                {% for blog in blogs_to_index %}
+                {% for blog in blogs_paginate %}
                 <article class="blog">
                     <div class="title">
                         <h4>
-                            <a href="./Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
+                            <a href="./Blog-detail/{{blog.Title}}">{{blog.Title}}</a>
                         </h4>
                         <ul>
-                            <li>{{'blog_page.author'|trans}} {{blog['author']}}
+                            <li>{{'blog_page.author'|trans}} {{blog.Author}}
                             </li>
-                            <li>{{blog['post_date']|date('Y-m-d')}}</li>
+                            <li>{{blog.PostDate|date('Y-m-d')}}</li>
                         </ul>
                     </div>
                     <div class="thumb text-center">
-                        <a href="./Blog-detail/{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:800px"></a>
+                        <a href="./Blog-detail/{{blog.Title}}"><img src="{{ asset('uploads/images/blog/' ~ blog.image) }}" alt="yunkun blog" style="max-height:800px"></a>
                     </div>
-                    <div class="content">
-                        {{blog['pre_html']|raw}} ...
+                    <div class="content text-justify">
+                        {{blog.PreHtml|raw}} ...
                     </div>
                     <div class="blog__btn">
-                        <a class="pr__btn green__btn" href="./Blog-detail/{{blog['title']}}">{{'blog_page.readmore'|trans}}</a>
-                    </div>
-                    <div class="blog__footer">
-                        <!-- <div class="share">
-                            <p>share</p>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="blog__comment">
-                            <p>
-                                <a href="#">
-                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    Comments
-                                    <span>0</span></a>
-                            </p>
-                        </div> -->
+                        <a class="pr__btn green__btn" href="./Blog-detail/{{blog.title}}">{{'blog_page.readmore'|trans}}</a>
                     </div>
                 </article>
                 <!-- End Single Blog -->
                 {% endfor %}
+                <div class="text-center">
+                    {{ knp_pagination_render(blogs_paginate) }}
+                </div>
+                <!-- Start Pagenation -->
+                {# <div class="pr__pagination">
+                    <div class="page__prev">
+                        <a href="#">
+                            <i class="fa fa-angle-double-left"></i>pre post</a>
+                        <p>Half City Half Amazing</p>
+                    </div>
+                    <div class="page__prev">
+                        <a href="#">next post
+                            <i class="fa fa-angle-double-right"></i>
+                        </a>
+                        <p>Blog on Brands Experience</p>
+                    </div>
+                </div> #}
+                <!-- End Pagenation -->
                 <!-- Start Banner Area -->
                 <div class="pn__banner__area mt--50">
-                    <a href="#">
+                    <a href="/Blog">
                         <img src="{{ asset('images/bg/4.jpg') }}" alt="yunkun blog">
                     </a>
                 </div>
