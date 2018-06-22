@@ -16,6 +16,7 @@
                     <!-- Start Single Blog -->
                     <article class="blog">
                         <div class="title">
+                            <span>{{category}}</span>
                             <h4><a>{{title}}</a></h4>
                             <ul>
                                 <li>{{'blog_page.author'|trans}} {{author}}</li>
@@ -31,7 +32,7 @@
                     </article>
                     <!-- End Single Blog -->
                     <div class="blog__quote">
-                        {{article_html|raw}}
+                        <div class="text-justify">{{article_html|raw}}</div>
                         <ul class="blog__img text-center">
                             <li><img src="{{ asset('uploads/images/blog/' ~ imageName2) }}" alt="panora blog" class="img_left" style="max-height:400px;max-width:550px"></li>
                             <li><img src="{{ asset('uploads/images/blog/' ~ imageName3) }}" alt="panora blog" class="img_right" style="max-height:400px;max-width:550px"></li>
@@ -46,6 +47,13 @@
                                 </ul>
                             </div>
                         </div> -->
+                    </div>
+                    <div class="blog__footer">
+                        <div class="share">
+                            {% if not edit_date|date('Y-m-d H:i:s') is same as(post_date|date('Y-m-d H:i:s')) or not editor is same as(author) %}
+                            <p>{{'index_page.by'|trans}} {{editor}} {{'index_page.edited'|trans}} {{edit_date|date('Y-m-d H:i:s')}}</p>
+                            {% endif %}
+                        </div>
                     </div>
                     {% if app.user %}
                         {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
@@ -66,10 +74,10 @@
                         {% endif %}
                     {% endif %}
                     <!-- Start Popular Post -->
-                    <div class="popular__post">
+                    <div class="popular__post popular__post__block">
                         <h2>{{'blog_page.popular'|trans}}</h2>
                         <div class="popular__post__active poss--relative owl-carousel owl-theme">
-                            {% for blog in blogs %}
+                            {% for blog in blogs | reverse %}
                             <!-- Start Single Post -->
                             <div class="popular__post text-center">
                                 <div class="thumb">

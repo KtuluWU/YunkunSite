@@ -38,23 +38,23 @@
                                     <li>
                                         <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
                                     </li>
-                                    {% if app.user %}
-                                        {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
-                                        <li class="drop">
-                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
-                                            <ul class="dropdown">
-                                                <li><a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a></li>
-                                            </ul>
-                                        </li>
-                                        {% else %}
-                                        <li>
-                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
-                                        </li>
-                                        {% endif %}
+                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
+                                    <li class="drop">
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     {% else %}
-                                        <li>
-                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
-                                        </li>
+                                    <li>
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                    </li>
+                                    {% endif %} {% else %}
+                                    <li>
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                    </li>
                                     {% endif %}
                                     <li>
                                         <a href="#">{{'summury.projects'|trans}}</a>
@@ -68,9 +68,18 @@
                                     <li class="drop">
                                         <a>{{'summury.lang'|trans}}</a>
                                         <ul class="dropdown">
-                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}"><img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a></li>
-                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"><img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a></li>
-                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a></li>
+                                            <li>
+                                                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}">
+                                                    <img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                                                    <img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                                                    <img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     {% if not app.user %}
@@ -85,7 +94,8 @@
                                         </a>
                                         <ul class="dropdown">
                                             <li>
-                                                <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')}, 'FOSUserBundle')}}
+                                                <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d
+                                                    H:i:s')}, 'FOSUserBundle')}}
                                                     <br> {{'summury.admin.text3'|trans}}
                                                 </a>
                                             </li>
@@ -119,23 +129,23 @@
                                     <li>
                                         <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
                                     </li>
-                                    {% if app.user %}
-                                        {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
-                                        <li class="drop">
-                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
-                                            <ul class="dropdown">
-                                                <li><a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a></li>
-                                            </ul>
-                                        </li>
-                                        {% else %}
-                                        <li>
-                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
-                                        </li>
-                                        {% endif %}
+                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
+                                    <li class="drop">
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     {% else %}
-                                        <li>
-                                            <a href="/Blog">{{'summury.blog'|trans}}</a>
-                                        </li>
+                                    <li>
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                    </li>
+                                    {% endif %} {% else %}
+                                    <li>
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                    </li>
                                     {% endif %}
                                     <li>
                                         <a href="#">{{'summury.projects'|trans}}</a>
@@ -149,9 +159,18 @@
                                     <li class="drop">
                                         <a>{{'summury.lang'|trans}}</a>
                                         <ul class="dropdown">
-                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}"><img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a></li>
-                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"><img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a></li>
-                                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a></li>
+                                            <li>
+                                                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}">
+                                                    <img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                                                    <img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                                                    <img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     {% if not app.user %}
@@ -166,7 +185,8 @@
                                         </a>
                                         <ul class="dropdown">
                                             <li>
-                                                <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')}, 'FOSUserBundle')}}
+                                                <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d
+                                                    H:i:s')}, 'FOSUserBundle')}}
                                                     <br> {{'summury.admin.text3'|trans}}
                                                 </a>
                                             </li>
@@ -247,15 +267,21 @@
             </div>
         </div>
         <!-- End Bradcaump area -->
-        {% endblock %} {% if app.request.hasPreviousSession %} {% for type, messages in app.session.flashbag.all() %} {% for message
-        in messages %}
-        <div class="flash-{{ type }}" id="flash_{{ type }}">
-            {{ message }}
-        </div>
-        {% endfor %} {% endfor %} {% endif %} {% block content %}{% endblock %} {% block footer %}
+        {% endblock %} 
+            {# {% if app.request.hasPreviousSession %} 
+                {% for type, messages in app.session.flashbag.all() %} 
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}" id="flash_{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %} 
+                {% endfor %} 
+            {% endif %} #}
+        {% block content %}{% endblock %}
+        {% block footer %}
         <!-- Start Footer ARea -->
-        <footer class="panora__footer">
-            <div class="bg--cart-1">
+        <footer class="yunkun__footer">
+            {# <div class="bg--cart-1">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -362,44 +388,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> #}
             <!-- Start Instagram Area -->
-            <div class="panora__instagram">
-                <ul class="instagram__list owl-carousel owl-theme">
-                    <li>
-                        <a href="#">
-                            <img src="{{ asset('images/instagram/1.jpg') }}" alt="panora blog">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{{ asset('images/instagram/2.jpg') }}" alt="panora blog">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{{ asset('images/instagram/3.jpg') }}" alt="panora blog">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{{ asset('images/instagram/4.jpg') }}" alt="panora blog">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{{ asset('images/instagram/5.jpg') }}" alt="panora blog">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{{ asset('images/instagram/6.jpg') }}" alt="panora blog">
-                        </a>
-                    </li>
+            <div class="yunkun__photos">
+                <ul class="photos__list owl-carousel owl-theme">
+                    <li><img src="{{ asset('images/footer/1.png') }}" alt="panora blog"></li>
+                    <li><img src="{{ asset('images/footer/2.png') }}" alt="panora blog"></li>
+                    <li><img src="{{ asset('images/footer/3.png') }}" alt="panora blog"></li>
+                    <li><img src="{{ asset('images/footer/4.png') }}" alt="panora blog"></li>
+                    <li><img src="{{ asset('images/footer/5.png') }}" alt="panora blog"></li>
+                    <li><img src="{{ asset('images/footer/6.png') }}" alt="panora blog"></li>
                 </ul>
-                <div class="instagram__title">
+                {# <div class="instagram__title">
                     <h2>Follow Us On instagram</h2>
-                </div>
+                </div> #}
             </div>
             <!-- End Instagram Area -->
             <!-- Copyright Area -->

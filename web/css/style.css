@@ -2358,12 +2358,12 @@ Blocks Styles
 .pn-sociable-default li:hover .icon a i {
   background: #81ad7b none repeat scroll 0 0; }
 
-.instagram__list {
+.photos__list {
   margin: 0;
   padding: 0;
   list-style: outside none none; }
 
-.panora__instagram {
+.yunkun__instagram {
   position: relative; }
 
 .instagram__title {
@@ -2602,8 +2602,6 @@ Blocks Styles
   .blog--2 .thumb {
     flex-basis: 50%;
     margin-right: 30px; }
-    .blog--2 .thumb a img {
-      width: 100%; }
   .blog--2 .content {
     flex-basis: 50%; }
     .blog--2 .content .blog__top {
@@ -3838,5 +3836,37 @@ div[id^='flash_'] {
   .red__btn:hover {
     background: #444444 none repeat scroll 0 0 !important;
     color: #fff !important; }
+
+.pagination {
+  justify-content: center;
+  margin: 30px auto; }
+
+.pagination > li > a,
+.pagination > li > span {
+  color: #424242 !important; }
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  background-color: #666666 !important;
+  color: #ffffff !important; }
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #81ad7b !important;
+  color: #ffffff !important;
+  border: 1px solid #dddddd !important; }
+
+.yunkun__photos .photos__list img {
+  width: 99%;
+  opacity: 0.9;
+  transition: all 0.8s; }
+  .yunkun__photos .photos__list img:active {
+    transform: scale(1.5); }
 
 /*# sourceMappingURL=style.css.map */

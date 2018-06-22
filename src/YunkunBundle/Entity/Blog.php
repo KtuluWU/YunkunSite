@@ -38,6 +38,13 @@ class Blog
     private $author;
 
     /**
+     * @var string
+     * 
+     * @ORM\Column(name="editor", type="string", length=70)
+     */
+    private $editor;
+
+    /**
      * @var text
      * 
      * @ORM\Column(name="pre_text", type="text")
@@ -101,6 +108,20 @@ class Blog
      * @ORM\Column(name="post_date", type="datetime")
      */
     private $post_date;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="edit_date", type="datetime")
+     */
+    private $edit_date;
+
+    /**
+     * @var string
+     * @Assert\NotBlank()
+     * @ORM\Column(name="category", type="string")
+     */
+    private $category;
 
     /**
      * Get id
@@ -350,5 +371,77 @@ class Blog
     public function getPostDate()
     {
         return $this->post_date;
+    }
+
+    /**
+     * Set category.
+     *
+     * @param string $category
+     *
+     * @return Blog
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category.
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set editor.
+     *
+     * @param string $editor
+     *
+     * @return Blog
+     */
+    public function setEditor($editor)
+    {
+        $this->editor = $editor;
+
+        return $this;
+    }
+
+    /**
+     * Get editor.
+     *
+     * @return string
+     */
+    public function getEditor()
+    {
+        return $this->editor;
+    }
+
+    /**
+     * Set editDate.
+     *
+     * @param \DateTime $editDate
+     *
+     * @return Blog
+     */
+    public function setEditDate($editDate)
+    {
+        $this->edit_date = $editDate;
+
+        return $this;
+    }
+
+    /**
+     * Get editDate.
+     *
+     * @return \DateTime
+     */
+    public function getEditDate()
+    {
+        return $this->edit_date;
     }
 }

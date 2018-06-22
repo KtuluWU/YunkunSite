@@ -18,46 +18,9 @@ class IndexController extends Controller
      */
     public function indexAction(Request $request)
     {
-        /*$locale = new Lang();
-
-        $form = $this->createFormBuilder($locale)
-            ->add('locale', ChoiceType::class, array(
-                'choices' => array(
-                    '中文' => 'zh_CN',
-                    'Français' => 'fr'
-                ),
-            ))
-            ->add('save', SubmitType::class, array('label' => '选择'))
-            ->getForm();
-
-        $form->handleRequest($request);
-        // $localea = $request->getLocale();
-        $localeaa = 'null';
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            // ... perform some action, such as saving the locale to the database
-            // for example, if locale is a Doctrine entity, save it!
-            // 一些操作，比如把任务存到数据库中
-            // 例如，如果Tast对象是一个Doctrine entity，存下它！
-            // $em = $this->getDoctrine()->getManager();
-            // $em->persist($locale);
-            // $em->flush();
-            // $session = new Session();
-            // $session->start();
-            
-            // $request->setLocale($locale); 
-            $localeaa = $request->getLocale();
-            // $session->set('_locale', $locale);
-
-            return $this->render('portal/index.html.twig', array(
-                'form' => $form->createView(),
-                // 'localea' => $localea,
-                'localeaa' => $localeaa,
-            ));
-        }*/
-        $localeaa = $request->getLocale();
+        $blogs = $this->getBlogsArrayFromDB();
         return $this->render('portal/index.html.twig', array(
-            'localeaa' => $localeaa,
+            'blogs' => $blogs,
         ));
     }
 
@@ -101,8 +64,32 @@ class IndexController extends Controller
         );
     }
 
-    public function newAction(Request $request)
+    /**
+     * @return array
+     */
+    private function getBlogsArrayFromDB()
     {
-        
+        $em = $this->getDoctrine()->getManager();
+        $blogs_db = $em->getRepository('YunkunBundle:Blog')->findAll();
+        $blogs_to_index = array();
+
+        foreach($blogs_db as $blog) {
+            array_push($blogs_to_index, array(
+                'title'=>$blog->getTitle(), 
+                'category'=>$blog->getCategory(),
+                'author'=>$blog->getAuthor(),
+                'editor'=>$blog->getEditor(),
+                'pre_text'=>$blog->getPreText(),
+                'pre_html'=>$blog->getPreHtml(),
+                'article_text'=>$blog->getArticleText(),
+                'article_html'=>$blog->getArticleHtml(),
+                'image'=>$blog->getImage(),
+                'post_date'=>$blog->getPostDate(),
+                'edit_date'=>$blog->getEditDate()
+            ));
+        }
+
+        return $blogs_to_index;
     }
+
 }

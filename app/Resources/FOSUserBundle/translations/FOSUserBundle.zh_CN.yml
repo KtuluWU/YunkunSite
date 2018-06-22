@@ -93,6 +93,7 @@ form:
         image1: 主图
         image2: 左子图
         image3: 右子图
+        category: 分类
 
     #####################
 
@@ -180,3 +181,15 @@ blog_page:
         title: 确定删除该博客吗？此操作无法恢复
         yes: 删除
         no: 取消
+
+index_page: 
+    blog_author: 作者
+    readmore: 阅读更多
+    youtube: 我们的Youtube频道
+    recent: 近期更新
+    more_blog: 更多文章
+    by: 由
+    edited: 编辑于
+
+label_next: 下一页
+label_previous: 上一页

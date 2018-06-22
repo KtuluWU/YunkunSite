@@ -5,9 +5,6 @@
     <link rel="stylesheet" href="{{ asset('css/pages/index_page.css') }}"/>
 {% endblock %}
 {% block header %}
-    {# locale: {{ localea }} #}
-    Language(_locale): {{ localeaa }}
-    <br>
     Environnement: {{app.environment}}
     <br>
     Language(session _locale): {{ app.session.get('_locale') }}
@@ -225,16 +222,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="activation--1 owl-carousel owl-theme poss--relative">
+                        {% if blogs|length > 3 %}
                         <!-- Start Single Slide -->
                         <div class="slide bg-image--1 slider__fixed--height">
                             <div class="slide__inner">
                                 <div class="contentbox">
-                                    <h1>What should you take during traveling trip on summer</h1>
-                                    <p>This year, we're honing in on personal journeys and very specific lenses people use when traveling.
-                                    </p>
-                                    <a class="slider__btn pr__btn btn--large" href="#">
-                                        <span>+</span>
-                                        read more</a>
+                                    <h1>{{blogs[1]['title']}}</h1>
+                                    <p>{{blogs[1]['pre_html']|raw}}</p>
+                                    <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[1]['title']}}">{{'index_page.readmore'|trans}}</a>
                                 </div>
                             </div>
                         </div>
@@ -243,12 +238,9 @@
                         <div class="slide bg-image--2 slider__fixed--height">
                             <div class="slide__inner">
                                 <div class="contentbox">
-                                    <h1>What should you take during traveling trip on summer</h1>
-                                    <p>This year, we're honing in on personal journeys and very specific lenses people use when traveling.
-                                    </p>
-                                    <a class="slider__btn pr__btn btn--large" href="#">
-                                        <span>+</span>
-                                        read more</a>
+                                    <h1>{{blogs[2]['title']}}</h1>
+                                    <p>{{blogs[2]['pre_html']|raw}}</p>
+                                    <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[2]['title']}}">{{'index_page.readmore'|trans}}</a>
                                 </div>
                             </div>
                         </div>
@@ -257,16 +249,14 @@
                         <div class="slide bg-image--3 slider__fixed--height">
                             <div class="slide__inner">
                                 <div class="contentbox">
-                                    <h1>What should you take during traveling trip on summer</h1>
-                                    <p>This year, we're honing in on personal journeys and very specific lenses people use when traveling.
-                                    </p>
-                                    <a class="slider__btn pr__btn btn--large" href="#">
-                                        <span>+</span>
-                                        read more</a>
+                                    <h1>{{blogs[3]['title']}}</h1>
+                                    <p>{{blogs[3]['pre_html']|raw}}</p>
+                                    <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[3]['title']}}">{{'index_page.readmore'|trans}}</a>
                                 </div>
                             </div>
                         </div>
                         <!-- End Single Slide -->
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -280,195 +270,97 @@
                 <div class="col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="pr__blog__wrapper">
                         <!-- Start Single Blog -->
+                        {% for blog in blogs | reverse %}
+                        {% if loop.index == 1 %}
                         <article class="blog">
                             <div class="title">
-                                <span>fashion</span>
+                                <span>{{blog['category']}}</span>
                                 <h4>
-                                    <a href="blog-details.html">
-                                        Dressing for them can be significantly less so.</a>
+                                    <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
                                 </h4>
                                 <ul>
-                                    <li>Posted by
-                                        <a href="#">Hastech Limited</a>
-                                    </li>
-                                    <li>On May 21, 2018</li>
+                                    <li>{{'index_page.blog_author'|trans}} {{blog['author']}}</li>
+                                    <li>{{blog['post_date']|date('Y-m-d')}}</li>
                                 </ul>
                             </div>
-                            <div class="thumb">
-                                <a href="blog-details.html"><img src="{{ asset('images/blog/big-img/1.jpg') }}" alt="yunkun blog"></a>
+                            <div class="thumb text-center">
+                                <a href="/Blog/Blog-detail/{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:800px;max-width:800px"></a>
                             </div>
-                            <div class="content">
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio .</p>
-                                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum.</p>
+                            <div class="content text-justify">
+                                {{blog['pre_html']|raw}} ...
                             </div>
                             <div class="blog__btn">
-                                <a class="pr__btn green__btn" href="#">+ read more</a>
+                                <a class="pr__btn green__btn" href="/Blog/Blog-detail/{{blog['title']}}">{{'index_page.readmore'|trans}}</a>
                             </div>
                             <div class="blog__footer">
                                 <div class="share">
-                                    <p>share</p>
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-linkedin"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="blog__comment">
-                                    <p>
-                                        <a href="#">
-                                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                            Comments
-                                            <span>0</span></a>
-                                    </p>
+                                    {% if not blog['edit_date']|date('Y-m-d H:i:s') is same as(blog['post_date']|date('Y-m-d H:i:s')) or not blog['editor'] is same as(blog['author']) %}
+                                    <p>{{'index_page.by'|trans}} {{blog['editor']}} {{'index_page.edited'|trans}} {{blog['edit_date']|date('Y-m-d H:i:s')}}</p>
+                                    {% endif %}
                                 </div>
                             </div>
                         </article>
                         <!-- End Single Blog -->
-
+                        {% endif %}
+                        {% endfor %}
+                        {% for blog in blogs | reverse %}
                         <!-- Start Blog Area -->
-                        <article class="blog--2">
-                            <div class="thumb">
-                                <a href="blog-details.html">
-                                    <img src="{{ asset('images/blog/md-img/1.jpg') }}" alt="yunkun blog">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <div class="blog__top">
-                                    <p>fashion</p>
-                                    <ul>
-                                        <li>Posted by
-                                            <a href="#">Hastech Limited</a>
-                                        </li>
-                                        <li>On May 21, 2018</li>
-                                    </ul>
+                        {% if loop.index != 1 and loop.index <= 3 %}
+                            {% if loop.index%2 == 0 %}
+                            <article class="blog--2">
+                                <div class="thumb text-left">
+                                    <a href="/Blog/Blog-detail/{{blog['title']}}">
+                                        <img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:400px;max-width:400px">
+                                    </a>
                                 </div>
-                                <h4>
-                                    <a href="blog-details.html">Ease Yourself Into Fall With A Chic</a>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit.</p>
-                                <div class="blog__btn">
-                                    <a class="pr__btn green__btn" href="blog-details.html">+ read more</a>
-                                </div>
-                                <div class="blog__footer">
-                                    <div class="share">
-                                        <p>share</p>
+                                <div class="content">
+                                    <div class="blog__top">
+                                        <p>{{blog['category']}}</p>
                                         <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-linkedin"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-google-plus"></i>
-                                                </a>
-                                            </li>
+                                            <li>{{'index_page.blog_author'|trans}} {{blog['author']}}</li>
+                                            <li>{{blog['post_date']|date('Y-m-d')}}</li>
                                         </ul>
                                     </div>
-                                    <div class="blog__comment">
-                                        <p>
-                                            <a href="#">
-                                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                Comments
-                                                <span>0</span></a>
-                                        </p>
+                                    <h4>
+                                        <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
+                                    </h4>
+                                    <div class="text-justify">{{blog['pre_html']|raw}} ...</div>
+                                    <div class="blog__btn">
+                                        <a class="pr__btn green__btn btn__index__portal" href="/Blog/Blog-detail/{{blog['title']}}">{{'index_page.readmore'|trans}}</a>
                                     </div>
                                 </div>
-                            </div>
-                        </article>
-                        <!-- End Blog Area -->
-                        <!-- Start Blog Area -->
-                        <article class="blog--2 align__right">
-                            <div class="content">
-                                <div class="blog__top">
-                                    <p>fashion</p>
-                                    <ul>
-                                        <li>Posted by
-                                            <a href="#">Hastech Limited</a>
-                                        </li>
-                                        <li>On May 21, 2018</li>
-                                    </ul>
-                                </div>
-                                <h4>
-                                    <a href="blog-details.html">Ease Yourself Into Fall With A Chic</a>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit.</p>
-                                <div class="blog__btn">
-                                    <a class="pr__btn green__btn" href="blog-details.html">+ read more</a>
-                                </div>
-                                <div class="blog__footer">
-                                    <div class="share">
-                                        <p>share</p>
+                            </article>
+                            {% else %}
+                            <article class="blog--2 align__right">
+                                <div class="content">
+                                    <div class="blog__top">
+                                        <p>{{blog['category']}}</p>
                                         <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-linkedin"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-google-plus"></i>
-                                                </a>
-                                            </li>
+                                            <li>{{'index_page.blog_author'|trans}} {{blog['author']}}</li>
+                                            <li>{{blog['post_date']|date('Y-m-d')}}</li>
                                         </ul>
                                     </div>
-                                    <div class="blog__comment">
-                                        <p>
-                                            <a href="#">
-                                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                Comments
-                                                <span>0</span></a>
-                                        </p>
+                                    <h4>
+                                        <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
+                                    </h4>
+                                    <div class="text-justify">{{blog['pre_html']|raw}} ...</div>
+                                    <div class="blog__btn">
+                                        <a class="pr__btn green__btn btn__index__portal" href="/Blog/Blog-detail/{{blog['title']}}">{{'index_page.readmore'|trans}}</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="thumb">
-                                <a href="blog-details.html">
-                                    <img src="{{ asset('images/blog/md-img/2.jpg') }}" alt="yunkun blog">
-                                </a>
-                            </div>
-                        </article>
+                                <div class="thumb text-right">
+                                    <a href="/Blog/Blog-detail/{{blog['title']}}">
+                                        <img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:400px;max-width:400px">
+                                    </a>
+                                </div>
+                            </article>
+                            {% endif %}
                         <!-- End Blog Area -->
-                        <!-- Start Pagenation -->
-                        <div class="pr__pagination">
-                            <div class="page__prev">
-                                <a href="#">
-                                    <i class="fa fa-angle-double-left"></i>pre post</a>
-                                <p>Half City Half Amazing</p>
-                            </div>
-                            <div class="page__prev">
-                                <a href="#">next post
-                                    <i class="fa fa-angle-double-right"></i>
-                                </a>
-                                <p>Blog on Brands Experience</p>
-                            </div>
-                        </div>
-                        <!-- End Pagenation -->
+                        {% endif %}
+                        {% endfor %}
                         <!-- Start Banner Area -->
                         <div class="pn__banner__area">
-                            <a href="#">
+                            <a href="/Blog">
                                 <img src="{{ asset('images/bg/4.jpg') }}" alt="yunkun blog">
                             </a>
                         </div>
@@ -477,227 +369,59 @@
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 md-mt--60 sm-mt--60">
                     <div class="pr__sidebar">
-                        <!-- Start Email Area -->
-                        {# <div class="single__wedget pn__email">
-                            <h2>follow by email</h2>
-                            <div class="input__box">
-                                <input type="text" placeholder="Email Address">
-                                <button>subscrible</button>
-                            </div>
-                        </div> #}
-                        <!-- End Email Area -->
-
-                        <!-- Start POpular Post Area -->
-                        <div class="single__wedget popular__post">
-                            <h2>popular post</h2>
-                            <ul>
-                                <li>
-                                    <div class="thumn"><img src="{{ asset('images/blog/sm-img/1.jpg') }}" alt="blog post"></div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="blog-details.html">Dressing for them can be significantly.</a>
-                                        </h4>
-                                        <span>On May 21, 2018</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumn"><img src="{{ asset('images/blog/sm-img/2.jpg') }}" alt="blog post"></div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="blog-details.html">Dressing for them can be significantly.</a>
-                                        </h4>
-                                        <span>On May 21, 2018</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumn"><img src="{{ asset('images/blog/sm-img/3.jpg') }}" alt="blog post"></div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="blog-details.html">Dressing for them can be significantly.</a>
-                                        </h4>
-                                        <span>On May 21, 2018</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumn"><img src="{{ asset('images/blog/sm-img/4.jpg') }}" alt="blog post"></div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="blog-details.html">Dressing for them can be significantly.</a>
-                                        </h4>
-                                        <span>On May 21, 2018</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumn"><img src="{{ asset('images/blog/sm-img/5.jpg') }}" alt="blog post"></div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="blog-details.html">Dressing for them can be significantly.</a>
-                                        </h4>
-                                        <span>On May 21, 2018</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- End POpular Post Area -->
-                        <!-- Start Category Area -->
-                        {# <div class="single__wedget pr__catrgory">
-                            <h2>categories</h2>
-                            <ul class="pn__cat__list">
-                                <li>
-                                    <a href="#">Trending (3)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fashion (4)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fashionista (10)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Clothing (9)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Beauty (7)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Culture (15)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Lifestyle (12)</a>
-                                </li>
-                            </ul>
-                        </div> #}
-                        <!-- End Category Area -->
-                        <!-- Start Facebook Area -->
-                        {# <div class="single__wedget pr__facebok">
-                            <h2>find us on facebook</h2>
-                            <div class="facebook__banner">
-                                <div class="fb-page" data-href="https://www.facebook.com/devitems/" data-width="340" data-hide-cover="false" data-show-facepile="true"></div>
-                            </div>
-                        </div> #}
-                        <!-- End Facebook Area -->
                         <!-- Start Search Area -->
-                        <div class="single__wedget pr__search">
-                            <h2>search</h2>
+                        {# <div class="single__wedget pr__search">
+                            <h2>搜索博客</h2>
                             <div class="input__box">
                                 <input type="text">
-                                <button>SEARCH</button>
-                            </div>
-                        </div>
-                        <!-- End Search Area -->
-                        <!-- Start Archive Area -->
-                        {# <div class="single__wedget pr__archive">
-                            <h2>archives</h2>
-                            <div class="archive__warpper">
-                                <select>
-                                    <option>Select month</option>
-                                    <option>January</option>
-                                    <option>January</option>
-                                    <option>January</option>
-                                </select>
+                                <button>搜索</button>
                             </div>
                         </div> #}
-                        <!-- End Archive Area -->
-                        <!-- Start Tag Area -->
-                        <div class="single__wedget pr__tag">
-                            <h2>tag clounds</h2>
-                            <ul class="taglist">
-                                <li>
-                                    <a href="#">Fashion</a>
-                                </li>
-                                <li>
-                                    <a href="#">Trending</a>
-                                </li>
-                                <li>
-                                    <a href="#">Hair</a>
-                                </li>
-                                <li>
-                                    <a href="#">Art</a>
-                                </li>
-                                <li>
-                                    <a href="#">Liftstyle</a>
-                                </li>
-                                <li>
-                                    <a href="#">Travelling</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fashion</a>
-                                </li>
-                                <li>
-                                    <a href="#">Makeup</a>
-                                </li>
-                            </ul>
+                        <!-- End Search Area -->
+                        <!-- Start Youtube Area -->
+                        <div class="single__wedget pr__youtube">
+                            <a href="https://www.youtube.com/channel/UCakxdwbHN4BGRdrwtGlMHPA" target="_blank"><h2>{{'index_page.youtube'|trans}}</h2></a>
+                            <iframe width="270" height="152" src="https://www.youtube.com/embed/Gp0lnDZc9qw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
-                        <!-- End Tag Area -->
+                        <!-- End Youtube Area -->
                         <!-- Start Post Area -->
                         <div class="single__wedget pr__post">
-                            <h2>recent posts</h2>
-
+                            <h2>{{'index_page.recent'|trans}}</h2>
+                            {% for blog in blogs | reverse %}
+                            {% if loop.index == 1 %}
                             <div class="recent__post single__post">
                                 <div class="thumb">
-                                    <a href="blog-details.html"><img src="{{ asset('images/blog/post/b1.jpg') }}" alt="yunkun blog"></a>
+                                    <a href="/Blog/Blog-detail/{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog"></a>
                                 </div>
                                 <div class="content">
                                     <h4>
-                                        <a href="blog-details.html">Chocolate cake gummies candy canes cotton candy gingerbread marshmallow ...</a>
+                                        <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']|raw}}</a>
                                     </h4>
-                                    <span>On May 21, 2018</span>
+                                    <span>{{blog['post_date']|date('Y-m-d')}}</span>
                                 </div>
                             </div>
+                            {% endif %}
+                            {% endfor %}
                             <div class="sm__post__wrap">
-
-                                <div class="recent__post">
-                                    <div class="thumb">
-                                        <a href="blog-details.html"><img src="{{ asset('images/blog/post/s1.jpg') }}" alt="yunkun blog"></a>
+                                {% for blog in blogs | reverse %}
+                                {% if loop.index <= 5 and loop.index != 1 %}
+                                    <div class="recent__post">
+                                        <div class="thumb">
+                                            <a href="/Blog/Blog-detail/{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog"></a>
+                                        </div>
+                                        <div class="content">
+                                            <h4>
+                                                <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']|raw}}</a>
+                                            </h4>
+                                            <span>{{blog['post_date']|date('Y-m-d')}}</span>
+                                        </div>
                                     </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="blog-details.html">Dressing for them can be significantly.</a>
-                                        </h4>
-                                        <span>On May 21, 2018</span>
-                                    </div>
-                                </div>
-
-                                <div class="recent__post">
-                                    <div class="thumb">
-                                        <a href="blog-details.html"><img src="{{ asset('images/blog/post/s2.jpg') }}" alt="yunkun blog"></a>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="blog-details.html">Beautiful Woman Smiling With Hands In Hair</a>
-                                        </h4>
-                                        <span>On May 21, 2018</span>
-                                    </div>
-                                </div>
-
-                                <div class="recent__post">
-                                    <div class="thumb">
-                                        <a href="blog-details.html"><img src="{{ asset('images/blog/post/s3.jpg') }}" alt="yunkun blog"></a>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="blog-details.html">My Adventure in Alps, One of The Heighest Mountains!</a>
-                                        </h4>
-                                        <span>On May 21, 2018</span>
-                                    </div>
-                                </div>
-
-                                <div class="recent__post">
-                                    <div class="thumb">
-                                        <a href="blog-details.html"><img src="{{ asset('images/blog/post/s4.jpg') }}" alt="yunkun blog"></a>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="blog-details.html">Stylish Kitchen And Dining Room With Functional Ideas</a>
-                                        </h4>
-                                        <span>On May 21, 2018</span>
-                                    </div>
-                                </div>
-
+                                {% endif %}
+                                {% endfor %}
                             </div>
-
+                            <a class="blog__btn__index__portal pr__btn text-center" href="/Blog">{{'index_page.more_blog'|trans}}</a>
                         </div>
                         <!-- End Post Area -->
-
                     </div>
                 </div>
             </div>

@@ -53,5 +53,17 @@
     max-width: 70%; }
     .modal-lang .window .lang-block {
       display: inline; } }
+.blog__btn__index__portal {
+  margin: 30px auto;
+  width: 100%; }
+
+.btn__index__portal {
+  margin-top: 30px; }
+
+.pn__banner__area {
+  margin-top: 60px; }
+
+.single__wedget.pr__youtube {
+  margin-bottom: 40px; }
 
 /*# sourceMappingURL=index_page.css.map */
