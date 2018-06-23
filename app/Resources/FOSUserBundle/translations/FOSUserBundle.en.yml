@@ -100,6 +100,7 @@ form:
         image1: Main image
         image2: Left image
         image3: Right image
+        category: Category
     #####################
 
 #######################
@@ -186,3 +187,15 @@ blog_page:
         title: Are you sure you want to delete this blog? This operation can not be resumed.
         yes: Yes, delete
         no: No, cancel
+
+index_page: 
+    blog_author: Author
+    readmore: Read More
+    youtube: Our Youtube channel
+    recent: Recent posts
+    more_blog: More
+    by: By
+    edited: Edited
+
+label_next: Next
+label_previous: Previous

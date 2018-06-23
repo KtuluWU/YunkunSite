@@ -95,6 +95,7 @@ form:
         image1: Image principale
         image2: Image gauche
         image3: Image droite
+        category: Catégorie
     #####################
 
 #######################
@@ -181,3 +182,15 @@ blog_page:
         title: Êtes-vous sûr de vouloir supprimer ce blog? Cette opération ne peut pas être reprise.
         yes: Oui, supprimer
         no: Non, annuler
+
+index_page: 
+    blog_author: Auteur
+    readmore: Lire la suite
+    youtube: Notre Chaîne Youtube
+    recent: Postes Récents
+    more_blog: Plus
+    by: Par
+    edited: Édité
+
+label_next: Suivante
+label_previous: Précedente

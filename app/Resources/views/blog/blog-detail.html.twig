@@ -51,7 +51,7 @@
                     <div class="blog__footer">
                         <div class="share">
                             {% if not edit_date|date('Y-m-d H:i:s') is same as(post_date|date('Y-m-d H:i:s')) or not editor is same as(author) %}
-                            <p>{{'index_page.by'|trans}} {{editor}} {{'index_page.edited'|trans}} {{edit_date|date('Y-m-d H:i:s')}}</p>
+                            <p>{{'index_page.edited'|trans}} {{edit_date|date('Y-m-d H:i:s')}} {{'index_page.by'|trans}} {{editor}}</p>
                             {% endif %}
                         </div>
                     </div>
