@@ -129,7 +129,7 @@ variables:
     roles:
         ROLE_SUPER_ADMIN: 超级管理员
         ROLE_ADMIN: 管理员
-        ROLE_CV_ACCES: 招聘者
+        ROLE_RECRUITER: 招聘者
         ROLE_USER: 普通用户
 
 error_page: 

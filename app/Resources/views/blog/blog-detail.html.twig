@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     {% if app.user %}
-                        {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
+                        {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
                             <div class="links__edit__delete text-center">
                                 <a class="pr__btn green__btn btn__blog__detail" href="/Blog/Edit/{{title}}">{{'blog_page.editblog'|trans}}</a>
                                 <a class="pr__btn red__btn btn__blog__detail" id="delete_confirm">{{'blog_page.deleteblog'|trans}}</a>

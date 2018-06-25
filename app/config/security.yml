@@ -38,9 +38,9 @@ security:
             logout_on_user_change: true
 
     role_hierarchy:
-        ROLE_CV_ACCES:    ROLE_USER
-        ROLE_ADMIN:       ROLE_CV_ACCES
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_CV_ACCES]
+        ROLE_RECRUITER:   ROLE_USER
+        ROLE_ADMIN:       ROLE_RECRUITER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_RECRUITER]
 
     encoders:
          FOS\UserBundle\Model\UserInterface:
@@ -51,7 +51,7 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/CV, roles: ROLE_SUPER_ADMIN }
+        - { path: ^/CV, roles: ROLE_RECRUITER }
         - { path: ^/Blog/AddBlog, roles: ROLE_ADMIN }
         - { path: ^/Blog/edit/, roles: ROLE_ADMIN }
 

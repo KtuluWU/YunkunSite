@@ -1,346 +1,359 @@
-{% trans_default_domain 'FOSUserBundle' %}
-{% extends 'base_yun.html.twig' %}
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/pages/index_page.css') }}"/>
-{% endblock %}
-{% block header %}
-    Environnement: {{app.environment}}
-    <br>
-    Language(session _locale): {{ app.session.get('_locale') }}
-    <br>
-    {% if app.user %}
-    Role: {{app.user.roles[0]}} 
-    {% endif %}
-    <!-- Start Header Area -->
-    <header class="header pr__header">
-        <!-- Start Header Top -->
-        <div class="pr__header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 d-none d-lg-block">
-                        <nav>
-                            <ul class="mainmenu">
-                                <li>
-                                    <a href="/">{{'summury.home'|trans}}</a>
-                                </li>
-                                <li>
-                                    <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
-                                </li>
-                                {% if app.user %}
-                                    {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
-                                    <li class="drop">
-                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a></li>
-                                        </ul>
-                                    </li>
-                                    {% else %}
+{% trans_default_domain 'FOSUserBundle' %} {% extends 'base_yun.html.twig' %} {% block stylesheets %} {{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/pages/index_page.css') }}" /> {% endblock %} {% block header %} Environnement: {{app.environment}}
+<br> Language(session _locale): {{ app.session.get('_locale') }}
+<br> {% if app.user %} Role: {{app.user.roles[0]}} {% endif %}
+<!-- Start Header Area -->
+<header class="header pr__header">
+    <!-- Start Header Top -->
+    <div class="pr__header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 d-none d-lg-block">
+                    <nav>
+                        <ul class="mainmenu">
+                            <li>
+                                <a href="/">{{'summury.home'|trans}}</a>
+                            </li>
+                            <li>
+                                <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
+                            </li>
+                            {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
+                            <li class="drop">
+                                <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                <ul class="dropdown">
                                     <li>
-                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        <a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a>
                                     </li>
-                                    {% endif %}
-                                {% else %}
+                                </ul>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="/Blog">{{'summury.blog'|trans}}</a>
+                            </li>
+                            {% endif %} {% else %}
+                            <li>
+                                <a href="/Blog">{{'summury.blog'|trans}}</a>
+                            </li>
+                            {% endif %}
+                            <li>
+                                <a href="#">{{'summury.projects'|trans}}</a>
+                            </li>
+                            <li>
+                                <a href="/CV">{{'summury.cv'|trans}}</a>
+                            </li>
+                            <li>
+                                <a href="/Contact">{{'summury.contactus'|trans}}</a>
+                            </li>
+                            <li class="drop">
+                                <a>{{'summury.lang'|trans}}</a>
+                                <ul class="dropdown">
                                     <li>
-                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}">
+                                            <img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a>
                                     </li>
-                                {% endif %}
-                                <li>
-                                    <a href="#">{{'summury.projects'|trans}}</a>
-                                </li>
-                                <li>
-                                    <a href="/CV">{{'summury.cv'|trans}}</a>
-                                </li>
-                                <li>
-                                    <a href="/Contact">{{'summury.contactus'|trans}}</a>
-                                </li>
-                                <li class="drop">
-                                    <a>{{'summury.lang'|trans}}</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}"><img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a></li>
-                                        <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"><img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a></li>
-                                        <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a></li>
-                                    </ul>
-                                </li>
-                                {% if not app.user %}
-                                <li>
-                                    <a href="/login">{{'layout.login'|trans}}</a>
-                                </li>
-                                {% elseif app.user %}
-                                <li class="drop">
-                                    <a><b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%': app.user.lastname}, 'FOSUserBundle')}}</b></a>
-                                    <ul class="dropdown">
-                                        <li>
-                                            <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')}, 'FOSUserBundle')}} 
-                                                <br>
-                                                {{'summury.admin.text3'|trans}}
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/profile">{{'user_page.title1'|trans}}</a>
-                                        </li>
-                                        <li>
-                                            <a href="/logout">{{'layout.logout'|trans}}</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                {% endif %}
-                                {# <li class="drop">
-                                    <a href="#">Pages à supprimer</a>
-                                    <ul class="dropdown">
-                                        <li>
-                                            <a href="#">博客内容页面</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">faq Page</a>
-                                        </li>
-                                        <li>
-                                            <a href="/NotFound">404 Page</a>
-                                        </li>
-                                    </ul>
-                                </li> #}
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="row  d-none">
-                    <div class="col-lg-12">
-                        <nav class="mobilemenu__nav">
-                            <ul>
-                                <li>
-                                    <a href="/">{{'summury.home'|trans}}</a>
-                                </li>
-                                <li>
-                                    <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
-                                </li>
-                                {% if app.user %}
-                                    {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
-                                    <li class="drop">
-                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a></li>
-                                        </ul>
-                                    </li>
-                                    {% else %}
                                     <li>
-                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                                            <img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a>
                                     </li>
-                                    {% endif %}
-                                {% else %}
                                     <li>
-                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                                            <img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a>
                                     </li>
-                                {% endif %}
-                                <li>
-                                    <a href="#">{{'summury.projects'|trans}}</a>
-                                </li>
-                                <li>
-                                    <a href="/CV">{{'summury.cv'|trans}}</a>
-                                </li>
-                                <li>
-                                    <a href="/Contact">{{'summury.contactus'|trans}}</a>
-                                </li>
-                                <li class="drop">
-                                    <a>{{'summury.lang'|trans}}</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}"><img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a></li>
-                                        <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"><img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a></li>
-                                        <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a></li>
-                                    </ul>
-                                </li>
-                                {% if not app.user %}
-                                <li>
-                                    <a href="/login">{{'layout.login'|trans}}</a>
-                                </li>
-                                {% elseif app.user %}
-                                <li class="drop">
-                                    <a><b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%': app.user.lastname}, 'FOSUserBundle')}}</b></a>
-                                    <ul class="dropdown">
-                                        <li>
-                                            <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')}, 'FOSUserBundle')}} 
-                                                <br>
-                                                {{'summury.admin.text3'|trans}}
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/profile">{{'user_page.title1'|trans}}</a>
-                                        </li>
-                                        <li>
-                                            <a href="/logout">{{'layout.logout'|trans}}</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                {% endif %}
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <!-- Mobile Menu -->
-                <div class="mobile-menu d-block d-lg-none"></div>
-                <!-- Mobile Menu -->
-            </div>
-        </div>
-        <!-- End Header Top -->
-    </header>
-    <!-- End Header Area -->
-{% endblock %}
-{% block Bradcaump %}{% endblock %}
-{% block content %}
-    <!-- Start Slider Area -->
-    <div class="pr__slider__area bg--cart-2">
-        <!-- Start Header Mid -->
-        <div class="yunkun__logo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="logo">
-                            <a href="/"><img src="{{ asset('images/logo/yunkun_Logo1.png') }}" class="index-logo" alt="yunkun blog"></a>
-                        </div>
-                    </div>
+                                </ul>
+                            </li>
+                            {% if not app.user %}
+                            <li>
+                                <a href="/login">{{'layout.login'|trans}}</a>
+                            </li>
+                            {% elseif app.user %}
+                            <li class="drop">
+                                <a>
+                                    <b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%': app.user.lastname},
+                                        'FOSUserBundle')}}</b>
+                                </a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')},
+                                            'FOSUserBundle')}}
+                                            <br> {{'summury.admin.text3'|trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/profile">{{'user_page.title1'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/logout">{{'layout.logout'|trans}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            {% endif %} {#
+                            <li class="drop">
+                                <a href="#">Pages à supprimer</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a href="#">博客内容页面</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">faq Page</a>
+                                    </li>
+                                    <li>
+                                        <a href="/NotFound">404 Page</a>
+                                    </li>
+                                </ul>
+                            </li> #}
+                        </ul>
+                    </nav>
                 </div>
             </div>
+            <div class="row  d-none">
+                <div class="col-lg-12">
+                    <nav class="mobilemenu__nav">
+                        <ul>
+                            <li>
+                                <a href="/">{{'summury.home'|trans}}</a>
+                            </li>
+                            <li>
+                                <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
+                            </li>
+                            {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
+                            <li class="drop">
+                                <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="/Blog">{{'summury.blog'|trans}}</a>
+                            </li>
+                            {% endif %} {% else %}
+                            <li>
+                                <a href="/Blog">{{'summury.blog'|trans}}</a>
+                            </li>
+                            {% endif %}
+                            <li>
+                                <a href="#">{{'summury.projects'|trans}}</a>
+                            </li>
+                            <li>
+                                <a href="/CV">{{'summury.cv'|trans}}</a>
+                            </li>
+                            <li>
+                                <a href="/Contact">{{'summury.contactus'|trans}}</a>
+                            </li>
+                            <li class="drop">
+                                <a>{{'summury.lang'|trans}}</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}">
+                                            <img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                                            <img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                                            <img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            {% if not app.user %}
+                            <li>
+                                <a href="/login">{{'layout.login'|trans}}</a>
+                            </li>
+                            {% elseif app.user %}
+                            <li class="drop">
+                                <a>
+                                    <b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%': app.user.lastname},
+                                        'FOSUserBundle')}}</b>
+                                </a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')},
+                                            'FOSUserBundle')}}
+                                            <br> {{'summury.admin.text3'|trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/profile">{{'user_page.title1'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/logout">{{'layout.logout'|trans}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="mobile-menu d-block d-lg-none"></div>
+            <!-- Mobile Menu -->
         </div>
-        <!-- End Header Mid -->
+    </div>
+    <!-- End Header Top -->
+</header>
+<!-- End Header Area -->
+{% endblock %} {% block Bradcaump %}{% endblock %} {% block content %}
+<!-- Start Slider Area -->
+<div class="pr__slider__area bg--cart-2">
+    <!-- Start Header Mid -->
+    <div class="yunkun__logo">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="activation--1 owl-carousel owl-theme poss--relative">
-                        {% if blogs|length > 3 %}
-                        <!-- Start Single Slide -->
-                        <div class="slide bg-image--1 slider__fixed--height">
-                            <div class="slide__inner">
-                                <div class="contentbox">
-                                    <h1>{{blogs[1]['title']}}</h1>
-                                    <p>{{blogs[1]['pre_html']|raw}}</p>
-                                    <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[1]['title']}}">{{'index_page.readmore'|trans}}</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Slide -->
-                        <!-- Start Single Slide -->
-                        <div class="slide bg-image--2 slider__fixed--height">
-                            <div class="slide__inner">
-                                <div class="contentbox">
-                                    <h1>{{blogs[2]['title']}}</h1>
-                                    <p>{{blogs[2]['pre_html']|raw}}</p>
-                                    <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[2]['title']}}">{{'index_page.readmore'|trans}}</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Slide -->
-                        <!-- Start Single Slide -->
-                        <div class="slide bg-image--3 slider__fixed--height">
-                            <div class="slide__inner">
-                                <div class="contentbox">
-                                    <h1>{{blogs[3]['title']}}</h1>
-                                    <p>{{blogs[3]['pre_html']|raw}}</p>
-                                    <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[3]['title']}}">{{'index_page.readmore'|trans}}</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Slide -->
-                        {% endif %}
+                    <div class="logo">
+                        <a href="/">
+                            <img src="{{ asset('images/logo/yunkun_Logo1.png') }}" class="index-logo" alt="yunkun blog">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Slider Area -->
-    <!-- Start Blog Area -->
-    <div class="pr__blog__area ptb--60">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9 col-md-12 col-sm-12 col-12">
-                    <div class="pr__blog__wrapper">
-                        <!-- Start Single Blog -->
-                        {% for blog in blogs | reverse %}
-                        {% if loop.index == 1 %}
-                        <article class="blog">
-                            <div class="title">
-                                <span>{{blog['category']}}</span>
-                                <h4>
-                                    <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
-                                </h4>
+    <!-- End Header Mid -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="activation--1 owl-carousel owl-theme poss--relative">
+                    {% if blogs|length > 3 %}
+                    <!-- Start Single Slide -->
+                    <div class="slide bg-image--1 slider__fixed--height">
+                        <div class="slide__inner">
+                            <div class="contentbox">
+                                <h1>{{blogs[1]['title']}}</h1>
+                                <p>{{blogs[1]['pre_html']|raw}}</p>
+                                <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[1]['title']}}">{{'index_page.readmore'|trans}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Slide -->
+                    <!-- Start Single Slide -->
+                    <div class="slide bg-image--2 slider__fixed--height">
+                        <div class="slide__inner">
+                            <div class="contentbox">
+                                <h1>{{blogs[2]['title']}}</h1>
+                                <p>{{blogs[2]['pre_html']|raw}}</p>
+                                <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[2]['title']}}">{{'index_page.readmore'|trans}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Slide -->
+                    <!-- Start Single Slide -->
+                    <div class="slide bg-image--3 slider__fixed--height">
+                        <div class="slide__inner">
+                            <div class="contentbox">
+                                <h1>{{blogs[3]['title']}}</h1>
+                                <p>{{blogs[3]['pre_html']|raw}}</p>
+                                <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[3]['title']}}">{{'index_page.readmore'|trans}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Slide -->
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Slider Area -->
+<!-- Start Blog Area -->
+<div class="pr__blog__area ptb--60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-12 col-sm-12 col-12">
+                <div class="pr__blog__wrapper">
+                    <!-- Start Single Blog -->
+                    {% for blog in blogs | reverse %} {% if loop.index == 1 %}
+                    <article class="blog">
+                        <div class="title">
+                            <span>{{blog['category']}}</span>
+                            <h4>
+                                <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
+                            </h4>
+                            <ul>
+                                <li>{{'index_page.blog_author'|trans}} {{blog['author']}}</li>
+                                <li>{{blog['post_date']|date('Y-m-d')}}</li>
+                            </ul>
+                        </div>
+                        <div class="thumb text-center">
+                            <a href="/Blog/Blog-detail/{{blog['title']}}">
+                                <img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:800px;max-width:100%">
+                            </a>
+                        </div>
+                        <div class="content text-justify">
+                            {{blog['pre_html']|raw}} ...
+                        </div>
+                        <div class="blog__btn">
+                            <a class="pr__btn green__btn" href="/Blog/Blog-detail/{{blog['title']}}">{{'index_page.readmore'|trans}}</a>
+                        </div>
+                        <div class="blog__footer">
+                            <div class="share">
+                                {% if not blog['edit_date']|date('Y-m-d H:i:s') is same as(blog['post_date']|date('Y-m-d H:i:s')) or not blog['editor'] is
+                                same as(blog['author']) %}
+                                <p>{{'index_page.edited'|trans}} {{blog['edit_date']|date('Y-m-d H:i:s')}} {{'index_page.by'|trans}}
+                                    {{blog['editor']}}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </article>
+                    <!-- End Single Blog -->
+                    {% endif %} {% endfor %} {% for blog in blogs | reverse %}
+                    <!-- Start Blog Area -->
+                    {% if loop.index != 1 and loop.index
+                    <=3 %} {% if loop.index%2==0 %} <article class="blog--2">
+                        <div class="thumb text-left">
+                            <a href="/Blog/Blog-detail/{{blog['title']}}">
+                                <img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:400px;max-width:100%">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <div class="blog__top">
+                                <p>{{blog['category']}}</p>
                                 <ul>
                                     <li>{{'index_page.blog_author'|trans}} {{blog['author']}}</li>
                                     <li>{{blog['post_date']|date('Y-m-d')}}</li>
                                 </ul>
                             </div>
-                            <div class="thumb text-center">
-                                <a href="/Blog/Blog-detail/{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:800px;max-width:100%"></a>
-                            </div>
-                            <div class="content text-justify">
-                                {{blog['pre_html']|raw}} ...
-                            </div>
+                            <h4>
+                                <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
+                            </h4>
+                            <div class="text-justify">{{blog['pre_html']|raw}} ...</div>
                             <div class="blog__btn">
-                                <a class="pr__btn green__btn" href="/Blog/Blog-detail/{{blog['title']}}">{{'index_page.readmore'|trans}}</a>
+                                <a class="pr__btn green__btn btn__index__portal" href="/Blog/Blog-detail/{{blog['title']}}">{{'index_page.readmore'|trans}}</a>
                             </div>
-                            <div class="blog__footer">
-                                <div class="share">
-                                    {% if not blog['edit_date']|date('Y-m-d H:i:s') is same as(blog['post_date']|date('Y-m-d H:i:s')) or not blog['editor'] is same as(blog['author']) %}
-                                    <p>{{'index_page.edited'|trans}} {{blog['edit_date']|date('Y-m-d H:i:s')}} {{'index_page.by'|trans}} {{blog['editor']}}</p>
-                                    {% endif %}
+                        </div>
+                        </article>
+                        {% else %}
+                        <article class="blog--2 align__right">
+                            <div class="content">
+                                <div class="blog__top">
+                                    <p>{{blog['category']}}</p>
+                                    <ul>
+                                        <li>{{'index_page.blog_author'|trans}} {{blog['author']}}</li>
+                                        <li>{{blog['post_date']|date('Y-m-d')}}</li>
+                                    </ul>
                                 </div>
+                                <h4>
+                                    <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
+                                </h4>
+                                <div class="text-justify">{{blog['pre_html']|raw}} ...</div>
+                                <div class="blog__btn">
+                                    <a class="pr__btn green__btn btn__index__portal" href="/Blog/Blog-detail/{{blog['title']}}">{{'index_page.readmore'|trans}}</a>
+                                </div>
+                            </div>
+                            <div class="thumb text-right">
+                                <a href="/Blog/Blog-detail/{{blog['title']}}">
+                                    <img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:400px;max-width:100%">
+                                </a>
                             </div>
                         </article>
-                        <!-- End Single Blog -->
                         {% endif %}
-                        {% endfor %}
-                        {% for blog in blogs | reverse %}
-                        <!-- Start Blog Area -->
-                        {% if loop.index != 1 and loop.index <= 3 %}
-                            {% if loop.index%2 == 0 %}
-                            <article class="blog--2">
-                                <div class="thumb text-left">
-                                    <a href="/Blog/Blog-detail/{{blog['title']}}">
-                                        <img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:400px;max-width:100%">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <div class="blog__top">
-                                        <p>{{blog['category']}}</p>
-                                        <ul>
-                                            <li>{{'index_page.blog_author'|trans}} {{blog['author']}}</li>
-                                            <li>{{blog['post_date']|date('Y-m-d')}}</li>
-                                        </ul>
-                                    </div>
-                                    <h4>
-                                        <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
-                                    </h4>
-                                    <div class="text-justify">{{blog['pre_html']|raw}} ...</div>
-                                    <div class="blog__btn">
-                                        <a class="pr__btn green__btn btn__index__portal" href="/Blog/Blog-detail/{{blog['title']}}">{{'index_page.readmore'|trans}}</a>
-                                    </div>
-                                </div>
-                            </article>
-                            {% else %}
-                            <article class="blog--2 align__right">
-                                <div class="content">
-                                    <div class="blog__top">
-                                        <p>{{blog['category']}}</p>
-                                        <ul>
-                                            <li>{{'index_page.blog_author'|trans}} {{blog['author']}}</li>
-                                            <li>{{blog['post_date']|date('Y-m-d')}}</li>
-                                        </ul>
-                                    </div>
-                                    <h4>
-                                        <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']}}</a>
-                                    </h4>
-                                    <div class="text-justify">{{blog['pre_html']|raw}} ...</div>
-                                    <div class="blog__btn">
-                                        <a class="pr__btn green__btn btn__index__portal" href="/Blog/Blog-detail/{{blog['title']}}">{{'index_page.readmore'|trans}}</a>
-                                    </div>
-                                </div>
-                                <div class="thumb text-right">
-                                    <a href="/Blog/Blog-detail/{{blog['title']}}">
-                                        <img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:400px;max-width:100%">
-                                    </a>
-                                </div>
-                            </article>
-                            {% endif %}
                         <!-- End Blog Area -->
-                        {% endif %}
-                        {% endfor %}
+                        {% endif %} {% endfor %}
                         <!-- Start Banner Area -->
                         <div class="pn__banner__area">
                             <a href="/Blog">
@@ -348,33 +361,54 @@
                             </a>
                         </div>
                         <!-- End Banner Area -->
-                    </div>
                 </div>
-                <div class="col-lg-3 col-md-12 col-sm-12 col-12 md-mt--60 sm-mt--60">
-                    <div class="pr__sidebar">
-                        <!-- Start Search Area -->
-                        {# <div class="single__wedget pr__search">
-                            <h2>搜索博客</h2>
-                            <div class="input__box">
-                                <input type="text">
-                                <button>搜索</button>
-                            </div>
-                        </div> #}
-                        <!-- End Search Area -->
-                        <!-- Start Youtube Area -->
-                        <div class="single__wedget pr__youtube">
-                            <a href="https://www.youtube.com/channel/UCakxdwbHN4BGRdrwtGlMHPA" target="_blank"><h2>{{'index_page.youtube'|trans}}</h2></a>
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Gp0lnDZc9qw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12 col-12 md-mt--60 sm-mt--60">
+                <div class="pr__sidebar">
+                    <!-- Start Search Area -->
+                    {#
+                    <div class="single__wedget pr__search">
+                        <h2>搜索博客</h2>
+                        <div class="input__box">
+                            <input type="text">
+                            <button>搜索</button>
                         </div>
-                        <!-- End Youtube Area -->
-                        <!-- Start Post Area -->
-                        <div class="single__wedget pr__post">
-                            <h2>{{'index_page.recent'|trans}}</h2>
-                            {% for blog in blogs | reverse %}
-                            {% if loop.index == 1 %}
-                            <div class="recent__post single__post">
+                    </div> #}
+                    <!-- End Search Area -->
+                    <!-- Start Youtube Area -->
+                    <div class="single__wedget pr__youtube">
+                        <a href="https://www.youtube.com/channel/UCakxdwbHN4BGRdrwtGlMHPA" target="_blank">
+                            <h2>{{'index_page.youtube'|trans}}</h2>
+                        </a>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Gp0lnDZc9qw" frameborder="0" allow="autoplay; encrypted-media"
+                            allowfullscreen></iframe>
+                    </div>
+                    <!-- End Youtube Area -->
+                    <!-- Start Post Area -->
+                    <div class="single__wedget pr__post">
+                        <h2>{{'index_page.recent'|trans}}</h2>
+                        {% for blog in blogs | reverse %} {% if loop.index == 1 %}
+                        <div class="recent__post single__post">
+                            <div class="thumb">
+                                <a href="/Blog/Blog-detail/{{blog['title']}}">
+                                    <img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <h4>
+                                    <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']|raw}}</a>
+                                </h4>
+                                <span>{{blog['post_date']|date('Y-m-d')}}</span>
+                            </div>
+                        </div>
+                        {% endif %} {% endfor %}
+                        <div class="sm__post__wrap">
+                            {% for blog in blogs | reverse %} {% if loop.index
+                            <=5 and loop.index !=1 %} <div class="recent__post">
                                 <div class="thumb">
-                                    <a href="/Blog/Blog-detail/{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog"></a>
+                                    <a href="/Blog/Blog-detail/{{blog['title']}}">
+                                        <img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog">
+                                    </a>
                                 </div>
                                 <div class="content">
                                     <h4>
@@ -382,49 +416,29 @@
                                     </h4>
                                     <span>{{blog['post_date']|date('Y-m-d')}}</span>
                                 </div>
-                            </div>
-                            {% endif %}
-                            {% endfor %}
-                            <div class="sm__post__wrap">
-                                {% for blog in blogs | reverse %}
-                                {% if loop.index <= 5 and loop.index != 1 %}
-                                    <div class="recent__post">
-                                        <div class="thumb">
-                                            <a href="/Blog/Blog-detail/{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog"></a>
-                                        </div>
-                                        <div class="content">
-                                            <h4>
-                                                <a href="/Blog/Blog-detail/{{blog['title']}}">{{blog['title']|raw}}</a>
-                                            </h4>
-                                            <span>{{blog['post_date']|date('Y-m-d')}}</span>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-                            <a class="blog__btn__index__portal pr__btn text-center" href="/Blog">{{'index_page.more_blog'|trans}}</a>
                         </div>
-                        <!-- End Post Area -->
+                        {% endif %} {% endfor %}
                     </div>
+                    <a class="blog__btn__index__portal pr__btn text-center" href="/Blog">{{'index_page.more_blog'|trans}}</a>
                 </div>
+                <!-- End Post Area -->
             </div>
         </div>
     </div>
-    <!-- End Blog Area -->
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        (function (d, s, id) {
-            var js,
-                fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) 
-                return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+</div>
+</div>
+<!-- End Blog Area -->
+{% endblock %} {% block javascripts %} {{ parent() }}
+<script>
+    (function (d, s, id) {
+        var js,
+            fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id))
+            return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 {% endblock %}

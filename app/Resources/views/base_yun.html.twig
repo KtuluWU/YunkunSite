@@ -38,7 +38,7 @@
                                     <li>
                                         <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
                                     </li>
-                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
+                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
                                     <li class="drop">
                                         <a href="/Blog">{{'summury.blog'|trans}}</a>
                                         <ul class="dropdown">
@@ -129,7 +129,7 @@
                                     <li>
                                         <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
                                     </li>
-                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
+                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
                                     <li class="drop">
                                         <a href="/Blog">{{'summury.blog'|trans}}</a>
                                         <ul class="dropdown">

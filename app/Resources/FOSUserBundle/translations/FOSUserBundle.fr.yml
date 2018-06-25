@@ -130,7 +130,7 @@ variables:
     roles:
         ROLE_SUPER_ADMIN: Super Administrateur
         ROLE_ADMIN: Administrateur
-        ROLE_CV_ACCES: Recruteur
+        ROLE_RECRUITER: Recruteur
         ROLE_USER: Utilisateur
     
 error_page: 
