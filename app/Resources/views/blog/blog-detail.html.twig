@@ -24,7 +24,7 @@
                             </ul>
                         </div>
                         <div class="thumb text-center">
-                            <img src="{{ asset('uploads/images/blog/' ~ imageName1) }}" alt="panora blog" style="max-height:800px">
+                            <img src="{{ asset('uploads/images/blog/' ~ imageName1) }}" alt="panora blog" style="max-height:800px;max-width:100%">
                         </div>
                         <div class="content">
                             {{pre_html|raw}}
@@ -34,8 +34,8 @@
                     <div class="blog__quote">
                         <div class="text-justify">{{article_html|raw}}</div>
                         <ul class="blog__img text-center">
-                            <li><img src="{{ asset('uploads/images/blog/' ~ imageName2) }}" alt="panora blog" class="img_left" style="max-height:400px;max-width:550px"></li>
-                            <li><img src="{{ asset('uploads/images/blog/' ~ imageName3) }}" alt="panora blog" class="img_right" style="max-height:400px;max-width:550px"></li>
+                            <li><img src="{{ asset('uploads/images/blog/' ~ imageName2) }}" alt="panora blog" class="img_left" style="max-height:400px;max-width:100%"></li>
+                            <li><img src="{{ asset('uploads/images/blog/' ~ imageName3) }}" alt="panora blog" class="img_right" style="max-height:400px;max-width:100%"></li>
                         </ul>
                        <!--  <div class="bl__dtl__meta">
                             <div class="share">
@@ -65,7 +65,7 @@
                                 <div class="backgroud"></div>
                                 <div class="window text-center">
                                     <div class="title">{{'blog_page.modal.title'|trans}}</div>
-                                    <div>
+                                    <div class="options">
                                         <a class="pr__btn red__btn btn__blog__detail" href="/Blog/DeleteBlog/{{title}}">{{'blog_page.modal.yes'|trans}}</a>
                                         <a class="pr__btn green__btn btn__blog__detail" id="cancel_delete">{{'blog_page.modal.no'|trans}}</a>
                                     </div>
