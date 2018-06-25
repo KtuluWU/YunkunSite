@@ -2275,7 +2275,7 @@ Blocks Styles
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(29, 29, 29, 0.5); }
+    background: rgba(0, 0, 0, 0.3); }
   .pr__bradcaump__area .bradcaump__inner h2 {
     color: #ffffff;
     display: block;
@@ -3864,7 +3864,7 @@ div[id^='flash_'] {
 
 .yunkun__photos .photos__list img {
   width: 99%;
-  opacity: 0.9;
+  opacity: 0.8;
   transition: all 0.8s; }
   .yunkun__photos .photos__list img:active {
     transform: scale(1.5); }

@@ -145,10 +145,6 @@ user_page:
     title2: 个人主页
     title3: 信息修改
 
-cv_page:
-    title1: 个人简历
-    title2: 个人简历
-
 profile_page:
     username: 用户名：
     truename: 真实姓名：
@@ -190,6 +186,33 @@ index_page:
     more_blog: 更多文章
     by: 由
     edited: 编辑于
+
+cv_page:
+    title1: 个人简历
+    title2: 个人简历
+    yun: 吴云
+    kun: 许堃
+    presentation1: 我们一起住在巴黎，并且都在工作，拥有CDI合同。
+    presentation2: 吴云的职业是网站开发工程师，参加和负责过许多网站前端和后端的项目，甚至全栈项目，拥有良好的独立能力，和优秀的团队协作以及项目负责能力。
+    presentation3: 许堃的职业是吃屎师，特别爱吃屎，吃屎能力优秀。
+    counterup1: 我们走过的城市
+    counterup2: 我们在巴黎的天数
+    counterup3: 我们工作过的时间
+    counterup4: 我们做过的项目
+    yun_skills:
+        title: 吴云的技能
+        skill1: 网站项目管理能力
+        skill2: 团队合作能力
+        skill3: 前端开发 Javascript, HTML5, CSS3, SCSS, Vue.js, jQuery, Bootstrap4 ...
+        skill4: 后端开发 PHP7, Symfony 4(或者3), Laravel, Database, MySQL, PostgreSQL ...
+        skill5: 网站设计 Photoshop
+    kun_skills:
+        title: 许堃的技能
+        skill1: 网站项目管理能力
+        skill2: 团队合作能力
+        skill3: 前端开发 Javascript, HTML5, CSS3, SCSS, Vue.js, jQuery, Bootstrap4 ...
+        skill4: 后端开发 PHP7, Symfony 4(或者3), Laravel, Database, MySQL, PostgreSQL ...
+        skill5: 网站设计 Photoshop
 
 label_next: 下一页
 label_previous: 上一页

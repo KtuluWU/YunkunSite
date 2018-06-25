@@ -59,8 +59,12 @@ class IndexController extends Controller
      */
     public function cvAction()
     {
+        date_default_timezone_set("Europe/Paris");
+        $arrive_paris_date = strtotime('2013-10-08');
+        $now = time();
+        $count_date = round(($now - $arrive_paris_date) / (60 * 60 * 24));
         return $this->render(
-            'portal/cv.html.twig'
+            'portal/cv.html.twig', array('count_date' => $count_date)
         );
     }
 

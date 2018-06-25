@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,wBAAwB;AAMxB,6BAA6B;AAK7B,6BAA6B;AAI7B,yBAAyB;AAIzB,0BAA0B;AAI1B,+BAA+B;AAM/B,+BAA+B;AAmB/B,+BAA+B;AAiD/B,YAAY;AChGZ,eAAe;EACX,cAAc,EAAE,eAAe",
+"sources": ["../scss/_variables.scss","../scss/pages/cv_page.scss"],
+"names": [],
+"file": "cv_page.css"
+}

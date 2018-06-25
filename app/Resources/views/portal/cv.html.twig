@@ -3,7 +3,7 @@
 {% block title %}Yunkun CV{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/pages/error_page.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/pages/cv_page.css') }}"/>
 {% endblock %}
 
 {% set bradcaump_title = 'cv_page.title1'|trans %}
@@ -15,20 +15,13 @@
                 <div class="row no-gutters about__inner align-items-center">
                     <div class="col-lg-5 col-xl-6 col-md-12 col-sm-12">
                         <div class="thumb">
-                            <img src="images/about/1.jpg" alt="yunkun blog">
+                            <img src="{{ asset('images/cv/1.jpg') }}" alt="yunkun blog">
                         </div>
                     </div>
                     <div class="col-lg-7 col-xl-6 col-md-12 col-sm-12">
                         <div class="content">
-                            <h2>WE CREATE
-                                <br>
-                                HTML TEMPLATE</h2>
-                            <p>
-                                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam, est usus legentis in iis qui facit eorum claritatem.
-                            </p>
-                            <a class="about__btn" href="#">view work
-                                <i class="fa fa-angle-right"></i>
-                            </a>
+                            <h2>{{'cv_page.yun'|trans}}&nbsp;&amp;&nbsp;{{'cv_page.kun'|trans}}</h2>
+                            <p class="text-left">{{'cv_page.presentation1'|trans}}<br>{{'cv_page.presentation2'|trans}}<br>{{'cv_page.presentation3'|trans}}</p>
                         </div>
                     </div>
                 </div>
@@ -43,11 +36,11 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="counterup">
                             <div class="icon">
-                                <img src="images/icons/1.png" alt="yunkun blog">
+                                <img src="{{ asset('images/icons/1.png') }}" alt="yunkun blog">
                             </div>
                             <div class="content">
-                                <span class="count">2169</span>
-                                <h6>HAPPY CUSTOMERS</h6>
+                                <span class="count">76</span>
+                                <h6>{{'cv_page.counterup1'|trans}}</h6>
                             </div>
                         </div>
                     </div>
@@ -56,11 +49,11 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="counterup bg--2">
                             <div class="icon">
-                                <img src="images/icons/2.png" alt="yunkun blog">
+                                <img src="{{ asset('images/icons/2.png') }}" alt="yunkun blog">
                             </div>
                             <div class="content">
-                                <span class="count">789</span>
-                                <h6>AWARDS WON</h6>
+                                <span class="count">{{count_date}}</span>
+                                <h6>{{'cv_page.counterup2'|trans}}</h6>
                             </div>
                         </div>
                     </div>
@@ -69,11 +62,11 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="counterup">
                             <div class="icon">
-                                <img src="images/icons/3.png" alt="yunkun blog">
+                                <img src="{{ asset('images/icons/3.png') }}" alt="yunkun blog">
                             </div>
                             <div class="content">
-                                <span class="count">2360</span>
-                                <h6>HOURS WORKED</h6>
+                                <span class="count">2560</span>
+                                <h6>{{'cv_page.counterup3'|trans}}</h6>
                             </div>
                         </div>
                     </div>
@@ -82,11 +75,11 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="counterup bg--2">
                             <div class="icon">
-                                <img src="images/icons/4.png" alt="yunkun blog">
+                                <img src="{{ asset('images/icons/4.png') }}" alt="yunkun blog">
                             </div>
                             <div class="content">
-                                <span class="count">2169</span>
-                                <h6>COMPLETE PROJECTS</h6>
+                                <span class="count">127</span>
+                                <h6>{{'cv_page.counterup4'|trans}}</h6>
                             </div>
                         </div>
                     </div>
@@ -101,30 +94,10 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col-lg-6">
                         <div class="skill-container">
-                            <h3>we have skills to show</h3>
+                            <h3>{{'cv_page.yun_skills.title'|trans}}</h3>
                             <!-- Start single skill -->
                             <div class="single-skill">
-                                <p>Web development</p>
-                                <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                        <span class="pen-lable">90%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End single skill -->
-                            <!-- Start single skill -->
-                            <div class="single-skill">
-                                <p>Graphic design</p>
-                                <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%">
-                                        <span class="pen-lable">95%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End single skill -->
-                            <!-- Start single skill -->
-                            <div class="single-skill">
-                                <p>photography</p>
+                                <p>{{'cv_page.yun_skills.skill1'|trans}}</p>
                                 <div class="progress">
                                     <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
                                         <span class="pen-lable">85%</span>
@@ -134,20 +107,40 @@
                             <!-- End single skill -->
                             <!-- Start single skill -->
                             <div class="single-skill">
-                                <p>web design</p>
+                                <p>{{'cv_page.yun_skills.skill2'|trans}}</p>
                                 <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
-                                        <span class="pen-lable">75%</span>
+                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                                        <span class="pen-lable">90%</span>
                                     </div>
                                 </div>
                             </div>
                             <!-- End single skill -->
                             <!-- Start single skill -->
                             <div class="single-skill">
-                                <p>html / css</p>
+                                <p>{{'cv_page.yun_skills.skill3'|trans}}</p>
                                 <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:65%">
-                                        <span class="pen-lable">65%</span>
+                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%">
+                                        <span class="pen-lable">95%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single skill -->
+                            <!-- Start single skill -->
+                            <div class="single-skill">
+                                <p>{{'cv_page.yun_skills.skill4'|trans}}</p>
+                                <div class="progress">
+                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="97" aria-valuemin="0" aria-valuemax="100" style="width:97%">
+                                        <span class="pen-lable">97%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single skill -->
+                            <!-- Start single skill -->
+                            <div class="single-skill">
+                                <p>{{'cv_page.yun_skills.skill5'|trans}}</p>
+                                <div class="progress">
+                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                        <span class="pen-lable">70%</span>
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +149,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="thumb">
-                            <img src="images/about/2.jpg" alt="yunkun blog">
+                            <img src="{{ asset('images/cv/2.jpg') }}" alt="yunkun blog">
                         </div>
                     </div>
                 </div>
@@ -169,15 +162,15 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col-lg-6">
                         <div class="thumb">
-                            <img src="{{ asset('images/cv/1.png') }}" alt="yunkun blog">
+                            <img src="{{ asset('images/cv/3.jpg') }}" alt="yunkun blog">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="skill-container">
-                            <h3>we have skills to show</h3>
+                            <h3>{{'cv_page.kun_skills.title'|trans}}</h3>
                             <!-- Start single skill -->
                             <div class="single-skill">
-                                <p>Web development</p>
+                                <p>{{'cv_page.kun_skills.skill1'|trans}}</p>
                                 <div class="progress">
                                     <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
                                         <span class="pen-lable">90%</span>
@@ -187,7 +180,7 @@
                             <!-- End single skill -->
                             <!-- Start single skill -->
                             <div class="single-skill">
-                                <p>Graphic design</p>
+                                <p>{{'cv_page.kun_skills.skill2'|trans}}</p>
                                 <div class="progress">
                                     <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%">
                                         <span class="pen-lable">95%</span>
@@ -197,7 +190,7 @@
                             <!-- End single skill -->
                             <!-- Start single skill -->
                             <div class="single-skill">
-                                <p>photography</p>
+                                <p>{{'cv_page.kun_skills.skill3'|trans}}</p>
                                 <div class="progress">
                                     <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
                                         <span class="pen-lable">85%</span>
@@ -207,7 +200,7 @@
                             <!-- End single skill -->
                             <!-- Start single skill -->
                             <div class="single-skill">
-                                <p>web design</p>
+                                <p>{{'cv_page.kun_skills.skill4'|trans}}</p>
                                 <div class="progress">
                                     <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
                                         <span class="pen-lable">75%</span>
@@ -217,7 +210,7 @@
                             <!-- End single skill -->
                             <!-- Start single skill -->
                             <div class="single-skill">
-                                <p>html / css</p>
+                                <p>{{'cv_page.kun_skills.skill5'|trans}}</p>
                                 <div class="progress">
                                     <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:65%">
                                         <span class="pen-lable">65%</span>
@@ -239,7 +232,7 @@
                         <div class="testimonial__active owl-carousel owl-theme poss--relative">
                             <!-- Start Single Testimonial -->
                             <div class="testimonial">
-                                <img src="images/icons/quote.png" alt="yunkun blog">
+                                <img src="{{ asset('images/icons/quote.png') }}" alt="yunkun blog">
                                 <p>With no doubt when designing a complex website you will face issues with the compatibility of the theme specially when installing new extensions. You could debate whether it is an issue of the theme or a new extension. PlazaThemes support and response has been amazing, helping me with several issues I came across and got them solved almost the same day. A pleasure to work with them!</p>
                                 <div class="clint">
                                     <span class="clint_name">Jefrey Barlow</span>
@@ -250,7 +243,7 @@
                             <!-- End Single Testimonial -->
                             <!-- Start Single Testimonial -->
                             <div class="testimonial">
-                                <img src="images/icons/quote.png" alt="yunkun blog">
+                                <img src="{{ asset('images/icons/quote.png') }}" alt="yunkun blog">
                                 <p>With no doubt when designing a complex website you will face issues with the compatibility of the theme specially when installing new extensions. You could debate whether it is an issue of the theme or a new extension. PlazaThemes support and response has been amazing, helping me with several issues I came across and got them solved almost the same day. A pleasure to work with them!</p>
                                 <div class="clint">
                                     <span class="clint_name">Jefrey Barlow</span>
@@ -261,7 +254,7 @@
                             <!-- End Single Testimonial -->
                             <!-- Start Single Testimonial -->
                             <div class="testimonial">
-                                <img src="images/icons/quote.png" alt="yunkun blog">
+                                <img src="{{ asset('images/icons/quote.png') }}" alt="yunkun blog">
                                 <p>With no doubt when designing a complex website you will face issues with the compatibility of the theme specially when installing new extensions. You could debate whether it is an issue of the theme or a new extension. PlazaThemes support and response has been amazing, helping me with several issues I came across and got them solved almost the same day. A pleasure to work with them!</p>
                                 <div class="clint">
                                     <span class="clint_name">Jefrey Barlow</span>
