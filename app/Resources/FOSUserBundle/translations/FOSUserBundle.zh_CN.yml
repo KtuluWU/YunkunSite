@@ -192,9 +192,11 @@ cv_page:
     title2: 个人简历
     yun: 吴云
     kun: 许堃
+    today: 至今
+    projects: 项目展示
     presentation1: 我们一起住在巴黎，并且都在工作，拥有CDI合同。
-    presentation2: 吴云的职业是网站开发工程师，参加和负责过许多网站前端和后端的项目，甚至全栈项目，拥有良好的独立能力，和优秀的团队协作以及项目负责能力。
-    presentation3: 许堃的职业是吃屎师，特别爱吃屎，吃屎能力优秀。
+    presentation2: 吴云的职业是网站全栈工程师，参加和负责过许多网站前端和后端的项目，以及全栈项目，拥有良好的独立能力，和优秀的团队协作以及项目负责能力。
+    presentation3: 许堃的职业是市场营销助理，参加过开发亚洲以及欧洲市场的营销项目，拥有良好的环境适应能力和社交能力以及良好的多语沟通交流能力。
     counterup1: 我们走过的城市
     counterup2: 我们在巴黎的天数
     counterup3: 我们工作过的时间
@@ -208,11 +210,43 @@ cv_page:
         skill5: 网站设计 Photoshop
     kun_skills:
         title: 许堃的技能
-        skill1: 网站项目管理能力
-        skill2: 团队合作能力
-        skill3: 前端开发 Javascript, HTML5, CSS3, SCSS, Vue.js, jQuery, Bootstrap4 ...
-        skill4: 后端开发 PHP7, Symfony 4(或者3), Laravel, Database, MySQL, PostgreSQL ...
-        skill5: 网站设计 Photoshop
+        skill1: 团队合作能力
+        skill2: 数字营销
+        skill3: 商业沟通交流
+        skill4: 商业助理
+        skill5: 技术 Office (Word, Excel, PowerPoint...), Wordpress, Wix...
+    yun_exp:
+        title: 吴云的经验
+        date1: 2017/03
+        date2: 2016/03
+        date3: 2016/09
+        date4: 2016/01
+        work1: 网站全栈工程师 (终身合同)
+        work2: 网站全栈开发员 (实习)
+        work3: Socket网络通信设计 (毕业设计)
+        company1: G.I.E Infogreffe (法国巴黎)
+        company2: FWA (法国巴黎)
+        company3: LRI 巴黎南大学计算机研究实验室 (法国巴黎)
+        download: 下载吴云简历完整版(pdf)
+    kun_exp: 
+        title: 许堃的经验
+        date1: 2017/02
+        date2: 2017/08
+        date3: 2016/11
+        date4: 2016/03
+        date5: 2016/04
+        work1: 商业助理 (实习)
+        work2: 市场分析员 (学校实践项目SEMEX)
+        work3: 产品经理助理 (学校实践项目Florette)
+        company1: IFFEN (法国巴黎)
+        company2: SEMEX (法国里昂)
+        company3: 家乐福 (法国里昂)
+        download: 下载许堃简历完整版(pdf)
+    quote: 
+        quote1: 世界上最宽阔的东西是海洋，比海洋更宽阔的是天空，比天空更宽阔的是人的胸怀。
+        quote2: 人的智慧掌握着三把钥匙，一把开启数字，一把开启字母，一把开启音符。知识、思想、幻想就在其中。
+        quote3: 尽量少犯错误，这是人的准则；不犯错误，那是天使的梦想。尘世上的一切都是免不了错误的。
+        author: 维克多·雨果
 
 label_next: 下一页
 label_previous: 上一页

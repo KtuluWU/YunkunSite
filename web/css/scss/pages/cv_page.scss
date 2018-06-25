@@ -1,6 +1,85 @@
 @import '../variables';
-
-.single-skill p{
+.single-skill p {
     text-transform: none !important;
 }
 
+.pr__experience .exp-container {
+    padding: 30px 190px;
+    h3 {
+        color: #3e3e3e;
+        font-size: 30px;
+        font-weight: 800;
+        margin-bottom: 57px;
+        padding-bottom: 28px;
+        position: relative;
+        text-transform: uppercase;
+        &::before {
+            background: #3e3e3e none repeat scroll 0 0;
+            bottom: 0;
+            content: "";
+            height: 3px;
+            left: 0;
+            position: absolute;
+            width: 50px;
+        }
+    }
+
+    .single-exp {
+        font-size: 18px;
+        font-family: Raleway;
+        font-weight: 700;
+        margin: 20px auto;
+        // text-transform: uppercase;
+        .date {
+            color: $theme-color;
+        }
+        .title {
+            color: $color-danger;
+        }
+        .company {
+            color: $color-primary;
+        }
+    }
+
+    .download {
+        margin-top: 20px;
+    }
+}
+
+.yunkun__cv_quote {
+    .cv_quote p{
+        font-family: Raleway;
+        font-weight: bold;
+        font-style: italic;
+    }
+}
+
+@media #{$xlg-layout} {
+    .pr__experience .exp-container {
+        padding: 30px 50px;
+    }
+}
+
+@media #{$lg-layout} {
+    .pr__experience .exp-container {
+        padding: 30px 37px;
+    }
+}
+
+@media #{$md-layout} {
+    .pr__experience .exp-container {
+        padding: 30px 50px;
+    }
+    .pr__progress .kun {
+        padding: 30px 50px;
+    }
+}
+
+@media #{$sm-layout} {
+    .pr__experience .exp-container {
+        padding: 30px 50px;
+    }
+    .pr__progress .kun {
+        padding: 30px 50px;
+    }
+}

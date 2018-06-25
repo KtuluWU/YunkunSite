@@ -10,4 +10,60 @@
 .single-skill p {
   text-transform: none !important; }
 
+.pr__experience .exp-container {
+  padding: 30px 190px; }
+  .pr__experience .exp-container h3 {
+    color: #3e3e3e;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 57px;
+    padding-bottom: 28px;
+    position: relative;
+    text-transform: uppercase; }
+    .pr__experience .exp-container h3::before {
+      background: #3e3e3e none repeat scroll 0 0;
+      bottom: 0;
+      content: "";
+      height: 3px;
+      left: 0;
+      position: absolute;
+      width: 50px; }
+  .pr__experience .exp-container .single-exp {
+    font-size: 18px;
+    font-family: Raleway;
+    font-weight: 700;
+    margin: 20px auto; }
+    .pr__experience .exp-container .single-exp .date {
+      color: #81ad7b; }
+    .pr__experience .exp-container .single-exp .title {
+      color: #d9534f; }
+    .pr__experience .exp-container .single-exp .company {
+      color: #337ab7; }
+  .pr__experience .exp-container .download {
+    margin-top: 20px; }
+
+.yunkun__cv_quote .cv_quote p {
+  font-family: Raleway;
+  font-weight: bold;
+  font-style: italic; }
+
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+  .pr__experience .exp-container {
+    padding: 30px 50px; } }
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .pr__experience .exp-container {
+    padding: 30px 37px; } }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .pr__experience .exp-container {
+    padding: 30px 50px; }
+
+  .pr__progress .kun {
+    padding: 30px 50px; } }
+@media only screen and (max-width: 767px) {
+  .pr__experience .exp-container {
+    padding: 30px 50px; }
+
+  .pr__progress .kun {
+    padding: 30px 50px; } }
+
 /*# sourceMappingURL=cv_page.css.map */

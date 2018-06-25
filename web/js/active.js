@@ -20,7 +20,7 @@
     Instagram List
     Popular Post Activation
     Slider Activation
-    Testimonial Activation
+    CV_quote Activation
     Search Toggler
 
 =================================================================================
@@ -220,9 +220,9 @@
         }
     });
 
-    /*=============  Testimonial Activation  ==============*/
+    /*=============  cv_quote Activation  ==============*/
 
-    $('.testimonial__active').owlCarousel({
+    $('.cv_quote__active').owlCarousel({
         loop: true,
         margin: 0,
         nav: false,
