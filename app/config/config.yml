@@ -82,8 +82,8 @@ fos_user:
     firewall_name: main
     user_class: YunkunBundle\Entity\User
     from_email:
-        address: "noreply@yunkun.org"
-        sender_name: "Yunkun Test"
+        address: "no-reply@yunkun.org"
+        sender_name: "Yunkun云堃"
     use_listener: false
     profile:
         form:

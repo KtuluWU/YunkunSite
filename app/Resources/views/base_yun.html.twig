@@ -38,7 +38,7 @@
                                     <li>
                                         <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
                                     </li>
-                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
+                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
                                     <li class="drop">
                                         <a href="/Blog">{{'summury.blog'|trans}}</a>
                                         <ul class="dropdown">
@@ -129,7 +129,7 @@
                                     <li>
                                         <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
                                     </li>
-                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or 'ROLE_ADMIN' %}
+                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
                                     <li class="drop">
                                         <a href="/Blog">{{'summury.blog'|trans}}</a>
                                         <ul class="dropdown">
@@ -277,6 +277,23 @@
                     {% endfor %} 
                 {% endfor %} 
             {% endif %} #}
+        {% if not app.session.get('_locale') %}
+        <div class="modal-lang">
+            <div class="backgroud"></div>
+            <div class="window text-center">
+                <div class="title">
+                        <div>请选择您的语言</div> 
+                        <div>Veuillez choisir votre langue</div> 
+                        <div>Please choose your language</div> 
+                </div>
+                <div class="lang-block">
+                    <div class="lang"><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}"><img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a></div>
+                    <div class="lang"><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"><img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a></div>
+                    <div class="lang"><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a></div>
+                </div>
+            </div>
+        </div> 
+        {% endif %}
         {% block content %}{% endblock %}
         {% block footer %}
         <!-- Start Footer ARea -->

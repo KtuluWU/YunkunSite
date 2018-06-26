@@ -112,11 +112,11 @@
         .pr__blog__details .container .modal__conrfim__delete .window .lang-block .lang:hover {
           background: #81ad7b; }
 @media only screen and (max-width: 1000px) {
-  .pr__blog__details .container .modal-lang .window {
+  .pr__blog__details .container .modal__conrfim__delete .window {
     left: calc(40% - 40% / 2);
     right: calc(40% - 40% / 2);
     max-width: 70%; }
-    .pr__blog__details .container .modal-lang .window .lang-block {
+    .pr__blog__details .container .modal__conrfim__delete .window .options {
       display: inline; } }
 .pr__blog__details .container .btn__blog__detail {
   padding: 0 40px; }

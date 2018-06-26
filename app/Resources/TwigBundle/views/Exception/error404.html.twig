@@ -1,35 +1,312 @@
-{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
 {% trans_default_domain 'FOSUserBundle' %}
-{% extends 'base_yun.html.twig' %}
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/pages/error_page.css') }}"/>
-{% endblock %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
 
-{% set bradcaump_title = 'summury.error.title1'|trans %}
-{% set breadcrumb_item = 'summury.error.title2'|trans %}
-{% block content %}
-    <!-- Start Error PAge -->
-    <div class="pr__not__found">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-                    <div class="thumb">
-                        <img src="{{ asset('images/icons/404.png') }}" alt="yunkun blog">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>
+        Yunkun Error
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ asset('yunkun_favicon.png') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/plugins.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/pages/error_page.css') }}" />
+</head>
+
+<body>
+    <!-- Main wrapper -->
+    <div class="wrapper" id="wrapper">
+        <!-- Start Header Area -->
+        <header class="header pr__header header--three var--2">
+            <!-- Start Header Top -->
+            <div class="pr__header__top bg--cart-1">
+                <div class="container container-yunkun">
+                    <div class="row align-items-center">
+                        <div class="col-lg-11 col-md-11 d-none d-lg-block">
+                            <nav class="mainmenu__nav">
+                                <ul class="mainmenu">
+                                    <li>
+                                        <a href="/">{{'summury.home'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
+                                    </li>
+                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
+                                    <li class="drop">
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    {% else %}
+                                    <li>
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                    </li>
+                                    {% endif %} {% else %}
+                                    <li>
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                    </li>
+                                    {% endif %}
+                                    <li>
+                                        <a href="#">{{'summury.projects'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/CV">{{'summury.cv'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Contact">{{'summury.contactus'|trans}}</a>
+                                    </li>
+                                    {% if not app.user %}
+                                    <li>
+                                        <a href="/login">{{'layout.login'|trans}}</a>
+                                    </li>
+                                    {% elseif app.user %}
+                                    <li class="drop">
+                                        <a>
+                                            <b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%':
+                                                app.user.lastname}, 'FOSUserBundle')}}</b>
+                                        </a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d
+                                                    H:i:s')}, 'FOSUserBundle')}}
+                                                    <br> {{'summury.admin.text3'|trans}}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/profile">{{'user_page.title1'|trans}}</a>
+                                            </li>
+                                            <li>
+                                                <a href="/logout">{{'layout.logout'|trans}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+                            <div class="search__trigger">
+                                <a class="search__active" href="#">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row  d-none">
+                        <div class="col-lg-12">
+                            <nav class="mobilemenu__nav">
+                                <ul>
+                                    <li>
+                                        <a href="/">{{'summury.home'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
+                                    </li>
+                                    {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
+                                    <li class="drop">
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    {% else %}
+                                    <li>
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                    </li>
+                                    {% endif %} {% else %}
+                                    <li>
+                                        <a href="/Blog">{{'summury.blog'|trans}}</a>
+                                    </li>
+                                    {% endif %}
+                                    <li>
+                                        <a href="#">{{'summury.projects'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/CV">{{'summury.cv'|trans}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Contact">{{'summury.contactus'|trans}}</a>
+                                    </li>
+                                    {% if not app.user %}
+                                    <li>
+                                        <a href="/login">{{'layout.login'|trans}}</a>
+                                    </li>
+                                    {% elseif app.user %}
+                                    <li class="drop">
+                                        <a>
+                                            <b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%':
+                                                app.user.lastname}, 'FOSUserBundle')}}</b>
+                                        </a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d
+                                                    H:i:s')}, 'FOSUserBundle')}}
+                                                    <br> {{'summury.admin.text3'|trans}}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/profile">{{'user_page.title1'|trans}}</a>
+                                            </li>
+                                            <li>
+                                                <a href="/logout">{{'layout.logout'|trans}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="mobile-menu d-block d-lg-none"></div>
+                    <!-- Mobile Menu -->
+                </div>
+            </div>
+            <!-- End Header Top -->
+            <!-- Start Logo -->
+            <div class="yunkun__logo__sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="{{ asset('images/logo/yunkun_Logo1.png') }}" class="index-logo" alt="yunkun blog">
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-12 sm-mt--30 md-mt--30">
-                    <div class="content">
-                        <h6> {{'error_page.text1'|trans}} </h6>
-                        <span>{{'error_page.text2'|trans}}</span>
-                        <div class="input__box">
-                            <input type="text" placeholder={{'error_page.text3'|trans}}>
-                            <button>{{'error_page.text4'|trans}}</button>
+            </div>
+            <!-- End Logo -->
+        </header>
+        <!-- End Header Area -->
+        <!-- Start Search Popup -->
+        <div class="box-search-content search_active block-bg close__top">
+            <form id="search_mini_form" class="minisearch" action="#">
+                <div class="field__search">
+                    <input type="text" placeholder="Search entire store here...">
+                    <div class="action">
+                        <a href="#">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                </div>
+            </form>
+            <div class="close__wrap">
+                <span>close</span>
+            </div>
+        </div>
+        <!-- End Search Popup -->
+        <!-- Start Bradcaump area -->
+        <div class="pr__bradcaump__area bg-image--7">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bradcaump__inner text-center">
+                            <h2 class="bradcaump-title">
+                                {{'summury.error.title1'|trans}}
+                            </h2>
+                            <nav class="bradcaump-content">
+                                <a class="breadcrumb_item" href="/">{{'summury.home'|trans}}</a>
+                                <span class="brd-separetor">/</span>
+                                <span class="breadcrumb_item active">
+                                    {{'summury.error.title2'|trans}}
+                                </span>
+                            </nav>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- End Bradcaump area -->
+        <!-- Start Error PAge -->
+        <div class="pr__not__found">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="thumb">
+                            <img src="{{ asset('images/icons/404.png') }}" alt="yunkun blog">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 sm-mt--30 md-mt--30">
+                        <div class="content">
+                            <h6> {{'error_page.text1'|trans}} </h6>
+                            <span>{{'error_page.text2'|trans}}</span>
+                            <div class="input__box">
+                                <input type="text" placeholder={{ 'error_page.text3'|trans}}>
+                                <button>{{'error_page.text4'|trans}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Error PAge -->
+        <!-- Start Footer ARea -->
+        <footer class="yunkun__footer">
+            <!-- Start Instagram Area -->
+            <div class="yunkun__photos">
+                <ul class="photos__list owl-carousel owl-theme">
+                    <li>
+                        <img src="{{ asset('images/footer/1.png') }}" alt="panora blog">
+                    </li>
+                    <li>
+                        <img src="{{ asset('images/footer/2.png') }}" alt="panora blog">
+                    </li>
+                    <li>
+                        <img src="{{ asset('images/footer/3.png') }}" alt="panora blog">
+                    </li>
+                    <li>
+                        <img src="{{ asset('images/footer/4.png') }}" alt="panora blog">
+                    </li>
+                    <li>
+                        <img src="{{ asset('images/footer/5.png') }}" alt="panora blog">
+                    </li>
+                    <li>
+                        <img src="{{ asset('images/footer/6.png') }}" alt="panora blog">
+                    </li>
+                </ul>
+            </div>
+            <!-- End Instagram Area -->
+            <!-- Copyright Area -->
+            <div class="copyright__area bg--white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 col-sm-6">
+                            <div class="ft__left">
+                                <p>Copyright © 2017-{{date()|date('Y')}}, Yun &amp; Kun. All Rights Reserved</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12 col-sm-6">
+                            <div class="ft__right">
+                                <p>Develop by Yun</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright Area -->
+        </footer>
     </div>
-    <!-- End Error PAge -->
-{% endblock %}
+    <!-- //Main wrapper -->
+    <script src="{{ asset('js/vendor/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/plugins.js') }}"></script>
+    <script src="{{ asset('js/active.js') }}"></script>
+</body>
+
+</html>

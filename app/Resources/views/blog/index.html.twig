@@ -28,7 +28,7 @@
                         </ul>
                     </div>
                     <div class="thumb text-center">
-                        <a href="./Blog-detail/{{blog.Title}}"><img src="{{ asset('uploads/images/blog/' ~ blog.image) }}" alt="yunkun blog" style="max-height:800px"></a>
+                        <a href="./Blog-detail/{{blog.Title}}"><img src="{{ asset('uploads/images/blog/' ~ blog.image) }}" alt="yunkun blog" style="max-height:800px;max-width:100%"></a>
                     </div>
                     <div class="content text-justify">
                         {{blog.PreHtml|raw}} ...
@@ -39,7 +39,7 @@
                     <div class="blog__footer">
                         <div class="share">
                             {% if not blog.EditDate|date('Y-m-d H:i:s') is same as(blog.PostDate|date('Y-m-d H:i:s')) or not blog.Editor is same as(blog.Author) %}
-                            <p>{{'index_page.by'|trans}} {{blog.Editor}} {{'index_page.edited'|trans}} {{blog.EditDate|date('Y-m-d H:i:s')}}</p>
+                            <p>{{'index_page.edited'|trans}} {{blog.EditDate|date('Y-m-d H:i:s')}} {{'index_page.by'|trans}} {{blog.Editor}}</p>
                             {% endif %}
                         </div>
                     </div>

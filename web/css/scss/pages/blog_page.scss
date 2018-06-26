@@ -137,12 +137,12 @@
             }
         }
         @media only screen and (max-width: 1000px) {
-            .modal-lang {
+            .modal__conrfim__delete {
                 .window {
                     left: calc(40% - 40% / 2);
                     right: calc(40% - 40% / 2);
                     max-width: 70%;
-                    .lang-block {
+                    .options {
                         display: inline;
                     }
                 }

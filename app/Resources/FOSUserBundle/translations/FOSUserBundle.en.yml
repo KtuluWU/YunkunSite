@@ -52,11 +52,8 @@ registration:
             the Team.
 
 resetting:
-    check_email: |
-        An email has been sent. It contains a link you must click to reset your password.
-        Note: You can only request a new password once within %tokenLifetime% hours.
-
-        If you don't get an email check your spam folder or try again.
+    check_email1: An email has been sent. It contains a link you must click to reset your password.
+    check_email2: If you don't get an email check your spam folder or try again.
     request:
         username: 'Username or email address'
         submit: 'Reset password'
@@ -100,6 +97,7 @@ form:
         image1: Main image
         image2: Left image
         image3: Right image
+        category: Category
     #####################
 
 #######################
@@ -126,7 +124,8 @@ summury:
     login: 
         email_or_username: Username or Email
     lang: Language/语言
-
+label_next: Next
+label_previous: Previous
 variables:
     sex:
         M: Male
@@ -134,7 +133,7 @@ variables:
     roles:
         ROLE_SUPER_ADMIN: Super Administrator
         ROLE_ADMIN: Administrator
-        ROLE_CV_ACCES: Recruiter
+        ROLE_RECRUITER: Recruiter
         ROLE_USER: User
 
 error_page: 
@@ -143,16 +142,13 @@ error_page:
     text3: Search for pages...
     text4: Search
     text5: Sorry！You are not allowed to access the current page...
-    text6: This page is reserved for administrators, please contact the administrator of the site。Try the search below to find matching pages ：
+    text6: This page is reserved for recruiters and administrators, please contact
+    text7: to apply a recruiter account.
 
 user_page:
     title1: Profile
     title2: Profile
     title3: Profile modification
-
-cv_page:
-    title1: Curriculum Vitae
-    title2: Curriculum Vitae
 
 profile_page:
     username: Username
@@ -186,3 +182,82 @@ blog_page:
         title: Are you sure you want to delete this blog? This operation can not be resumed.
         yes: Yes, delete
         no: No, cancel
+
+index_page: 
+    blog_author: Author
+    readmore: Read More
+    youtube: Our Youtube channel
+    recent: Recent posts
+    more_blog: More
+    by: By
+    edited: Edited
+
+cv_page:
+    title1: Curriculum Vitae
+    title2: Curriculum Vitae
+    yun: Yun WU
+    kun: Kun XU
+    today: "~"
+    projects: Projects
+    presentation1: We live and work in Paris, on permanent contract.
+    presentation2: Yun's job is Full-Stack Web Developer, realized several big projects on Front-end, Back-end, as well as both together (Full-Stack). Good ability to work alone and in a team, very good communication with the team, and project responsibility.
+    presentation3: Kun's job is Commercial Assistant, realized several projects on Asian and European marketing development, good ability of adaptability and social skills, and good international communication.
+    counterup1: The cities we walk through
+    counterup2: Our days in Paris
+    counterup3: Our hours worked
+    counterup4: Our projects realized
+    yun_skills:
+        title: Yun's skills
+        skill1: Project management capability
+        skill2: Ability to work in a team
+        skill3: "Front-end: Javascript, HTML5, CSS3, SCSS, Vue.js, jQuery, Bootstrap4 ..."
+        skill4: "Back-end: PHP7, Symfony 4(or 3), Laravel, Database, MySQL, PostgreSQL ..."
+        skill5: "Web design: Photoshop"
+    kun_skills:
+        title: Kun's skills
+        skill1: Ability to work in a team
+        skill2: Digital Marketing
+        skill3: Communication
+        skill4: Commercial assistant
+        skill5: "Technologies: Office (Word, Excel, PowerPoint...), Wordpress, Wix..."
+    yun_exp:
+        title: Yun's experiences
+        date1: 2017/03
+        date2: 2016/03
+        date3: 2016/09
+        date4: 2016/01
+        work1: Web Full-Stack Developer (Permanent)
+        work2: Web Developer (Internship)
+        work3: Socket network communication design (End of studies project)
+        company1: G.I.E Infogreffe (France Paris)
+        company2: FWA (France Paris)
+        company3: Computer Research Laboratory (France Paris)
+        download: Download Yun's CV (pdf)
+    kun_exp: 
+        title: Kun's experiences
+        date1: 2017/02
+        date2: 2017/08
+        date3: 2016/11
+        date4: 2016/03
+        date5: 2016/04
+        work1: Commercial assistant (Internship)
+        work2: Marketing analyst (Project "SEMEX")
+        work3: Assistant project manager (Projet "Florette")
+        company1: IFFEN (France Paris)
+        company2: SEMEX (France Lyon)
+        company3: Carrefour (France Lyon)
+        download: Download Kun's CV (pdf)
+    quote: 
+        quote1: There is one spectacle grander than the sea, that is the sky; There is one spectacle grander than the sky, that is the interior of the soul.
+        quote2: "The mind of man has three keys which open everything: the number, the letter, the note. Know, think, dream. Everything is here."
+        quote3: To commit the least possible sin is the law for man. To live without sin is the dream of an angel. Everything terrestrial is subject to sin. Sin is a gravitation.
+        author: Victor Hugo
+
+contact_page:
+    contactus: Contact Us
+    username: Username
+    email: Email
+    subject: Subject (e.g. I would like to apply an account)
+    message: Message
+    btn: Send
+    email_direct: Or email us directly

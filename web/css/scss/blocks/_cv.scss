@@ -1,10 +1,10 @@
 @import "../variables";
 @import "../mixins";
 /*----------------------
-    About Styles 
+    CV Styles 
 ------------------------*/
 
-.pr__about__area {
+.cv_presentation_area {
 	.container-fluid {
 		margin-left: -15px;
 		margin-right: -15px;
@@ -30,7 +30,7 @@
 				margin-bottom: 63px;
 				padding: 0 10%;
 			}
-			.about__btn {
+			.cv__btn {
 				border: 2px solid #3e3e3e;
 				border-radius: 5px;
 				color: #3e3e3e;
@@ -179,7 +179,7 @@
 	text-transform: uppercase;
 }
 
-.testimonial {
+.cv_quote {
 	padding-bottom: 140px;
 	padding-top: 76px;
 	text-align: center;
@@ -209,13 +209,13 @@
 	}
 }
 
-.owl-carousel .owl-item .testimonial img {
+.owl-carousel .owl-item .cv_quote img {
 	display: block;
 	margin: 0 auto 40px;
 	width: auto;
 }
 
-.testimonial__active .owl-dots {
+.cv_quote__active .owl-dots {
 	bottom: 80px;
 	left: 50%;
 	position: absolute;
@@ -223,12 +223,12 @@
 	transform: translateX(-50%);
 }
 
-.testimonial__active.owl-theme .owl-dots .owl-dot.active span,
-.testimonial__active.owl-theme .owl-dots .owl-dot:hover span {
+.cv_quote__active.owl-theme .owl-dots .owl-dot.active span,
+.cv_quote__active.owl-theme .owl-dots .owl-dot:hover span {
 	background: $theme-color none repeat scroll 0 0;
 }
 
-.testimonial__active.owl-theme .owl-dots .owl-dot span {
+.cv_quote__active.owl-theme .owl-dots .owl-dot span {
 	background: #7f7f7f none repeat scroll 0 0;
 	border-radius: 100%;
 	margin: 5px 4px;
@@ -344,12 +344,12 @@
 @media #{$xx-layout} {}
 
 @media #{$xlg-layout} {
-	.pr__about__area .container-fluid .content h2 {
+	.cv_presentation_area .container-fluid .content h2 {
 		font-size: 25px;
 		line-height: 38px;
 		margin-bottom: 8px;
 	}
-	.pr__about__area .container-fluid .content p {
+	.cv_presentation_area .container-fluid .content p {
 		font-size: 14px;
 		line-height: 24px;
 		margin-bottom: 35px;
@@ -368,12 +368,12 @@
 }
 
 @media #{$lg-layout} {
-	.pr__about__area .container-fluid .content h2 {
+	.cv_presentation_area .container-fluid .content h2 {
 		font-size: 25px;
 		line-height: 38px;
 		margin-bottom: 8px;
 	}
-	.pr__about__area .container-fluid .content p {
+	.cv_presentation_area .container-fluid .content p {
 		font-size: 14px;
 		line-height: 24px;
 		margin-bottom: 35px;
@@ -389,23 +389,23 @@
 		margin-bottom: 33px;
 		padding-bottom: 17px;
 	}
-	.pr__about__area {
+	.cv_presentation_area {
 		padding: 70px 0;
 	}
 }
 
 @media #{$md-layout} {
-	.pr__about__area .container-fluid {
+	.cv_presentation_area .container-fluid {
 		width: auto;
 	}
-	.pr__about__area .container-fluid .content {
+	.cv_presentation_area .container-fluid .content {
 		margin-top: 34px;
 	}
-	.pr__about__area,
+	.cv_presentation_area,
 	.pr__progress {
 		padding: 70px 0;
 	}
-	.pr__about__area .container-fluid .content h2 {
+	.cv_presentation_area .container-fluid .content h2 {
 		margin-bottom: 32px;
 	}
 	.pr__progress .container-fluid {
@@ -423,17 +423,17 @@
 }
 
 @media #{$sm-layout} {
-	.pr__about__area .container-fluid {
+	.cv_presentation_area .container-fluid {
 		width: auto;
 	}
-	.pr__about__area .container-fluid .content {
+	.cv_presentation_area .container-fluid .content {
 		margin-top: 34px;
 	}
-	.pr__about__area,
+	.cv_presentation_area,
 	.pr__progress {
 		padding: 70px 0;
 	}
-	.pr__about__area .container-fluid .content h2 {
+	.cv_presentation_area .container-fluid .content h2 {
 		margin-bottom: 32px;
 	}
 	.pr__progress .container-fluid {

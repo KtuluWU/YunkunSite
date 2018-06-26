@@ -23,6 +23,11 @@ services:
     tags: 
       - { name: form.type, alis: app_edit_blog }
 
+  app.form.contact:
+    class: YunkunBundle\Form\ContactType
+    tags: 
+      - { name: form.type, alis: app_contact }
+
 #  app.locale_listener:
 #       class: YunkunBundle\EventListener\LocaleListener
 #       arguments: ["%kernel.default_locale%"]

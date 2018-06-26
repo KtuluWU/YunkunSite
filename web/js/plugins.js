@@ -163,7 +163,7 @@ a.fn.owlCarousel.Constructor.Plugins.Animate=e}(window.Zepto||window.jQuery,wind
 
 
 /*================= Contact Form ================*/ 
-
+/*
 $(function() {
 
   // Get the form.
@@ -212,7 +212,7 @@ $(function() {
   });
 
 });
-
+*/
 
 
 
