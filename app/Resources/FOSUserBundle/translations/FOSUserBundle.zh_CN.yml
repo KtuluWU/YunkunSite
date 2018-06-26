@@ -254,4 +254,5 @@ contact_page:
     subject: 主题
     message: 内容
     btn: 发送
+    email_direct: 或者直接发送邮件联系我们
 

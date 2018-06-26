@@ -260,3 +260,4 @@ contact_page:
     subject: Subject (e.g. I would like to apply an account)
     message: Message
     btn: Send
+    email_direct: Or email us directly

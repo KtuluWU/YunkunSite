@@ -255,3 +255,4 @@ contact_page:
     subject: Sujet (e.g. Je voudrais demander un compte)
     message: Message
     btn: Envoyer
+    email_direct: Ou écrivez-nous directement
