@@ -2,6 +2,8 @@
 namespace YunkunBundle\Controller;
 
 use YunkunBundle\Entity\Lang;
+use YunkunBundle\Form\ContactType;
+use YunkunBundle\Entity\Contact;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route; /* 路由 */
 use Symfony\Bundle\FrameworkBundle\Controller\Controller; /* 基类 */
 use Symfony\Component\HttpFoundation\Request;
@@ -37,11 +39,43 @@ class IndexController extends Controller
     /**
      * @Route("/Contact", name="contactpage")
      */
-    public function contactAction()
-    {
+    public function contactAction(Request $request)
+    {   
+        $contact = new Contact();
+
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $username = $contact->getContactUsername();
+            $email = $contact->getContactEmail();
+            $subject = $contact->getContactSubject();
+            $message = $contact->getContactMessage();
+
+            $subject_to_send = "Contact YunKun: ".$subject;
+
+            $mail_to_send = \Swift_Message::newInstance()
+                ->setSubject($subject_to_send)
+                ->setFrom('noreply@yunkun.org')
+                ->setTo('contact@yunkun.org')
+                ->setBody(
+                    $this->renderView(
+                        'email/email_contact.html.twig',array(
+                            'user_email' => $email,
+                            'user_message' => $message,
+                            'user_name' => $username
+                    )),
+                    'text/html'
+                );
+            $this->get('mailer')->send($mail_to_send);
+
+            return $this->redirectToRoute('homepage');
+        }
+
         return $this->render(
-            'portal/contact.html.twig'
-        );
+            'portal/contact.html.twig', array(
+                'form' => $form->createView(),
+        ));
     }
 
     /**

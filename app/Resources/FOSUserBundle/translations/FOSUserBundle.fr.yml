@@ -48,11 +48,8 @@ registration:
             L'équipe Yunkun
 
 resetting:
-    check_email: |
-        Un e-mail a été envoyé. Il contient un lien sur lequel il vous faudra cliquer pour réinitialiser votre mot de passe.
-        Remarque : Vous ne pouvez demander un nouveau mot de passe que toutes les %tokenLifetime% heures.
-
-        Si vous ne recevez pas un email, vérifiez votre dossier spam ou essayez à nouveau.
+    check_email1: Un e-mail a été envoyé. Il contient un lien sur lequel il vous faudra cliquer pour réinitialiser votre mot de passe.
+    check_email2: Si vous ne recevez pas un email, vérifiez votre dossier spam ou essayez à nouveau.
 
     request:
         username: 'Nom d''utilisateur ou adresse e-mail'
@@ -122,7 +119,8 @@ summury:
     login: 
         email_or_username: Nom d’utilisateur ou Email
     lang: Langue/语言
-
+label_next: Suivante
+label_previous: Précedente
 variables:
     sex:
         M: Monsieur
@@ -139,7 +137,8 @@ error_page:
     text3: Recherche...
     text4: Chercher
     text5: Désolé！Vous n'êtes pas autorisé à accéder à cette page...
-    text6: Cette page est reservée aux administrateurs, veuillez contacter l'administrateur du site. Essayez de cherche une page ：
+    text6: Cette page est reservée aux recruteurs et administrateurs, veuillez contacter
+    text7: pour demander un compte de recruteur.
 
 user_page:
     title1: Profil
@@ -249,5 +248,10 @@ cv_page:
         quote3: Le moins de péché possible, c'est la loi de l'homme. Pas de péché du tout est le rêve de l'ange. Tout ce qui est terrestre est soumis au péché. Le péché est une gravitation. 
         author: Victor Hugo
 
-label_next: Suivante
-label_previous: Précedente
+contact_page:
+    contactus: Contactez nous
+    username: Nom d'utilisateur
+    email: Email
+    subject: Sujet (e.g. Je voudrais demander un compte)
+    message: Message
+    btn: Envoyer

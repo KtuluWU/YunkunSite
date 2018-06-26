@@ -46,12 +46,8 @@ registration:
             Yunkun网站团队
 
 resetting:
-    check_email: |
-        系统向您注册的邮箱发送了一封包含激活链接的邮件，请访问该链接以启用你的帐户。
-        注意 : 您只能在 %tokenLifetime% 小时内申请一次重置密码。
-
-        如果您没有收到电子邮件，请检查垃圾邮件文件夹或重试。
-
+    check_email1: 系统向您注册的邮箱发送了一封包含激活链接的邮件，请访问该链接以启用你的帐户。
+    check_email2: 如果您没有收到电子邮件，请检查垃圾邮件文件夹或重试。
     request:
         username: 用户名或邮箱
         submit: 重置密码
@@ -67,7 +63,7 @@ resetting:
             请访问 %confirmationUrl% 以重置你的帐户密码。
 
             祝好
-            YunKun团队
+            YunKun网站团队
 
 layout:
     logout: 退出
@@ -121,7 +117,8 @@ summury:
     login: 
         email_or_username: 用户名或邮箱
     lang: 语言/Language
-
+label_next: 下一页
+label_previous: 上一页
 variables:
     sex:
         M: 男
@@ -138,7 +135,9 @@ error_page:
     text3: 搜索页面...
     text4: 查询
     text5: 抱歉！您无权访问当前页面...
-    text6: 该页面仅供超级管理员访问，请联系网站管理员。尝试搜索一下页面吧：
+    text6: 该页面仅供招聘者或者管理员访问，请联系
+    text7: 申请招聘者账户。
+    
 
 user_page:
     title1: 个人主页
@@ -248,5 +247,11 @@ cv_page:
         quote3: 尽量少犯错误，这是人的准则；不犯错误，那是天使的梦想。尘世上的一切都是免不了错误的。
         author: 维克多·雨果
 
-label_next: 下一页
-label_previous: 上一页
+contact_page:
+    contactus: 联系我们
+    username: 用户名
+    email: 邮箱
+    subject: 主题
+    message: 内容
+    btn: 发送
+

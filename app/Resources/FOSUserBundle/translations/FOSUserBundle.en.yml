@@ -52,11 +52,8 @@ registration:
             the Team.
 
 resetting:
-    check_email: |
-        An email has been sent. It contains a link you must click to reset your password.
-        Note: You can only request a new password once within %tokenLifetime% hours.
-
-        If you don't get an email check your spam folder or try again.
+    check_email1: An email has been sent. It contains a link you must click to reset your password.
+    check_email2: If you don't get an email check your spam folder or try again.
     request:
         username: 'Username or email address'
         submit: 'Reset password'
@@ -127,7 +124,8 @@ summury:
     login: 
         email_or_username: Username or Email
     lang: Language/语言
-
+label_next: Next
+label_previous: Previous
 variables:
     sex:
         M: Male
@@ -144,7 +142,8 @@ error_page:
     text3: Search for pages...
     text4: Search
     text5: Sorry！You are not allowed to access the current page...
-    text6: This page is reserved for administrators, please contact the administrator of the site。Try the search below to find matching pages ：
+    text6: This page is reserved for recruiters and administrators, please contact
+    text7: to apply a recruiter account.
 
 user_page:
     title1: Profile
@@ -254,5 +253,10 @@ cv_page:
         quote3: To commit the least possible sin is the law for man. To live without sin is the dream of an angel. Everything terrestrial is subject to sin. Sin is a gravitation.
         author: Victor Hugo
 
-label_next: Next
-label_previous: Previous
+contact_page:
+    contactus: Contact Us
+    username: Username
+    email: Email
+    subject: Subject (e.g. I would like to apply an account)
+    message: Message
+    btn: Send

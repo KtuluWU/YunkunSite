@@ -14,60 +14,30 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="contact__form">
-                        <h2 class="ct__title">TELL US</h2>
-                        <form id="contact-form" action="mail.php" method="post">
+                        <h2 class="ct__title">{{'contact_page.contactus'|trans}}</h2>
+                        {{ form_start(form) }}
                             <div class="single-contact-form space-between">
-                                <input type="text" name="name" placeholder="Your Name">
-                                <input type="email" name="email" placeholder="Your Email">
+                                {{ form_widget(form.contact_username, {'attr': {'placeholder': 'contact_page.username'}}) }}
+                                {{ form_widget(form.contact_email, {'attr': {'placeholder': 'contact_page.email'}}) }}
                             </div>
                             <div class="single-contact-form">
-                                <input type="text" name="subject" placeholder="Subject">
+                                {{ form_widget(form.contact_subject, {'attr': {'placeholder': 'contact_page.subject'}}) }}
                             </div>
                             <div class="single-contact-form message">
-                                <textarea name="message" placeholder="Message"></textarea>
+                                {{ form_widget(form.contact_message, {'attr': {'placeholder': 'contact_page.message'}}) }}
                             </div>
                             <div class="contact-btn">
-                                <button type="submit" class="pr__btn">Send message</button>
+                                <input type="submit" class="pr__btn" value="{{'contact_page.btn'|trans}}">
                             </div>
-                        </form>
+                        {{ form_end(form) }}
                         <div class="form-output">
                             <p class="form-messege"></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12 sm-mt--30 md-mt--30">
-                    <div class="contact__address">
-                        <h2 class="ct__title">CONTACT US</h2>
-                        <div class="yunkun__address">
-                            <p>We are a team of designers and developers that create high quality Magento, Prestashop, Opencart.</p>
-
-                            <div class="address">
-                                <div class="icon">
-                                    <i class="fa fa-map-marker"></i>
-                                </div>
-                                <p>Address : 7 Avenue de Paris
-                                    <br>
-                                    94300, Vincennes, France.</p>
-                            </div>
-                            <div class="address">
-                                <div class="icon">
-                                    <i class="fa fa-envelope"></i>
-                                </div>
-                                <p>yun@yunkun.org</p>
-                            </div>
-                            <div class="address">
-                                <div class="icon">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                                <p>06 50 66 53 16</p>
-                            </div>
-                        </div>
-                        {# <div class="working__hours">
-                                <h4>Working hours</h4>
-                                <p>
-                                    <span>Monday - Saturday:</span>
-                                    08AM - 22PM</p>
-                            </div> #}
+                    <div class="text-center">
+                        <img src="{{ asset('images/bg/10.jpg') }}" style="max-height:500px;max-width:100%">
                     </div>
                 </div>
             </div>
