@@ -29,8 +29,9 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 login_path: /login
                 check_path: /login_check
+                use_referer: true
                 default_target_path: /profile
-                always_use_default_target_path: true
+                always_use_default_target_path: false
             logout:       
                 path: /logout
                 target: /
