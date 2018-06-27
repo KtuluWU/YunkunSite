@@ -291,7 +291,7 @@
     }
 }
 
-.panora__comment {
+.yunkun__blog__comment {
     margin-top: 70px;
     h2 {
         border-bottom: 1px solid #e1e1e1;
@@ -336,7 +336,7 @@
             }
         }
         .content {
-            flex-basis: 92%;
+            flex-basis: 100%;
             span {
                 color: #949494;
                 font-style: italic;
@@ -372,7 +372,7 @@
             input {
                 background: #f2f2f2 none repeat scroll 0 0;
                 border: 0 none;
-                color: #b4b4b4;
+                // color: #b4b4b4;
                 height: 55px;
                 margin-top: 20px;
                 padding: 0 20px;
@@ -442,7 +442,7 @@
 @media #{$lg-layout} {}
 
 @media #{$md-layout} {
-    .panora__comment .comment .thumb {
+    .yunkun__blog__comment .comment .thumb {
         flex-basis: 16%;
     }
 }
@@ -463,7 +463,7 @@
     .blog__quote .bl__dtl__meta .comment {
         margin: 11px 0;
     }
-    .panora__comment .comment .thumb {
+    .yunkun__blog__comment .comment .thumb {
         flex-basis: 25%;
     }
 }
@@ -471,10 +471,10 @@
 @media #{$xs-layout} {}
 
 @media #{$xxs-layout} {
-    .panora__comment .comment .thumb {
+    .yunkun__blog__comment .comment .thumb {
         flex-basis: 44%;
     }
-    .panora__comment .comment.comment__reply {
+    .yunkun__blog__comment .comment.comment__reply {
         margin-left: 0;
     }
     .comment__form .input__box {

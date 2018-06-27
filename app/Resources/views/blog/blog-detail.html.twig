@@ -24,7 +24,7 @@
                             </ul>
                         </div>
                         <div class="thumb text-center">
-                            <img src="{{ asset('uploads/images/blog/' ~ imageName1) }}" alt="panora blog" style="max-height:800px;max-width:100%">
+                            <img src="{{ asset('uploads/images/blog/' ~ imageName1) }}" alt="yunkun blog" style="max-height:800px;max-width:100%">
                         </div>
                         <div class="content">
                             {{pre_html|raw}}
@@ -34,8 +34,8 @@
                     <div class="blog__quote">
                         <div class="text-justify">{{article_html|raw}}</div>
                         <ul class="blog__img text-center">
-                            <li><img src="{{ asset('uploads/images/blog/' ~ imageName2) }}" alt="panora blog" class="img_left" style="max-height:400px;max-width:100%"></li>
-                            <li><img src="{{ asset('uploads/images/blog/' ~ imageName3) }}" alt="panora blog" class="img_right" style="max-height:400px;max-width:100%"></li>
+                            <li><img src="{{ asset('uploads/images/blog/' ~ imageName2) }}" alt="yunkun blog" class="img_left" style="max-height:400px;max-width:100%"></li>
+                            <li><img src="{{ asset('uploads/images/blog/' ~ imageName3) }}" alt="yunkun blog" class="img_right" style="max-height:400px;max-width:100%"></li>
                         </ul>
                        <!--  <div class="bl__dtl__meta">
                             <div class="share">
@@ -51,7 +51,7 @@
                     <div class="blog__footer">
                         <div class="share">
                             {% if not edit_date|date('Y-m-d H:i:s') is same as(post_date|date('Y-m-d H:i:s')) or not editor is same as(author) %}
-                            <p>{{'index_page.edited'|trans}} {{edit_date|date('Y-m-d H:i:s')}} {{'index_page.by'|trans}} {{editor}}</p>
+                            <p>{{'index_page.edited'|trans}} {{edit_date|date('Y-m-d H:i')}} {{'index_page.by'|trans}} {{editor}}</p>
                             {% endif %}
                         </div>
                     </div>
@@ -73,6 +73,64 @@
                             </div>
                         {% endif %}
                     {% endif %}
+                    <!-- Start Comment Area -->
+                    <div class="yunkun__blog__comment">
+                        <h2>{{'blog_page.comment.title'|trans}}</h2>
+                        {% if comment_to_detail is empty %}
+                        <div>{{'blog_page.comment.firstcomment'|trans}}</div>
+                        {% else %}
+                        {% for blog_comment in comment_to_detail %}
+                        <div class="comment-block">
+                            <!-- Start Single Comment -->
+                            <div class="comment">
+                                <div class="content">
+                                    <div class="title">
+                                        <h4>{{blog_comment.commentor}}</h4>
+                                        <!-- <a href="#comment__form">Reply</a> -->
+                                    </div>
+                                    <span>{{blog_comment.post_date|date('Y-m-d H:i')}}</span>
+                                    <p>{{blog_comment.comment}}</p>
+                                </div>
+                            </div>
+                            <!-- End Single Comment -->
+                            {#<!-- Start Single Comment -->
+                            <div class="comment comment__reply">
+                                <div class="content">
+                                    <div class="title">
+                                        <h4>JOHN NGUYEN</h4>
+                                        <!-- <a href="#comment__form">Reply</a> -->
+                                    </div>
+                                    <span>July 15, 2018 at 2:39 am</span>
+                                    <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed.</p>
+                                </div>
+                            </div>
+                            <!-- End Single Comment -->#}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <!-- End Comment Area -->
+                    <!-- Start Comment Form -->
+                    <div class="comment__form" id="comment__form">
+                        <h2>{{'blog_page.comment.title_form'|trans}}</h2>
+                        {{ form_start(form) }}
+                        <div class="input__box">
+                            <div class="box__single">
+                                {% if app.user %}
+                                {% set name = app.user.firstname ~ " " ~ app.user.lastname %}
+                                {{ form_widget(form.commentor, {'attr': {'value': name}}) }}
+                                {% else %}
+                                {{ form_widget(form.commentor) }}
+                                {% endif %}
+                            </div>
+                            <div class="box__single">
+                                {{ form_widget(form.comment) }}
+                            </div>
+                        </div>
+                        <input type="submit" value="{{'blog_page.comment.submit'|trans}}" class="pr__btn green__btn btn__comment"/>
+                        {{ form_end(form) }}
+                    </div>
+                    <!-- End Comment Form -->
                     <!-- Start Popular Post -->
                     <div class="popular__post popular__post__block">
                         <h2>{{'blog_page.popular'|trans}}</h2>
@@ -81,7 +139,7 @@
                             <!-- Start Single Post -->
                             <div class="popular__post text-center">
                                 <div class="thumb">
-                                    <a href="{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="panora blog" style="max-height:186px" class="popular__post__imgs"></a>
+                                    <a href="{{blog['title']}}"><img src="{{ asset('uploads/images/blog/' ~ blog['image']) }}" alt="yunkun blog" style="max-height:186px" class="popular__post__imgs"></a>
                                 </div>
                                 <div class="content">
                                     <h3><a href="{{blog['title']}}">{{blog['title']}}</a></h3>

@@ -124,5 +124,11 @@
   margin-top: 100px; }
   .pr__blog__details .container .popular__post__block .popular__post__imgs {
     margin: auto; }
+.pr__blog__details .container .yunkun__blog__comment .comment-block {
+  margin-bottom: 30px; }
+.pr__blog__details .container .comment__form .input__box {
+  display: block; }
+.pr__blog__details .container .comment__form .btn__comment {
+  margin-top: 20px; }
 
 /*# sourceMappingURL=blog_page.css.map */

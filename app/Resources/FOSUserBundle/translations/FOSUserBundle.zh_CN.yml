@@ -176,6 +176,13 @@ blog_page:
         title: 确定删除该博客吗？此操作无法恢复
         yes: 删除
         no: 取消
+    comment:
+        title: 文章评论
+        title_form: 留下你的想法
+        firstcomment: 还没有评论，快来抢沙发吧 ^_^
+        name: 昵称 *
+        comment: 评论 *
+        submit: 添加评论
 
 index_page: 
     blog_author: 作者
@@ -251,7 +258,7 @@ contact_page:
     contactus: 联系我们
     username: 用户名
     email: 邮箱
-    subject: 主题
+    subject: 主题 (如：我想申请一个账号)
     message: 内容
     btn: 发送
     email_direct: 或者直接发送邮件联系我们

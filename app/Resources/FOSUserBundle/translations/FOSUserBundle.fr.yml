@@ -177,6 +177,13 @@ blog_page:
         title: Êtes-vous sûr de vouloir supprimer ce blog? Cette opération ne peut pas être reprise.
         yes: Oui, supprimer
         no: Non, annuler
+    comment:
+        title: Commentaires
+        title_form: Laissez votre pensée
+        firstcomment: Pas encore de commentaire, allez laisser le premier ^_^
+        name: Votre nom *
+        comment: Votre commentaire *
+        submit: Envoyer
 
 index_page: 
     blog_author: Auteur

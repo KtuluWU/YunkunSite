@@ -28,6 +28,11 @@ services:
     tags: 
       - { name: form.type, alis: app_contact }
 
+  app.form.BlogComment:
+    class: YunkunBundle\Form\BlogCommentType
+    tags: 
+      - { name: form.type, alis: app_blog_commentt }
+
 #  app.locale_listener:
 #       class: YunkunBundle\EventListener\LocaleListener
 #       arguments: ["%kernel.default_locale%"]
