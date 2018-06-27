@@ -157,5 +157,19 @@
                 margin: auto;
             }
         }
+
+        .yunkun__blog__comment {
+            .comment-block {
+                margin-bottom: 30px;
+            }
+        }
+        .comment__form {
+            .input__box {
+                display: block;
+            }
+            .btn__comment {
+                margin-top: 20px;
+            } 
+        }
     }
 }

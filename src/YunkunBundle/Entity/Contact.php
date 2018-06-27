@@ -8,45 +8,42 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Contact
  *
- * @ORM\Table(name="contact")
- * @ORM\Entity(repositoryClass="YunkunBundle\Repository\ContactRepository")
+ * 
+ * 
  */
 class Contact
 {
     /**
      * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * 
      */
     private $id;
 
     /**
      * @var string
      * @Assert\NotBlank()
-     * @ORM\Column(name="contact_username", type="string")
+     * 
      */
     private $contact_username;
 
     /**
      * @var string
      * @Assert\NotBlank()
-     * @ORM\Column(name="contact_email", type="string")
+     * 
      */
     private $contact_email;
 
     /**
      * @var string
      * @Assert\NotBlank()
-     * @ORM\Column(name="contact_subject", type="string")
+     * 
      */
     private $contact_subject;
 
     /**
      * @var text
      * @Assert\NotBlank()
-     * @ORM\Column(name="contact_message", type="text")
+     * 
      */
     private $contact_message;
 

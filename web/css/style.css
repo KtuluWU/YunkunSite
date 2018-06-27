@@ -1685,7 +1685,16 @@ Blocks Styles
 .mainmenu li {
   align-items: center;
   display: flex;
-  margin: 0 16px; }
+  cursor: pointer;
+  padding: 0 25px;
+  transition: .7s; }
+  .mainmenu li:hover {
+    border-radius: 5px;
+    background-color: #81ad7b; }
+    .mainmenu li:hover .drop_a {
+      color: #141414 !important; }
+    .mainmenu li:hover a {
+      color: #fefefe !important; }
 
 .mainmenu > li a {
   align-items: center;
@@ -1792,7 +1801,7 @@ Blocks Styles
 .header--three .mainmenu {
   justify-content: center; }
   .header--three .mainmenu > li {
-    margin: 0 25px; }
+    padding: 0 25px; }
     .header--three .mainmenu > li a {
       color: #fff;
       transition: 0.3s; }
@@ -3108,28 +3117,28 @@ Blocks Styles
     font-size: 12px;
     font-style: italic; }
 
-.panora__comment {
+.yunkun__blog__comment {
   margin-top: 70px; }
-  .panora__comment h2 {
+  .yunkun__blog__comment h2 {
     border-bottom: 1px solid #e1e1e1;
     color: #333333;
     font-size: 13px;
     margin-bottom: 39px;
     padding-bottom: 13px;
     text-transform: uppercase; }
-  .panora__comment .comment {
+  .yunkun__blog__comment .comment {
     align-items: center;
     display: flex; }
-    .panora__comment .comment .title {
+    .yunkun__blog__comment .comment .title {
       display: flex;
       justify-content: space-between; }
-      .panora__comment .comment .title h4 {
+      .yunkun__blog__comment .comment .title h4 {
         color: #333333;
         font-size: 13px;
         font-weight: 700;
         margin-bottom: 0;
         text-transform: uppercase; }
-      .panora__comment .comment .title a {
+      .yunkun__blog__comment .comment .title a {
         background: #ebebeb none repeat scroll 0 0;
         color: #424242;
         font-size: 13px;
@@ -3137,23 +3146,23 @@ Blocks Styles
         padding: 0 13px;
         text-transform: capitalize;
         transition: 0.3s; }
-        .panora__comment .comment .title a:hover {
+        .yunkun__blog__comment .comment .title a:hover {
           background: #81ad7b none repeat scroll 0 0;
           color: #fff; }
-    .panora__comment .comment .thumb {
+    .yunkun__blog__comment .comment .thumb {
       flex-basis: 8%;
       padding-right: 14px; }
-      .panora__comment .comment .thumb img {
+      .yunkun__blog__comment .comment .thumb img {
         width: 100%; }
-    .panora__comment .comment .content {
-      flex-basis: 92%; }
-      .panora__comment .comment .content span {
+    .yunkun__blog__comment .comment .content {
+      flex-basis: 100%; }
+      .yunkun__blog__comment .comment .content span {
         color: #949494;
         font-style: italic; }
-      .panora__comment .comment .content p {
+      .yunkun__blog__comment .comment .content p {
         color: #424242;
         margin: 2px 0 0; }
-    .panora__comment .comment.comment__reply {
+    .yunkun__blog__comment .comment.comment__reply {
       margin-bottom: 40px;
       margin-left: 70px;
       margin-top: 40px; }
@@ -3175,7 +3184,6 @@ Blocks Styles
       .comment__form .input__box .box__single input {
         background: #f2f2f2 none repeat scroll 0 0;
         border: 0 none;
-        color: #b4b4b4;
         height: 55px;
         margin-top: 20px;
         padding: 0 20px;
@@ -3225,7 +3233,7 @@ Blocks Styles
 
 /* Responsive Css*/
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .panora__comment .comment .thumb {
+  .yunkun__blog__comment .comment .thumb {
     flex-basis: 16%; } }
 @media only screen and (max-width: 767px) {
   .panora__author {
@@ -3243,13 +3251,13 @@ Blocks Styles
   .blog__quote .bl__dtl__meta .comment {
     margin: 11px 0; }
 
-  .panora__comment .comment .thumb {
+  .yunkun__blog__comment .comment .thumb {
     flex-basis: 25%; } }
 @media only screen and (max-width: 420px) {
-  .panora__comment .comment .thumb {
+  .yunkun__blog__comment .comment .thumb {
     flex-basis: 44%; }
 
-  .panora__comment .comment.comment__reply {
+  .yunkun__blog__comment .comment.comment__reply {
     margin-left: 0; }
 
   .comment__form .input__box {

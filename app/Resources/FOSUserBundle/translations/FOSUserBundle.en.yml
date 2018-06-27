@@ -182,6 +182,13 @@ blog_page:
         title: Are you sure you want to delete this blog? This operation can not be resumed.
         yes: Yes, delete
         no: No, cancel
+    comment:
+        title: Comments
+        title_form: Leave your thought
+        firstcomment: No comments yet, come on leave the first ^_^
+        name: Name *
+        comment: Comment *
+        submit: Post a comment
 
 index_page: 
     blog_author: Author

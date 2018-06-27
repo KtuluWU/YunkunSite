@@ -3,7 +3,9 @@ namespace YunkunBundle\Controller;
 
 use YunkunBundle\Form\BlogType;
 use YunkunBundle\Form\BlogEditType;
+use YunkunBundle\Form\BlogCommentType;
 use YunkunBundle\Entity\Blog;
+use YunkunBundle\Entity\BlogComment;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route; /* 路由 */
 use Symfony\Bundle\FrameworkBundle\Controller\Controller; /* 基类 */
 use Symfony\Component\HttpFoundation\Request;
@@ -42,12 +44,17 @@ class BlogController extends Controller
     /**
      * @Route("/Blog-detail/{blog_title}", name="blogdetailpage" )
      */
-    public function blogdetailAction($blog_title)
+    public function blogdetailAction($blog_title, Request $request)
     {
+        $blogComment = new BlogComment();
         $blogs = $this->getBlogsArrayFromDB();
 
         $em = $this->getDoctrine()->getManager();
         $blog_db = $em->getRepository('YunkunBundle:Blog')->findByTitle($blog_title);
+        $blog_comments_db = $em->getRepository('YunkunBundle:BlogComment')->findByTitle($blog_title);
+
+        $form = $this->createForm(BlogCommentType::class, $blogComment);
+        $form->handleRequest($request);
 
         $category = $blog_db[0]->getCategory();
         $article_text = $blog_db[0]->getArticleText();
@@ -64,6 +71,40 @@ class BlogController extends Controller
         $post_date = $blog_db[0]->getPostDate();
         $edit_date = $blog_db[0]->getEditDate();
 
+        $commentor_from_db = array();
+        $comment_from_db = array();
+        $comment_post_date_from_db = array();
+
+        $comment_to_detail = array();
+
+        foreach($blog_comments_db as $value) {
+            array_push($comment_to_detail, array(
+                'commentor' => $value->getCommentor(),
+                'comment' => $value->getComment(),
+                'post_date' => $value->getPostDate()
+            ));
+        }
+
+        if ($form->isSubmitted()) {
+            $commentor = $blogComment->getCommentor();
+            $comment = $blogComment->getComment();
+
+            date_default_timezone_set("Europe/Paris");
+            $comment_post_date = date_create(date('Y-m-d H:i:s'));
+
+            $blogComment->setTitle($title);
+            $blogComment->setCommentor($commentor);
+            $blogComment->setComment($comment);
+            $blogComment->setPostDate($comment_post_date);
+
+            $em2 = $this->getDoctrine()->getManager();
+            $em2->persist($blogComment);
+            $em2->flush();
+
+            return $this->redirectToRoute('blogdetailpage', array('blog_title' => $title));
+        }
+
+
         return $this->render('blog/blog-detail.html.twig', array(
             'imageName1' => $imageName1,
             'imageName2' => $imageName2,
@@ -78,7 +119,9 @@ class BlogController extends Controller
             'editor' => $editor,
             'post_date' => $post_date,
             'edit_date' => $edit_date,
-            'blogs' => $blogs
+            'blogs' => $blogs,
+            'comment_to_detail' => $comment_to_detail,
+            'form' => $form->createView(),
         ));
     }
 
@@ -106,7 +149,7 @@ class BlogController extends Controller
             $image3->move($this->getParameter('blog_images'),$imageName3);
 
             date_default_timezone_set("Europe/Paris");
-            $post_date = date_create(date('Y-m-d'));
+            $post_date = date_create(date('Y-m-d H:i:s'));
             
             $user = $this->getUser();
             $author_firstname = $user->getFirstname();

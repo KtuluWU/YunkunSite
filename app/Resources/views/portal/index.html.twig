@@ -1,9 +1,15 @@
-{% trans_default_domain 'FOSUserBundle' %} {% extends 'base_yun.html.twig' %} {% block stylesheets %} {{ parent() }}
-<link rel="stylesheet" href="{{ asset('css/pages/index_page.css') }}" /> {% endblock %} {% block header %} Environnement: {{app.environment}}
-<br> Language(session _locale): {{ app.session.get('_locale') }}
-<br> {% if app.user %} Role: {{app.user.roles[0]}} {% endif %}
+{% trans_default_domain 'FOSUserBundle' %} 
+{% extends 'base_yun.html.twig' %} 
+{% block stylesheets %} 
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/pages/index_page.css') }}" /> 
+{% endblock %} 
+{% block header %} 
+Environnement: {{app.environment}}<br> 
+Language(session _locale): {{ app.session.get('_locale') }}<br> 
+{% if app.user %} Role: {{app.user.roles[0]}} {% endif %}
 <!-- Start Header Area -->
-<header class="header pr__header">
+<header class="header pr__header ">
     <!-- Start Header Top -->
     <div class="pr__header__top">
         <div class="container">
@@ -22,7 +28,7 @@
                                 <a href="/Blog">{{'summury.blog'|trans}}</a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a>
+                                        <a href="/Blog/AddBlog" class="add-blog-link drop_a">{{'summury.addblog'|trans}}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -48,15 +54,15 @@
                                 <a>{{'summury.lang'|trans}}</a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}">
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}" class="drop_a">
                                             <img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" class="drop_a">
                                             <img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" class="drop_a">
                                             <img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a>
                                     </li>
                                 </ul>
@@ -73,16 +79,16 @@
                                 </a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')},
+                                        <a class="drop_a">{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')},
                                             'FOSUserBundle')}}
                                             <br> {{'summury.admin.text3'|trans}}
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/profile">{{'user_page.title1'|trans}}</a>
+                                        <a href="/profile" class="drop_a">{{'user_page.title1'|trans}}</a>
                                     </li>
                                     <li>
-                                        <a href="/logout">{{'layout.logout'|trans}}</a>
+                                        <a href="/logout" class="drop_a">{{'layout.logout'|trans}}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -120,7 +126,7 @@
                                 <a href="/Blog">{{'summury.blog'|trans}}</a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a href="/Blog/AddBlog" class="add-blog-link">{{'summury.addblog'|trans}}</a>
+                                        <a href="/Blog/AddBlog" class="add-blog-link drop_a">{{'summury.addblog'|trans}}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -146,15 +152,15 @@
                                 <a>{{'summury.lang'|trans}}</a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}">
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'zh_CN'})) }}" class="drop_a">
                                             <img src="{{ asset('images/flag/CN.png') }}" class="flag">中文</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}" class="drop_a">
                                             <img src="{{ asset('images/flag/FR.png') }}" class="flag">Français</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}" class="drop_a">
                                             <img src="{{ asset('images/flag/EN.png') }}" class="flag">English</a>
                                     </li>
                                 </ul>
@@ -171,16 +177,16 @@
                                 </a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a>{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')},
+                                        <a class="drop_a">{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')},
                                             'FOSUserBundle')}}
                                             <br> {{'summury.admin.text3'|trans}}
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/profile">{{'user_page.title1'|trans}}</a>
+                                        <a href="/profile" class="drop_a">{{'user_page.title1'|trans}}</a>
                                     </li>
                                     <li>
-                                        <a href="/logout">{{'layout.logout'|trans}}</a>
+                                        <a href="/logout" class="drop_a">{{'layout.logout'|trans}}</a>
                                     </li>
                                 </ul>
                             </li>

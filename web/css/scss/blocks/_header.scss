@@ -15,7 +15,21 @@
 .mainmenu li {
     align-items: center;
     display: flex;
-    margin: 0 16px;
+    cursor: pointer;
+    // margin: 0 16px;
+    padding: 0 25px;
+    transition: .7s;
+    &:hover {
+        border-radius: 5px;
+        background-color: $theme-color;
+        
+        .drop_a {
+            color: #141414 !important;
+        }
+        a {
+            color: #fefefe !important;
+        }
+    }
 }
 
 .mainmenu>li {
@@ -171,7 +185,7 @@
     .mainmenu {
         justify-content: center;
         >li {
-            margin: 0 25px;
+            padding: 0 25px;
             a {
                 color: #fff;
                 transition: 0.3s;
