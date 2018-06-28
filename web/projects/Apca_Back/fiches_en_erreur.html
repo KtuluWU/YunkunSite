@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>APCA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- - - - - - - - - - - - Topbar - - - - - - - - - - - -->
+    <div class="topbar text-white-APCA">
+        <div class="logo">
+            <img src="./img/logo_apca.png" class="logo-img" alt="logo">
+            <span class="logo-title vertical-middle-APCA">BIENVENUE SUR VOTRE ESPACE DÉDIÉ REGISTRE DES ACTIFS AGRICOLES</span>
+        </div>
+        <div class="connection">
+            <span id="lastname_login" class="vertical-middle-APCA name-conn">NOM</span>
+            <span id="firstname_login" class="vertical-middle-APCA name-conn">PRÉNOM</span>
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="logout">exit_to_app</i>
+                <span>Déconnexion</span>
+            </div>
+        </div>
+        <div class="connection deconnection">
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="login">exit_to_app</i>
+                <span>Se connecter</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - Content - - - - - - - - - - - -->
+    <div class="content">
+        <!-- - - - -  Sidebar  - - - - -->
+        <div class="sidebar text-white-APCA">
+            <div class="text-center title-sidebar">CHAMBRE AGRICULTURE</div>
+            <div class="text-left taps-sidebar">
+                <a id="accueil_page" href="./index.html" class="tap-sidebar text-white-APCA">ACCUEIL</a>
+                <a id="consultation_page" href="./consultation.html" class="tap-sidebar text-white-APCA">CONSULTATION / CORRECTION</a>
+                <a id="fiches_en_erreur_page" href="./fiches_en_erreur.html" class="tap-sidebar text-white-APCA sidebar-active">FICHES EN ERREUR</a>
+                <a id="extraction_page" href="./extraction.html" class="tap-sidebar text-white-APCA">EXTRACTION</a>
+            </div>
+        </div>
+
+        <!-- - - - -  Page  - - - - -->
+        <div class="page">
+            <div class="header-page text-white-APCA text-center">FICHES EN ERREUR</div>
+            <div class="back-page">
+                <div class="content-page bg-white-APCA text-grey-APCA">
+                    <div class="title-page text-center">
+                        NOMBRES DE FICHES EN ERREUR : 7
+                    </div>
+                    <div class="fee-raf bg-yellow-APCA text-blue-APCA underline btn">Rafraichir les résultats</div>
+                    <table class="fiches-en-erreur-table text-center" id="consultation_res_table">
+                        <thead>
+                            <tr class="bg-grey-dark-APCA text-white-APCA">
+                                <th>NOM</th>
+                                <th>PRÉNOM</th>
+                                <th>COMMUNE</th>
+                                <th>SIREN</th>
+                                <th>FICHE DÉTAILLÉE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>
+                                    <a href="./erreurs.html" class="text-grey-APCA underline" target="_blank">Consulter</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>
+                                    <a href="./erreurs.html" class="text-grey-APCA underline" target="_blank">Consulter</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>
+                                    <a href="./erreurs.html" class="text-grey-APCA underline" target="_blank">Consulter</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>
+                                    <a href="./erreurs.html" class="text-grey-APCA underline" target="_blank">Consulter</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>
+                                    <a href="./erreurs.html" class="text-grey-APCA underline" target="_blank">Consulter</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>
+                                    <a href="./erreurs.html" class="text-grey-APCA underline" target="_blank">Consulter</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>
+                                    <a href="./erreurs.html" class="text-grey-APCA underline" target="_blank">Consulter</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="consultation-res-pages-block fiches-en-erreur-pages-block">
+                        <div class="consultation-res-pages text-center">
+                            <div></div>
+                            <div class="consultation-res-line text-blue-APCA">
+                                <span class="">Résultats par page</span>
+                                <span class="a active" id="page_25">25</span>
+                                <span class="b" id="page_50">50</span>
+                                <span class="c" id="page_100">100</span>
+                            </div>
+                        </div>
+                        <div class="consultation-res-pages text-center">
+                            <div></div>
+                            <div class="consultation-res-marks text-blue-APCA">
+                                <span class="a cursor-pointer">
+                                    <i class="material-icons page-icons">keyboard_arrow_left</i>
+                                </span>
+                                <span class="a cursor-pointer active" id="page_1">1</span>
+                                <span class="a cursor-pointer" id="page_2">2</span>
+                                <span class="a cursor-pointer" id="page_3">3</span>
+                                <span class="a cursor-pointer" id="page_4">4</span>
+                                <span class="a cursor-pointer" id="page_5">5</span>
+                                <span class="a cursor-pointer">
+                                    <i class="material-icons page-icons">keyboard_arrow_right</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fee-raf2">
+                        <div></div>
+                        <div class="bg-yellow-APCA text-blue-APCA underline btn">Rafraichir les résultats</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Content -->
+
+
+    <!-- - - - - - - - - - - - Javascript Chargement Différé - - - - - - - - - - - -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>

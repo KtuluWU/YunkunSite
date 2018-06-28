@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>APCA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- - - - - - - - - - - - Topbar - - - - - - - - - - - -->
+    <div></div>
+
+    <!-- - - - - - - - - - - - Content - - - - - - - - - - - -->
+    <div class="fiche-content">
+        <div class="fiche-return">
+            <a href="./res_consultation.html" class="text-grey-APCA">
+                <i class="material-icons res-detail-return-icon" id="back_to_res">arrow_back</i> Retour aux résultats</a>
+        </div>
+        <div class="fiche-title text-center">
+            <img class="fiche-icon" src="./img/icon_modif.png" alt="CORRECTION">
+            <span>CORRECTION DE FICHE</span>
+        </div>
+        <form id="form_correction" name="form_correction" action="" method="GET">
+            <div>
+                <div class="fiche-table-block">
+                    <div class="fiche-table-title">DIRIGEANT</div>
+                    <input type="submit" id="btn_correction" name="btn_correction" value="Valider" class="btn bg-yellow-APCA text-blue-APCA underline btn-correction">
+                    <div>
+                        <table id="correction_table_dirigeant" class="fiche-table">
+                            <tr class="bg-grey-APCA">
+                                <th>SIREN</th>
+                                <td>
+                                    <input type="text" id="cor_siren" name="cor_siren" maxlength="9" class="col-md-9 input-border" autocomplete="off" placeholder="123456789">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>NOM NAISSANCE</th>
+                                <td>
+                                    <input type="text" id="cor_lastname_orig" name="cor_lastname_orig" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="MARTIN">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>NOM USAGE</th>
+                                <td>
+                                    <input type="text" id="cor_lastname_use" name="cor_lastname_use" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="MARTIN">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>PRÉNOM 1</th>
+                                <td>
+                                    <input type="text" id="cor_firstname1" name="cor_firstname1" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="JEAN">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>PRÉNOM 2</th>
+                                <td>
+                                    <input type="text" id="cor_firstname2" name="cor_firstname2" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>PRÉNOM 3</th>
+                                <td>
+                                    <input type="text" id="cor_firstname3" name="cor_firstname3" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>GENRE</th>
+                                <td>
+                                    <input type="text" id="cor_genre" name="cor_genre" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="HOMME">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>DATE NAISSANCE</th>
+                                <td>
+                                    <input type="text" id="cor_dt_naiss" name="cor_dt_naiss" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="01/07/1988">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>DEPARTEMENT NAISSANCE</th>
+                                <td>
+                                    <input type="text" id="cor_dep_naiss" name="cor_dep_naiss" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="94">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>LIEU NAISSANCE</th>
+                                <td>
+                                    <input type="text" id="cor_lieu_naiss" name="cor_lieu_naiss" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="VINCENNES">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>LIEU NAISSANCE COG</th>
+                                <td>
+                                    <input type="text" id="cor_lieu_naiss_cog" name="cor_lieu_naiss_cog" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="VINCENNES COG">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>QUALITE</th>
+                                <td>
+                                    <input type="text" id="cor_qualite" name="cor_qualite" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="GÉRANT">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>DENOMINATION</th>
+                                <td>
+                                    <input type="text" id="cor_denom" name="cor_denom" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="MARTIN JEAN EXPLOITATION">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>FORME JURIDIQUE</th>
+                                <td>
+                                    <input type="text" id="cor_forme_jrd" name="cor_forme_jrd" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="SA">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>DUREE</th>
+                                <td>
+                                    <input type="text" id="cor_duree" name="cor_duree" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="3 ANS">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>GAEC DATE</th>
+                                <td>
+                                    <input type="text" id="cor_dt_daec" name="cor_dt_daec" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="01/05/2018">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>DATE DEBUT ACTIVITE</th>
+                                <td>
+                                    <input type="text" id="cor_dt_debut_activi_dirig" name="cor_dt_debut_activi_dirig" maxlength="30" class="col-md-9 input-border"
+                                        autocomplete="off" placeholder="01/02/2018">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>DATE FIN ACTIVITE</th>
+                                <td>
+                                    <input type="text" id="cor_dt_fin_activi_dirig" name="cor_dt_fin_activi_dirig" maxlength="30" class="col-md-9 input-border"
+                                        autocomplete="off" placeholder="EN COURS">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>RCS DATE</th>
+                                <td>
+                                    <input type="text" id="cor_dt_rcs" name="cor_dt_rcs" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="01/02/2018">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>RCS LIEU IMMAT</th>
+                                <td>
+                                    <input type="text" id="cor_lieu_rcs" name="cor_lieu_rcs" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="VINCENNES">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>GEST MAJORITAIRE</th>
+                                <td>
+                                    <input type="text" id="cor_majo_gest" name="cor_majo_gest" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="MARTIN JEAN">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>GEST MAJORITAIRE DATE</th>
+                                <td>
+                                    <input type="text" id="cor_dt_majo_gest" name="cor_dt_majo_gest" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="01/02/2018">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="fiche-table-block">
+                    <div class="fiche-table-title">EXPLOITATION</div>
+                    <div>
+                        <table id="correction_table_exploitation" class="fiche-table">
+                            <tr class="bg-grey-APCA">
+                                <th>SIRET</th>
+                                <td>
+                                    <input type="text" id="cor_siret" name="cor_siret" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="123456789">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>CATEGORIE</th>
+                                <td>
+                                    <input type="text" id="cor_categ" name="cor_categ" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="2">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>ORIGINE</th>
+                                <td>
+                                    <input type="text" id="cor_orig" name="cor_orig" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="FRANCE">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>CODE APE</th>
+                                <td>
+                                    <input type="text" id="cor_code_ape" name="cor_code_ape" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="82657">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>CODES NAF SECONDAIRES</th>
+                                <td>
+                                    <input type="text" id="cor_code_naf_sec" name="cor_code_naf_sec" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="8546713">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>ACTIVITES AGRICOLES DECLAREES</th>
+                                <td>
+                                    <input type="text" id="cor_activi_agric" name="cor_activi_agric" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="BOVINS">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>NUMERO VOIE</th>
+                                <td>
+                                    <input type="text" id="cor_num_voie" name="cor_num_voie" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="5">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>INDICE REPETITION</th>
+                                <td>
+                                    <input type="text" id="cor_indice_rep" name="cor_indice_rep" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>TYPE VOIE</th>
+                                <td>
+                                    <input type="text" id="cor_type_voie" name="cor_type_voie" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="AVENUE">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>ADRESSE</th>
+                                <td>
+                                    <input type="text" id="cor_adresse" name="cor_adresse" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="DE PARIS">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>ADRESSE COMPLEMENT</th>
+                                <td>
+                                    <input type="text" id="cor_adresse_comp" name="cor_adresse_comp" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>CODE POSTAL</th>
+                                <td>
+                                    <input type="text" id="cor_code_post" name="cor_code_post" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="94300">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>COMMUNE</th>
+                                <td>
+                                    <input type="text" id="cor_comm" name="cor_comm" maxlength="30" class="col-md-9 input-border" autocomplete="off" placeholder="VINCENNES">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>COMMUNE COG</th>
+                                <td>
+                                    <input type="text" id="cor_comm_cog" name="cor_comm_cog" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="VINCENNES COG">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>DATE DEBUT ACTIVITE</th>
+                                <td>
+                                    <input type="text" id="cor_dt_debut_activi_exploi" name="cor_dt_debut_activi_exploi" maxlength="30" class="col-md-9 input-border"
+                                        autocomplete="off" placeholder="01/02/2018">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>DATE DEBUT ATEXA</th>
+                                <td>
+                                    <input type="text" id="cor_dt_debut_atexa" name="cor_dt_debut_atexa" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="01/02/2018">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <th>DATE CESSATION ACTIVITE</th>
+                                <td>
+                                    <input type="text" id="cor_date_cessa_activi" name="cor_date_cessa_activi" maxlength="30" class="col-md-9 input-border" autocomplete="off"
+                                        placeholder="EN COURS">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" id="btn_correction" name="btn_correction" value="Valider" class="btn bg-yellow-APCA text-blue-APCA underline btn-correction2">
+        </form>
+        <div class="fiche-confirm-block bg-white-APCA text-center">
+            <div class="fiche-confirm-title">Confirmez la correction ?</div>
+            <div class="fiche-confirm-buttons">
+                <span class="bg-yellow-APCA cursor-pointer fiche-confirm-btn">Oui</span>
+                <span class="bg-yellow-APCA cursor-pointer fiche-confirm-btn">Non</span>
+            </div>
+        </div>
+    </div>
+    <!-- /Content -->
+
+    <!-- - - - - - - - - - - - Javascript Chargement Différé - - - - - - - - - - - -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>

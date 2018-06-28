@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>APCA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- - - - - - - - - - - - Topbar - - - - - - - - - - - -->
+    <div class="topbar text-white-APCA">
+        <div class="logo">
+            <img src="./img/logo_apca.png" class="logo-img" alt="logo">
+            <span class="logo-title vertical-middle-APCA">BIENVENUE SUR VOTRE ESPACE DÉDIÉ REGISTRE DES ACTIFS AGRICOLES</span>
+        </div>
+        <div class="connection">
+            <span id="lastname_login" class="vertical-middle-APCA name-conn">NOM</span>
+            <span id="firstname_login" class="vertical-middle-APCA name-conn">PRÉNOM</span>
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="logout">exit_to_app</i>
+                <span>Déconnexion</span>
+            </div>
+        </div>
+        <div class="connection deconnection">
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="login">exit_to_app</i>
+                <span>Se connecter</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - Content - - - - - - - - - - - -->
+    <div class="content">
+        <!-- - - - -  Sidebar  - - - - -->
+        <div class="sidebar text-white-APCA">
+            <div class="text-center title-sidebar">CHAMBRE AGRICULTURE</div>
+            <div class="text-left taps-sidebar">
+                <a id="accueil_page" href="./index.html" class="tap-sidebar text-white-APCA">ACCUEIL</a>
+                <a id="consultation_page" href="./consultation.html" class="tap-sidebar text-white-APCA sidebar-active">CONSULTATION / CORRECTION</a>
+                <a id="fiches_en_erreur_page" href="./fiches_en_erreur.html" class="tap-sidebar text-white-APCA">FICHES EN ERREUR</a>
+                <a id="extraction_page" href="./extraction.html" class="tap-sidebar text-white-APCA">EXTRACTION</a>
+            </div>
+        </div>
+
+        <!-- - - - -  Page  - - - - -->
+        <div class="page">
+            <div class="header-page text-white-APCA text-center">CONSULTATION / CORRECTION</div>
+            <div class="back-page">
+                <div class="content-page text-grey-APCA">
+                    <div class="consultation-res-tip bg-white-APCA text-blue-APCA">
+                        <div>
+                            <img class="consultation-res-table-icon2" src="./img/icon_eye.png" alt="VISUALISATION">VISUALISATION
+                        </div>
+                        <div class="margin-top-10">
+                            <img class="consultation-res-table-icon2" src="./img/icon_modif.png" alt="CORRECTION">CORRECTION
+                        </div>
+                        <div class="margin-top-10">
+                            <img class="consultation-res-table-icon2" src="./img/picto_extrait.png" alt="ATTESTATION D'INSCRIPTION">ATTESTATION D'INSCRIPTION
+                        </div>
+                        <div class="margin-top-10">
+                            <img class="consultation-res-table-icon2" src="./img/picto_copie_int.png" alt="COPIE INTÉGRALE">COPIE INTÉGRALE
+                        </div>
+                        <div class="margin-top-20">Cliquez sur l'icone correspondante pour editer le document</div>
+                    </div>
+                    <div class="res-detail-return">
+                        <span></span>
+                        <a href="./res_consultation.html" class="text-grey-APCA">
+                            <i class="material-icons res-detail-return-icon" id="back_to_res">arrow_back</i> Retour aux résultats</a>
+                    </div>
+                    <table class="consultation-res-table text-center bg-white-APCA" id="consultation_res_table">
+                        <thead>
+                            <tr class="bg-grey-dark-APCA text-white-APCA">
+                                <th>NOM</th>
+                                <th>PRÉNOM</th>
+                                <th>COMMUNE</th>
+                                <th>SIREN</th>
+                                <th>CATÉGORIE JURIDIQUE</th>
+                                <th>CODE NAF</th>
+                                <th>ACTIONS
+                                    <i class="material-icons consultation-res-icon" id="consultation_res_icon">help</i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>SARL</td>
+                                <td>0111Z</td>
+                                <td>
+                                    <a href="./visualisation.html" target="_blank">
+                                        <img class="consultation-res-table-icon" id="visualisation_1" src="./img/icon_eye.png" alt="Visualisation">
+                                    </a>
+                                    <a href="./visualisation.html" target="_blank">
+                                        <img class="consultation-res-table-icon" id="correction_1" src="./img/icon_modif.png" alt="Correction">
+                                    </a>
+                                    <img class="consultation-res-table-icon" id="attestation_1" src="./img/picto_extrait.png" alt="Attestation d'inscription">
+                                    <img class="consultation-res-table-icon" id="copie_1" src="./img/picto_copie_int.png" alt="Copie intégrale">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="bg-grey-APCA edition">
+                        <div class="consultation-res-detal-title">EDITION DES DOCUMENTS DU REGISTRE, INFORMATIONS SUR LE DEMANDEUR</div>
+                        <div class="bg-white-APCA consultation-res-detal-content">
+                            <form>
+                                <div class="consultation-res-detal-content1">
+                                    <div>
+                                        <input type="radio" id="actif" name="edition" value="" checked> Actif
+                                        <input type="radio" id="tiers" name="edition" value=""> Tiers
+                                    </div>
+                                    <div>
+                                        <span class="font-weight-bold"> Moyen de paiement </span>
+                                        <label class="consultation-res-detal-label">Gratuit</label>
+                                    </div>
+                                    <div>
+                                        <span class="font-weight-bold"> Montant </span>
+                                        <label class="consultation-res-detal-label">0</label>
+                                    </div>
+                                    <input type="submit" id="btn_res_cnslt" name="btn_res_cnslt" value="Valider" class="btn bg-yellow-APCA text-blue-APCA underline">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Content -->
+
+
+    <!-- - - - - - - - - - - - Javascript Chargement Différé - - - - - - - - - - - -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
