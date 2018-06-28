@@ -1,0 +1,21 @@
+@import '../variables';
+
+.projects_page {
+    .container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        .project_line {
+            margin: 50px auto;
+            .project {
+                cursor: pointer;
+                padding: 50px;
+                border: 1px solid $theme-color;
+                border-radius: 8px;
+                box-shadow: 6px 5px 10px 3px $theme-color;
+                &:active {
+                    box-shadow: 1px 2px 7px 1px $theme-color;
+                }
+            }
+        }
+    }
+}

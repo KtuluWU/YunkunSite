@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>APCA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- - - - - - - - - - - - Topbar - - - - - - - - - - - -->
+    <div class="topbar text-white-APCA">
+        <div class="logo">
+            <img src="./img/logo_apca.png" class="logo-img" alt="logo">
+            <span class="logo-title vertical-middle-APCA">BIENVENUE SUR VOTRE ESPACE DÉDIÉ REGISTRE DES ACTIFS AGRICOLES</span>
+        </div>
+        <div class="connection">
+            <span id="lastname_login" class="vertical-middle-APCA name-conn">NOM</span>
+            <span id="firstname_login" class="vertical-middle-APCA name-conn">PRÉNOM</span>
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="logout">exit_to_app</i>
+                <span>Déconnexion</span>
+            </div>
+        </div>
+        <div class="connection deconnection">
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="login">exit_to_app</i>
+                <span>Se connecter</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - Content - - - - - - - - - - - -->
+    <div class="content">
+        <!-- - - - -  Sidebar  - - - - -->
+        <div class="sidebar text-white-APCA">
+            <div class="text-center title-sidebar">CHAMBRE AGRICULTURE</div>
+            <div class="text-left taps-sidebar">
+                <a id="accueil_page" href="./index.html" class="tap-sidebar text-white-APCA">ACCUEIL</a>
+                <a id="consultation_page" href="./consultation.html" class="tap-sidebar text-white-APCA sidebar-active">CONSULTATION / CORRECTION</a>
+                <a id="fiches_en_erreur_page" href="./fiches_en_erreur.html" class="tap-sidebar text-white-APCA">FICHES EN ERREUR</a>
+                <a id="extraction_page" href="./extraction.html" class="tap-sidebar text-white-APCA">EXTRACTION</a>
+            </div>
+        </div>
+
+        <!-- - - - -  Page  - - - - -->
+        <div class="page">
+            <div class="header-page text-white-APCA text-center">CONSULTATION / CORRECTION</div>
+            <div class="back-page">
+                <div class="content-page bg-white-APCA text-grey-APCA">
+                    <div class="text-center title-page">RECHERCHER UN ACTIF AGRICOLE</div>
+                    <div class="consultation-block">
+                        <form id="form_consultation" name="form_consultation" action="res_consultation.html" method="GET" class="bg-grey-APCA form-consultation">
+                            <div class="row nomargin">
+                                <div class="col-md-6">
+                                    <div class="row padding-col">
+                                        <span class="col-md-4">Nom *</span>
+                                        <input type="text" id="lastname_cnslt" name="lastname_cnslt" maxlength="30" class="col-md-8 input-border border-red" autocomplete="off">
+                                    </div>
+                                    <div class="row padding-col">
+                                        <span class="col-md-4">Prénom *</span>
+                                        <input type="text" id="firstname_cnslt" name="firstname_cnslt" maxlength="30" class="col-md-8 input-border border-red" autocomplete="off">
+                                    </div>
+                                    <div class="row padding-col">
+                                        <span class="col-md-4">Catégorie Juridique</span>
+                                        <input type="text" id="juridique_cnslt" name="juridique_cnslt" maxlength="30" class="col-md-8 input-border" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row padding-col">
+                                        <span class="col-md-3">Siren</span>
+                                        <input type="text" id="siren_cnslt" name="siren_cnslt" maxlength="30" class="col-md-9 input-border" autocomplete="off">
+                                    </div>
+                                    <div class="row padding-col">
+                                        <span class="col-md-3">Localisation</span>
+                                        <input type="text" id="localisation_cnslt" name="localisation_cnslt" maxlength="30" class="col-md-9 input-border" autocomplete="off">
+                                    </div>
+                                    <div class="row padding-col">
+                                        <span class="col-md-3">Code NAF</span>
+                                        <input type="text" id="naf_cnslt" name="naf_cnslt" maxlength="30" class="col-md-9 input-border" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="consultation-tip consultation-error text-red-APCA margin-top-10">Veuillez saisir un nom avec des caractères autorisés</div>
+                            <div class="consultation-buttonline">
+                                <span class="consultation-tip">* champs obligatoires</span>
+                                <input type="submit" id="btn_cnslt" name="btn_cnslt" value="Lancer la recherche" class="btn bg-yellow-APCA text-blue-APCA underline">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Content -->
+
+
+    <!-- - - - - - - - - - - - Javascript Chargement Différé - - - - - - - - - - - -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>

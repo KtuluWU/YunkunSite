@@ -1,0 +1,375 @@
+/********************************* Tools SG *********************************/
+
+.bg-blue-SG {
+    background-color: #192761;
+}
+
+.bg-green-SG {
+    background-color: #038c36;
+}
+
+.bg-yellow-SG {
+    background-color: #FEC402;
+}
+
+.bg-white-SG {
+    background-color: #FFF;
+}
+
+.bg-grey-SG {
+    background-color: #F2F2F1;
+}
+
+.text-red-SG {
+    color: #e94b35;
+}
+
+.text-blue-SG {
+    color: #192761;
+}
+
+.text-blue-sub-SG {
+    color: #3d8bd1;
+}
+
+.text-yellow-SG {
+    color: #FEC402;
+}
+
+.text-white-SG {
+    color: rgba(255, 255, 255, .7);
+}
+
+.text-grey-SG {
+    color: #a0a0a0;
+}
+
+body {
+    margin: 0;
+    font-family: MuktaMahee;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+}
+
+.block-SG {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+}
+
+.text-center-SG {
+    text-align: center;
+}
+
+/********************************* Fonts *********************************/
+
+@font-face {
+    /* font-properties */
+    font-family: MuktaMahee;
+    font-style: normal;
+    src: url('./fonts/Mukta_Mahee/mukta-mahee-v2-latin-regular.eot'), /* url('./fonts/Mukta_Mahee/mukta-mahee-v2-latin-regular.svg'), */
+    url('./fonts/Mukta_Mahee/mukta-mahee-v2-latin-regular.ttf'), url('./fonts/Mukta_Mahee/mukta-mahee-v2-latin-regular.woff'), url('./fonts/Mukta_Mahee/mukta-mahee-v2-latin-regular.woff2');
+}
+
+@font-face {
+    /* font-properties */
+    font-family: Roboto;
+    font-style: normal;
+    src: url('./fonts/Roboto/roboto-v18-latin-regular.eot'), url('./fonts/Roboto/roboto-v18-latin-regular.svg'), url('./fonts/Roboto/roboto-v18-latin-regular.ttf'), url('./fonts/Roboto/roboto-v18-latin-regular.woff'), url('./fonts/Roboto/roboto-v18-latin-regular.woff2');
+}
+
+/******************************************************* Transition *******************************************************/
+
+/********************************* Topbar *********************************/
+
+.topbar-SG {
+    width: 100%;
+    height: 430px;
+    box-shadow: 0 2px 8px -2px rgba(29, 29, 29, 0.8);
+    background: -webkit-linear-gradient(left, #192761, #1e2791);
+    /* Safari */
+    background: -o-linear-gradient(right, #192761, #1e2791);
+    /* Opera */
+    background: -moz-linear-gradient(right, #192761, #1e2791);
+    /* Firefox */
+    background: linear-gradient(to right, #192761, #1e2791);
+}
+
+.topbar-text-block {
+    width: 40%;
+    margin-left: 28%;
+}
+
+.topbar-title {
+    font-weight: bold;
+    font-size: 38px;
+}
+
+.topbar-texts {
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.topbar-texts ul li {
+    line-height: 20px;
+}
+
+.logo-transition-SG {
+    height: 60px;
+    margin: 40px 90px;
+    margin-bottom: 0 !important;
+    z-index: 9999;
+}
+
+.logo-SG-sub {
+    position: absolute;
+    float: right;
+    top: 0;
+    right: 0;
+    height: 430px;
+    z-index: 9999;
+}
+
+/* .logo-SG-sub {
+    position: absolute;
+    float: right;
+    top: -196px;
+    right: 0;
+    height: 1200px;
+    z-index: 9999;
+    -webkit-clip-path: inset(0 0 575px 0);
+    -o-clip-path: inset(0 0 575px 0);
+    -moz-clip-path: inset(0 0 575px 0);
+    clip-path: inset(0 0 575px 0);
+} */
+
+/********************************* Content *********************************/
+
+.content {
+    width: 80%;
+    margin: 0 auto;
+    z-index: 99999;
+}
+
+.content-page {
+    padding-bottom: 50px;
+}
+
+/*********** Plateforme ***********/
+
+.plateformes-SG {
+    display: flex;
+    height: 350px;
+    justify-content: space-between;
+}
+
+.plateforme-block {
+    width: 48%;
+    min-height: 200px;
+    padding: 20px 0;
+}
+
+.plateforme-block-a {
+    padding: 50px 50px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #f9f9f9;
+    box-shadow: 4px 6px 14px 7px rgba(29, 29, 29, 0.8);
+}
+
+.plateforme-block-a:active {
+    box-shadow: 0px 2px 6px 1px rgba(29, 29, 29, 0.8);
+}
+
+.plateforme-title {
+    text-align: left;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.plateforme-logo-1 {
+    height: 100px;
+}
+
+.plateforme-logo-2 {
+    height: 100px;
+}
+
+/*********** Text1 ***********/
+
+.text-SG {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    padding: 70px 30px;
+}
+
+.text-SG-block {
+    width: 100%;
+    background: -webkit-linear-gradient(left, #3d8bd1, #89bee8);
+    /* Safari */
+    background: -o-linear-gradient(right, #3d8bd1, #89bee8);
+    /* Opera */
+    background: -moz-linear-gradient(right, #3d8bd1, #89bee8);
+    /* Firefox */
+    background: linear-gradient(to right, #3d8bd1, #89bee8);
+}
+
+.text-SG-block-a {
+    padding-left: 30px;
+    width: 45%;
+    border-left: 5px solid rgba(255, 255, 255, .2);
+}
+
+.text-title {
+    font-weight: 900;
+    font-size: 27px;
+    margin-top: 0 !important;
+    margin: 20px auto;
+    line-height: 25px;
+}
+
+.text-content {
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 15px;
+}
+
+.text-SG-block-a .a {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, .9);
+}
+
+.text-link {
+    font-weight: bold;
+    color: rgba(255, 255, 255, .9);
+}
+
+/*********** Text2 ***********/
+
+.text2-SG {
+    text-align: center;
+    width: 40%;
+    padding: 20px 50px;
+    margin: auto;
+}
+
+.text2-content {
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.video-SG {
+    display: flex;
+    justify-content: space-around;
+}
+
+/********************************* Content *********************************/
+
+.footer-SG {
+    /* width: 100%; */
+    padding: 10px 80px;
+    font-size: 15px;
+    background: -webkit-linear-gradient(left, #192761, #1e2791);
+    /* Safari */
+    background: -o-linear-gradient(right, #192761, #1e2791);
+    /* Opera */
+    background: -moz-linear-gradient(right, #192761, #1e2791);
+    /* Firefox */
+    background: linear-gradient(to right, #192761, #1e2791);
+}
+
+.footer-SG-link {
+    margin: 0 30px;
+}
+
+/******************************************************* CGU *******************************************************/
+
+/********************************* Topbar *********************************/
+
+.topbar-cgu-SG {
+    height: 100% !important;
+}
+
+.logo-SG {
+    height: 60px;
+    margin: 5px 20px;
+}
+
+.logp-cgu-SG {
+    top: -41px;
+    height: 120px !important;
+}
+
+/********************************* Content *********************************/
+
+.content-cgu-page {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.cgu-thematique-icon {
+    vertical-align: -7px;
+}
+
+.cgu-page {
+    margin-top: 50px;
+    margin-bottom: 80px;
+    border-collapse: collapse;
+    clear: both;
+    display: table;
+    border-spacing: 0;
+    table-layout: auto;
+}
+
+.cgu-page-tab-column {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.cgu-page-sidebar {
+    background: url("../img/separateur.png") no-repeat 220px -50px;
+    width: 25%;
+    min-height: 300px;
+    padding-right: 60px;
+}
+
+.cgu-page-sidebar-title {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.cgu-page-sidebar-text ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cgu-page-content-block:not(:last-child) {
+    padding-bottom: 30px;
+}
+
+.cgu-page-content-title {
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px 0;
+}
+
+.cgu-page-content-subtitle {
+    font-weight: bold;
+    font-size: 18px;
+    padding: 6px 0;
+}
+
+.cgu-page-content-text {
+    line-height: 20px;
+    font-size: 15px;
+}
+
+.cgu-page-content-text:not(:last-child) {
+    margin-bottom: 20px;
+}
