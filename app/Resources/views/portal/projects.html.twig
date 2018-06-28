@@ -1,0 +1,32 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends 'base_yun.html.twig' %}
+{% block title %}Yunkun Projetcs{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pages/projects_page.css') }}"/>
+{% endblock %}
+{% set bg_image = 'bg-image--13' %}
+{% set bradcaump_title = 'summury.projects'|trans %}
+{% set breadcrumb_item = 'summury.projects'|trans %}
+{% block content %}
+    <div class="projects_page">
+        <div class="container">
+            <div class="row text-center">
+                <div class="project_line col-lg-6 col-md-6 col-sm-6">
+                    <a class="project" href="{{ asset('projects/Datawarehouse/index.php') }}" target="_blank"><img src="{{ asset('images/projects/datawarehouse.png') }}" style="width:50%;" class=""></a>
+                </div>
+                <div class="project_line col-lg-6 col-md-6 col-sm-6">
+                    <a class="project" href="{{ asset('projects/Securigreffe/index.html') }}" target="_blank"><img src="{{ asset('images/projects/securigreffe.png') }}" style="width:50%;" class=""></a>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="project_line col-lg-6 col-md-6 col-sm-6">
+                    <a class="project" href="{{ asset('projects/Apca_Front/index.html') }}" target="_blank"><img src="{{ asset('images/projects/apca_front.png') }}" style="width:50%;" class=""></a>
+                </div>
+                <div class="project_line col-lg-6 col-md-6 col-sm-6">
+                    <a class="project" href="{{ asset('projects/Apca_Back/index.html') }}" target="_blank"><img src="{{ asset('images/projects/apca_back.png') }}" style="width:50%;" class=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>APCA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- - - - - - - - - - - - Topbar - - - - - - - - - - - -->
+    <div class="topbar text-white-APCA">
+        <div class="logo">
+            <img src="./img/logo_apca.png" class="logo-img" alt="logo">
+            <span class="logo-title vertical-middle-APCA">BIENVENUE SUR VOTRE ESPACE DÉDIÉ REGISTRE DES ACTIFS AGRICOLES</span>
+        </div>
+        <div class="connection">
+            <span id="lastname_login" class="vertical-middle-APCA name-conn">NOM</span>
+            <span id="firstname_login" class="vertical-middle-APCA name-conn">PRÉNOM</span>
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="logout">exit_to_app</i>
+                <span>Déconnexion</span>
+            </div>
+        </div>
+        <div class="connection deconnection">
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="login">exit_to_app</i>
+                <span>Se connecter</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - Content - - - - - - - - - - - -->
+    <div class="content">
+        <!-- - - - -  Sidebar  - - - - -->
+        <div class="sidebar text-white-APCA">
+            <div class="text-center title-sidebar">CHAMBRE AGRICULTURE</div>
+            <div class="text-left taps-sidebar">
+                <a id="accueil_page" href="./index.html" class="tap-sidebar text-white-APCA sidebar-active">ACCUEIL</a>
+                <a id="consultation_page" href="./consultation.html" class="tap-sidebar text-white-APCA">CONSULTATION / CORRECTION</a>
+                <a id="fiches_en_erreur_page" href="./fiches_en_erreur.html" class="tap-sidebar text-white-APCA">FICHES EN ERREUR</a>
+                <a id="extraction_page" href="./extraction.html" class="tap-sidebar text-white-APCA">EXTRACTION</a>
+            </div>
+        </div>
+
+        <!-- - - - -  Page  - - - - -->
+        <div class="page">
+            <div class="header-page text-white-APCA text-center">ACCUEIL</div>
+            <div class="back-page">
+                <div class="content-page bg-white-APCA text-grey-APCA">
+                    <div class="text-center title-page">BIENVENUE SUR VOTRE ESPACE DEDIE REGISTRE DES ACTIFS AGRICOLES</div>
+                    <div class="article-page">
+                        <p>
+                            La fonction back office du site internet registre des actifs agricoles est une interface de gestion réservée aux administrateurs
+                            locaux (agents et responsables CFE/RAA) et à l’administrateur national APCA.
+                        </p>
+                        <p>
+                            <span>Cette interface présente plusieurs onglets :</span>
+                            <ul>
+                                <li>
+                                    <span class="font-weight-bold">CONSULTATION/ CORRECTION</span> permet de visualiser et/ou de corriger la fiche d’un
+                                    actif agricole et d’éditer (à titre gratuit pour l’actif ou à titre payant pour le tiers)
+                                    les différents documents. La fonction correction permet à l’administrateur de corriger
+                                    une donnée (ex : prénom tronqué, adresse de l’exploitation), ou d’attribuer un code NAF
+                                    pour une activité secondaire. Attention, toute modification relevant d’un évènement CFE
+                                    <span class="font-weight-bold">doit obligatoirement passer par le circuit CFE</span> (ces évènements CFE seront historisés
+                                    dans la copie intégrale des mentions).
+                                </li>
+                                <li>
+                                    <span class="font-weight-bold">RADIATION</span> affiche les personnes inscrites au registre ne répondant plus aux conditions
+                                    d’inscription. Deux fonctions possibles : la radiation de l’actif et le téléchargement
+                                    de son attestation de radiation.
+                                </li>
+                                <li>
+                                    <span class="font-weight-bold">FICHES EN ERREUR</span> permet d’afficher les actifs pour lesquels les flux apporteurs
+                                    de données ont remonté des données conflictuelles à corriger.
+                                </li>
+                                <li>
+                                    <span class="font-weight-bold">FICHES EN ATTENTE ATEXA</span> permet d’afficher les personnes transmises dans le flux
+                                    CFE susceptibles d’être inscrites au registre, sous réserve d’être affiliées en ATEXA.
+                                    Le système prévoit un délai de 3 ans avant purge de la fiche en attente.
+                                </li>
+                                <li>
+                                    <span class="font-weight-bold">EXTRACTION</span> permet de consulter et télécharger l’activité registre du CFE sur une
+                                    période précise ainsi que l’historique des commandes pour la tenue du registre chronologique
+                                    des formalités effectuées et des redevances perçues.
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Content -->
+
+
+    <!-- - - - - - - - - - - - Javascript Chargement Différé - - - - - - - - - - - -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>

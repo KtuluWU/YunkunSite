@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>APCA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- - - - - - - - - - - - Topbar - - - - - - - - - - - -->
+    <div class="topbar text-white-APCA">
+        <div class="logo">
+            <img src="./img/logo_apca.png" class="logo-img" alt="logo">
+            <span class="logo-title vertical-middle-APCA">BIENVENUE SUR VOTRE ESPACE DÉDIÉ REGISTRE DES ACTIFS AGRICOLES</span>
+        </div>
+        <div class="connection">
+            <span class="vertical-middle-APCA name-conn">ADMINISTRATEUR</span>
+            <span id="lastname_login" class="vertical-middle-APCA name-conn">NOM</span>
+            <span id="firstname_login" class="vertical-middle-APCA name-conn">PRÉNOM</span>
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="logout">exit_to_app</i>
+                <span>Déconnexion</span>
+            </div>
+        </div>
+        <div class="connection deconnection">
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="login">exit_to_app</i>
+                <span>Se connecter</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - Content - - - - - - - - - - - -->
+    <div class="content">
+        <!-- - - - -  Sidebar  - - - - -->
+        <div class="sidebar text-white-APCA">
+            <div class="text-center title-sidebar">CHAMBRE AGRICULTURE</div>
+            <div class="text-left taps-sidebar">
+                <a id="accueil_page" href="./index.html" class="tap-sidebar text-white-APCA">ACCUEIL</a>
+                <a id="consultation_page" href="./consultation.html" class="tap-sidebar text-white-APCA">CONSULTATION / CORRECTION</a>
+                <a id="fiches_en_erreur_page" href="./fiches_en_erreur.html" class="tap-sidebar text-white-APCA">FICHES EN ERREUR</a>
+                <a id="extraction_page" href="./extraction.html" class="tap-sidebar text-white-APCA">EXTRACTION</a>
+                <a id="extraction_page" href="./admin.html" class="tap-sidebar text-white-APCA sidebar-active">GESTION DES DROITS</a>
+            </div>
+        </div>
+
+        <!-- - - - -  Page  - - - - -->
+        <div class="page">
+            <div class="header-page text-white-APCA text-center">GESTION DES DROITS</div>
+            <div class="back-page">
+                <div class="content-page bg-white-APCA text-grey-APCA">
+                    <div class="content-page-admin">
+                        <div class="text-center title-page">RECHERCHE UN AGENT</div>
+                        <div class="">
+                            <div class="text-center margin-bottom-30">
+                                <form id="form_research_agent" name="form_research_agent" action="" method="GET" class="form-research-agent">
+                                    <input type="text" id="input_research_agent" name="input_research_agent" maxlength="50" placeholder="Nom" class="input-research-agent input-border">
+                                    <input type="submit" id="btn_ra" name="btn_ra" value="Lancer la recherche" class="btn bg-yellow-APCA text-blue-APCA underline">
+                                </form>
+                            </div>
+                            <div class="margin-bottom-30">
+                                <div class="margin-bottom-30">
+                                    <span class="title-res-research-agent">RÉSULTATS</span>
+                                    <span id="nb_res" class="nb-res-research-agent">(2)</span>
+                                </div>
+                                <div>
+                                    <span id="res_1" class="underline text-blue-APCA cursor-pointer res-research-agent">Roselyne GUILBERT</span>
+                                    <br>
+                                    <span id="res_2" class="underline text-blue-APCA cursor-pointer res-research-agent">Martin GUILBERT</span>
+                                </div>
+                            </div>
+                            <div class="">
+                                <form>
+                                    <div class="margin-bottom-30">
+                                        <span class="text-blue-APCA">Roselyne GUILBERT : </span>
+                                    </div>
+                                    <div class="droits text-blue-APCA">
+                                        <!-- Exemples -->
+                                        ...
+                                        <div>
+                                            <input type="checkbox" id="droits_1" name="droits_1" value="droits_1" class="checkbox"> 21-Côte-d'Or
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="droits_2" name="droits_2" value="droits_2" class="checkbox"> 22-Côtes-d'Armor
+                                        </div>
+                                        ...
+                                        <div>
+                                            <input type="checkbox" id="droits_3" name="droits_3" value="droits_3" class="checkbox"> 29-Finistère
+                                        </div>
+                                        ...
+                                    </div>
+                                    <input type="submit" id="btn_droits" name="btn_droits" value="Valider" class="btn btn-droits bg-yellow-APCA text-blue-APCA underline">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Content -->
+
+
+    <!-- - - - - - - - - - - - Javascript Chargement Différé - - - - - - - - - - - -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>

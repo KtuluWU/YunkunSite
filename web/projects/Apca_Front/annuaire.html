@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>APCA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- - - - - - - - - - - - Topbar - - - - - - - - - - - -->
+    <div class="topbar-APCA bg-green-APCA">
+        <nav class="navbar navbar-APCA navbar-expand-md">
+            <a class="nav-link text-center navbar-brand-APCA text-white col-2" data-toggle="dropdown" href="#">
+                <img class="img-buger-menu" src="./img/hamburger_menus.png" height="50" alt="Menu">
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item item-APCA text-grey-dark-APCA" href="#">Annuaire des CFE</a>
+                <a class="dropdown-item item-APCA text-grey-dark-APCA" href="#">Conditions générales d'utilisation et de vente</a>
+                <a class="dropdown-item item-APCA text-grey-dark-APCA" href="#contact">Contact</a>
+                <a class="dropdown-item item-APCA text-grey-dark-APCA" href="#">Accès réservé CFE</a>
+            </div>
+
+            <div class="text-center col-8">
+                <span class="text-white-APCA topbar-title cursor-pointer" onClick="location.href='index.html'">LE REGISTRE DES ACTIFS AGRICOLES</span>
+                <form id="form_search_advanced_top" name="form_search_advanced_top" method="get" action="" class="no-padding input-group">
+                    <i class="material-icons icon-search" id="basic-addon1">search</i>
+                    <input type="search" id="input_search_topbar" name="input_search_topbar" maxlength="100" class="input-search form-control"
+                        aria-describedby="basic-addon1" placeholder="Nom, Siren, N° de département">
+                </form>
+                <div class="search-advanced-line">
+                    <span class="no-padding"></span>
+                    <span class="no-padding search-advanced-topbar underline text-white-APCA cursor-pointer">Recherche avancée</span>
+                </div>
+
+            </div>
+
+            <div class="text-center panier empty col-2" id="collapsibleNavbar" onClick="location.href='panier.html'">
+                <span class="nav-link nowrap no-padding text-white">PANIER</span>
+                <img src="./img/panier.png" height="35" alt="Panier">
+                <ul class="count-panier" style="list-style-type:none">
+                    <li class="eee">0</li>
+                    <li class="eee">0</li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- - - - - - - - - - - - Searche Advanced - - - - - - - - - - - -->
+    <div class="search-advanced-block">
+        <div class="search-advanced bg-grey-APCA text-grey-dark-APCA">
+            <i id="sa_close" class="material-icons icon-close cursor-pointer">close</i>
+            <div class=" col-md-4 col-sm-4 col-6 search-advanced-title">
+                <span class="nowrap title">RECHERCHE AVANCÉE</span>
+                <br>
+                <span id="tip_sa" class="tip_sa text-red-APCA">Les champs marqués d’un * sont obligatoires</span>
+            </div>
+            <form id="form_search_advanced" name="form_search_advanced" action="liste_recherche_exemple.html" method="GET" class="search-advanced-form bg-grey-APCA">
+                <div class="row nomargin">
+                    <div class="col-md-6">
+                        <div class="row padding-col">
+                            <span class="col-md-3">Nom *</span>
+                            <input type="text" id="lastname_sa" name="lastname_sa" maxlength="30" class="col-md-9 input-border border-red" autocomplete="off">
+                        </div>
+                        <div class="row padding-col">
+                            <span class="col-md-3">Prénom *</span>
+                            <input type="text" id="firstname_sa" name="firstname_sa" maxlength="30" class="col-md-9 input-border border-red" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row padding-col">
+                            <span class="col-md-3">Siren</span>
+                            <input type="number" id="siern_sa" name="siern_sa" class="col-md-9 input-border" autocomplete="off">
+                        </div>
+                        <div class="row padding-col">
+                            <span class="col-md-3">Localisation</span>
+                            <input type="text" id="localisation_sa" name="localisation_sa" maxlength="30" class="col-md-9 input-border" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="nomargin search-advanced-buttonline">
+                    <span class="search-advanced-tip">* champs obligatoires</span>
+                    <input type="submit" id="btn_sa" name="btn_sa" value="Lancer la recherche" class="btn bg-yellow-APCA text-white-APCA underline">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - Content - - - - - - - - - - - -->
+    <div class="content">
+        <div class="cgv-annuaire-title title text-grey-dark-APCA text-center">ANNUAIRE DES CFE</div>
+        <div class="annuaire-table-block">
+            <table id="" class="text-center annuaire-table">
+                <thead>
+                    <tr class="bg-grey-dark-APCA text-white-APCA">
+                        <th>Département</th>
+                        <th>Email - Tel</th>
+                        <th>Adresse postale</th>
+                    </tr>
+                </thead>
+                <tbody class="text-grey-dark-APCA">
+                    <!-- une ligne de table -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 01 (Ain)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@ain.chambagri.fr</div>
+                            <div>tél : 04 74 45 56 86</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>4 avenue du Champ de Foire</div>
+                            <div>BP 84</div>
+                            <div>01003 BOURG-EN-BRESSE Cedex</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 02 (Aisne)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@ma02.org</div>
+                            <div>tél : 03 23 22 51 33 ou 50 91</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>1 rue René Blondelle</div>
+                            <div>02007 LAON CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 03 (Allier)</td>
+                        <td data-th="Email - Tel">
+                            <div>ccfe@allier.chambagri.fr</div>
+                            <div>tél : 04.70.48.42.42</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>60, cours Jean Jaurès</div>
+                            <div>BP1727</div>
+                            <div>03017 MOULINS CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 04(Alpes-de-Haute-Provence)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04 92 30 57 90 ou 57 53</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>66 boulevard Gassendi</div>
+                            <div>CS90117</div>
+                            <div>04995 DIGNE-LES-BAINS CEDEX 9</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 05 (Hautes-Alpes)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04.92.52.53.34</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>8 ter rue Capitaine de Bresson</div>
+                            <div>05010 GAP CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 06 (Alpes-Maritimes)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04 93 18 45 02</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Min Fleurs 17 </div>
+                            <div>BOX 85</div>
+                            <div>06296 NICE CEDEX 3</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 07 (Ardèche)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>Tél : 04.75.20.28.38</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>4, avenue de l'Europe Unie</div>
+                            <div>BP 114</div>
+                            <div>07001 PRIVAS CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 08 (Ardennes)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@ardennes.chambagri.fr</div>
+                            <div>tél : 03 24 56 82 48 </div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>1 rue Jacquemard TEMPLEUX - CS70733</div>
+                            <div>08013 CHARLEVILLE-MEZIERES CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 09 (Ariège)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@ariege.chambagri.fr</div>
+                            <div>tél : 05 61 02 14 41</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>32 avenue du Général de Gaulle</div>
+                            <div>09000 FOIX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 10 (Aube)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 03.25.43.43.65</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>2, bis rue Jeanne d'Arc</div>
+                            <div>CS44080</div>
+                            <div>10014TROYES CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 11 (Aude)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@aude.chambagri.fr</div>
+                            <div>tél : 04.68.11.79.48</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Zone d'activités de Sautès à Trèbes</div>
+                            <div>11878 CARCASSONNE CEDEX 9</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 12 (Aveyron)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@aveyron.chambagri.fr</div>
+                            <div>tél : 05.65.73.77.27 </div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Carrefour de l'agriculture</div>
+                            <div>12026 RODEZ CEDEX 9</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 13 (Bouches-du-Rhône)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04 42 23 99 33</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>22 avenue Henri Pontier</div>
+                            <div>13626 AIX-EN-PROVENCE CEDEX 1</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 14 (Calvados)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@calvados.chambagri.fr</div>
+                            <div>tél : 02.31.70.25.40</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>6, avenue de DUBNA</div>
+                            <div>CS 90218</div>
+                            <div>14209 HEROUVILLE SAINT CLAIR CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 15 (Cantal)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04.71.45.55.70</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>26, rue du 139ème RI</div>
+                            <div>BP 239</div>
+                            <div>15002 AURILLAC CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 16 (Charente)</td>
+                        <td data-th="Email - Tel">
+                            <div>juridique.cfe@charente.chambagri.fr</div>
+                            <div>tél : 05 45 24 49 69</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>ZE Ma Campagne</div>
+                            <div>66 Impasse Nièpce</div>
+                            <div>16016 ANGOULEME CEDEX</div>
+                        </td>
+                    </tr>
+
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 17 (Charente-Maritime)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@charente-maritime.chambagri.fr</div>
+                            <div>tél : 05.46.50.45.28 ou 45.00</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>3 boulevard de Vladimir</div>
+                            <div>17100 SAINTES</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 18 (Cher)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 02 48 23 04 00</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>2701 route d'Orléans</div>
+                            <div>BP 10</div>
+                            <div>18230 SAINT-DOULCHARD</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 19 (Corrèze)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 05.55.21.55.62</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Immeuble Consulaire</div>
+                            <div>Le Puy Pinçon</div>
+                            <div>19001 TULLE CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 2A (Corse-du-Sud)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@corse-du-sud.chambagri.fr</div>
+                            <div>tél : 04 95 29 26 07</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>19 avenue Noël Franchini</div>
+                            <div>CS 40913</div>
+                            <div>20700 AJACCIO CEDEX 09</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 2B (Haute-Corse)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04.95.32.84.42</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>15 avenue Jean Zuccarelli</div>
+                            <div>CS 60215</div>
+                            <div>20293 BASTIA CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 21 (Côte-d'Or)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@cote-dor.chambagri.fr</div>
+                            <div>tél : 03.80.68.66.16</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>1 rue des Coulots</div>
+                            <div>CS 70074</div>
+                            <div>21110 BRETENIERE</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 22 (Côtes-d'Armor)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe29@bretagne.chambagri.fr</div>
+                            <div>tél : 02.96.79.21.54</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>4, Avenue du Chalutier sans Pitié</div>
+                            <div>BP 10540</div>
+                            <div>22195 PLERIN CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 23 (Creuse)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@creuse.chambagri.fr</div>
+                            <div>tél : 05.55.61.50.34</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>8, avenue d'Auvergne</div>
+                            <div>CS 60089</div>
+                            <div>23011 GUERET CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 24 (Dordogne)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@dordogne.chambagri.fr</div>
+                            <div>tél : 05.53.35.88.11</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Cré@Vallée Nord</div>
+                            <div>Bd des Saveurs -CS 10250 - COULOUNIEIX CHAMIERS</div>
+                            <div>24060 PERIGUEUX CEDEX 9</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 25 (Doubs - Territoire de Belfort)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 03.81.65.52.21 </div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>130 bis rue de Belfort</div>
+                            <div>BP 939</div>
+                            <div>25021 BESANCON CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 26 (Drôme)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@drome.chambagri.fr</div>
+                            <div>tél : 04 75 82 40 26</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>95, avenue Georges Brassens</div>
+                            <div>CS 30418</div>
+                            <div>26054 Bourg les Valence CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 27 (Eure)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe27@normandie.chambagri.fr</div>
+                            <div>tél : 02 32 78 80 31</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>5 rue de la Petite Cité</div>
+                            <div>CS 80882</div>
+                            <div>27008 EVREUX CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 28 (Eure-et-Loir)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 02.37.24.45.41</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>10 rue Dieudonné Costes - CS 10399</div>
+                            <div>28008 CHARTRES CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 29 (Finistère)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe29@bretagne.chambagri.fr</div>
+                            <div>tél : 02.98.52.49.98</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>2 Allée Saint Guénolé</div>
+                            <div>CS 26032</div>
+                            <div>29322 QUIMPER CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 30 (Gard)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe.gard@gard.chambagri.fr</div>
+                            <div>tél : 04.66.04.50.52</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Mas de l'Agriculture 1120 route de St Gilles</div>
+                            <div>BP 80054</div>
+                            <div>30023 NIMES CEDEX 1</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 31 (Haute-Garonne)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>05 61 10 42 99</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>61 allée de Brienne</div>
+                            <div>BP 7044</div>
+                            <div>31069 TOULOUSE CEDEX 7</div>
+                        </td>
+                    </tr>
+
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 32 (Gers)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe-bassinsud@gers.chambagri.fr</div>
+                            <div>tél : 05.62.61.77.41</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Route de Mirande - BP 70161</div>
+                            <div>32003 AUCH CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 33 (Gironde)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@gironde.chambagri.fr</div>
+                            <div>tél : 05.56.79.64.37</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>17 cours Xavier Arnozan</div>
+                            <div>CS 71305</div>
+                            <div>33082 BORDEAUX CEDEX</div>
+                        </td>
+                    </tr>
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 34 (Hérault)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04.67.20.88.20</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Mas de Saporta</div>
+                            <div>CS 10010 </div>
+                            <div>34875 LATTES CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 35 (Ille-et-Vilaine)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe35@bretagne.chambagri.fr</div>
+                            <div>tél : 02.23.48.25.90</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Rond-Point Maurice Le Lannou</div>
+                            <div>CS 14226</div>
+                            <div>35042 RENNES CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 36 (Indre)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@indre.chambagri.fr</div>
+                            <div>tél : 02.54.61.61.48</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>24 rue des Ingrains</div>
+                            <div>36022 CHATEAUROUX CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 37 (Indre-et-Loire)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@cda37.fr</div>
+                            <div>tél : 02.47.48.37.67</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>38 rue Augustin Fresnel</div>
+                            <div>BP 50139</div>
+                            <div>37171 CHAMBRAY-LES-TOURS CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 38 (Isère)</td>
+                        <td data-th="Email - Tel">
+                            <div>accueil.cfe@isere.chambagri.fr</div>
+                            <div>tél : 04.76.20.67.20 (Grenoble)</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>40 avenue Marcelin Berthelot</div>
+                            <div>CS 92608 - 38036 GRENOBLE Cedex </div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 39 (Jura)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 03 84 35 14 60 ou 14 14</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>455 rue du Colonel de Casteljau</div>
+                            <div>BP 40417</div>
+                            <div>39016 LONS-LE-SAUNIER CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 40 (Landes)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@landes.chambagri.fr</div>
+                            <div>tél : 05.58.85.45.47</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Cité Galliane</div>
+                            <div>BP 279</div>
+                            <div>40005 MONT-DE-MARSAN CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 41 (Loir-et-Cher)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@loir-et-cher.chambagri.fr</div>
+                            <div>tél : 02.54.55.20.30</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>CS 1808</div>
+                            <div>11-13-15 rue Louis-Joseph Philippe</div>
+                            <div>Zone de l'Erigny 41018 BLOIS</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 42 (Loire)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04.77.91.43.25 </div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>ZI Le Forum</div>
+                            <div>Rue du Colisée - BP 20021 </div>
+                            <div>42110 FEURS</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 43 (Haute-Loire)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04 71 07 21 56</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>16 Bd Pt Bertrand</div>
+                            <div>Hôtel Interconsulaire</div>
+                            <div>43012 Le Puy en Velay Cedex</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 44 (Loire-Atlantique)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@vendee.chambagri,fr</div>
+                            <div>tél : 02.51.36.84.84</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>21 Boulevard Réaumur</div>
+                            <div>85013 LA ROCHE SUR YON </div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 45 (Loiret)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@loiret.cci.fr</div>
+                            <div>tel : 02 38 71 90 77 - 02 38 71 90 76 </div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>CCI DU LOIRET - CFE AGRICOLE</div>
+                            <div>23 place du Martroi</div>
+                            <div>45044 ORLEANS CEDEX 1</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 46 (Lot)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@lot.chambagri.fr</div>
+                            <div>tél : 05.65.23.22.71</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>430 avenue Jean Jaurès</div>
+                            <div>CS60199</div>
+                            <div>46004 CAHORS CEDEX 9</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 47 (Lot-et-Garonne)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 05.53.77.83.21</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Rue de Péchabout</div>
+                            <div>BP 349</div>
+                            <div>47008 AGEN CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 48 (Lozère)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@lozere.chambagri.fr</div>
+                            <div>tél : 04.66.65.62.07</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>25 avenue Foch</div>
+                            <div>48004 MENDE CEDEX</div>
+
+                        </td>
+                    </tr>
+
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 49 (Maine-et-Loire)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@maine-et-loire.chambagri.fr</div>
+                            <div>tél : 02.41.96.75.09</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>14 avenue Jean Joxé</div>
+                            <div>CS 80646</div>
+                            <div>49006 ANGERS CEDEX 01</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 50 (Manche)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@manche.chambagri.fr</div>
+                            <div>tél : 02 33 06 47 22</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Maison de l'Agriculture</div>
+                            <div>Avenue de Paris</div>
+                            <div>50009 SAINT-LO CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 51 (Marne)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@marne.chambagri.fr</div>
+                            <div>tél : 03.26.64.08.13</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Complexe Agricole du Mont Bernard</div>
+                            <div>Route de Suippes - BP 525</div>
+                            <div>51009 CHALONS-EN-CHAMPAGNE CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 52 (Haute-Marne)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 03 25 43 43 65</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>26 avenue du 109ème RI</div>
+                            <div>BP 82 138</div>
+                            <div>52905 CHAUMONT CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 53 (Mayenne)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@pl.chambagri.fr</div>
+                            <div>tél : 02.43.67.37.50</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Parc technopole</div>
+                            <div>Rue Albert Einstein - BP 36135</div>
+                            <div>53061 LAVAL CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 54 (Meurthe-et-Moselle)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@meurthe-et-moselle.chambagri.fr</div>
+                            <div>tél : 03.83.93.34.97</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>1 rue des Coulots</div>
+                            <div>54520 LAXOU </div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 55 (Meuse)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 03.29.83.30.53 ou 03.29.83.30.89</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Maison de l'Agriculture</div>
+                            <div>CS 50400</div>
+                            <div>55108 VERDUN CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 56 (Morbihan)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe56@bretagne.chambagri.fr</div>
+                            <div>tel : 02 97 46 28 29</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Avenue Borgnis Desbordes</div>
+                            <div>BP 398</div>
+                            <div>56009 VANNES CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 57 (Moselle)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 03.87.66.12.57</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>64 avenue André Malraux</div>
+                            <div>57045 METZ CEDEX 1</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 58 (Nièvre)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@nievre.chambagri.fr</div>
+                            <div>03 83 93 40 04 </div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>25 boulevard Léon Blum</div>
+                            <div>CS 40080</div>
+                            <div>58028 NEVERS CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 60 (Oise)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 03.44.11.44.25</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Rue Frère Gagne</div>
+                            <div>BP 40463</div>
+                            <div>60021 BEAUVAIS CEDEX 3</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 61 (Orne)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 02.33.31.49.71</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>52 boulevard du 1er Chasseur</div>
+                            <div>CS 80036</div>
+                            <div>61001 ALENCON CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA de Région Nord-Pas-de-Calais 59</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>03 21 60 48 73 </div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>140, boulevard de la Liberté</div>
+                            <div>BP 1177</div>
+                            <div>59013 LILLE CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA de Région Nord-Pas-de-Calais (CFE 62)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>03 21 60 48 73 </div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>56, avenue Roger Salendro</div>
+                            <div>62051 SAINT-LAURENT-BLANGY CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 63 (Puy-de-Dôme)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04.73.44 45 89</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>11 allée Pierre de Fermat</div>
+                            <div>BP 70007</div>
+                            <div>63170 AUBIERE</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 64 (Pyrénées-Atlantiques)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 05.59.80.69 81</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>124, boulevard Tourasse</div>
+                            <div>64078 PAU CEDEX</div>
+                        </td>
+                    </tr>
+
+
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 65 (Hautes-Pyrénées)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 05.62.34.87.26</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>20, place du Foirail</div>
+                            <div>65917 TARBES CEDEX 9</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 66 (Pyrénées-Orientales)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@pyrenees.orientales.chambagri.fr</div>
+                            <div>tél : 04.68.35.74.10</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>19, avenue de Grande Bretagne</div>
+                            <div>66025 PERPIGNAN CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CRA Alsace Bas-Rhin </td>
+                        <td data-th="Email - Tel">
+                            <div>economie@bas-rhin.chambagri.fr</div>
+                            <div>tél : 03.88.19.17.95</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>2 rue de Rome</div>
+                            <div>BP 30022 - SCHILTIGHEIM</div>
+                            <div>67013 STRASBOURG CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CRA Alsace Haut-Rhin</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@haut-rhin.chambagri.fr</div>
+                            <div>tél : 03.89.20.97.16</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>11 rue Jean Mermoz</div>
+                            <div>68127 SAINTE-CROIX-EN-PLAINE</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 69 (Rhône)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04.78.19.61.03</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>18, avenue des Monts d'Or</div>
+                            <div>69890 LA-TOUR-DE-SALVAGNY</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 70 (Haute-Saône)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@haute-saone.chambagri.fr</div>
+                            <div>tél : 03.84.77.14.44 ou 14.94</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>17 Quai Yves Barbier</div>
+                            <div>BP 20 189</div>
+                            <div>70004 VESOUL CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 71 (Saône-et-Loire)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 03.85.29.55.25</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>59 rue du 19 mars 1962</div>
+                            <div>BP 522</div>
+                            <div>71010 MACON CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 72 (Sarthe)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@sarthe.chambagri.fr</div>
+                            <div>tél : 02.43.29.24.39</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>15 rue Jean Grémillon</div>
+                            <div>72013 LE MANS CEDEX 2</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 73 (Savoie-Mont Blanc)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04 79 33 82 95 ou 82 88</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>40 rue du Terraillet</div>
+                            <div>73190 SAINT-BALDOPH</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 74 (Savoie-Mont Blanc)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 04 50 88 18 14 ou 18 15</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>52 avenue des Iles</div>
+                            <div>74994 ANNECY CEDEX 9</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 76 (Seine-Maritime)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe76@normandie.chambagri.fr</div>
+                            <div>tél : 02 35 59 47 22</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Chemin de la Bretèque</div>
+                            <div>CS 30059</div>
+                            <div>76237 BOIS-GUILLAUME CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 77 (Seine-et-Marne)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 01 64 79 30 64</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>418 rue Aristide Briand</div>
+                            <div>77350 LE-MEE-SUR-SEINE</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 78 (Ile-de-France)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 01.39.23.42.39</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>2 avenue Jeanne d'Arc</div>
+                            <div>BP 111</div>
+                            <div>78153 LE CHESNAY CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 79 (Deux-Sèvres)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@deux-sevres.chambagri.fr</div>
+                            <div>tél : 05 49 77 15 15</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>CS 80004</div>
+                            <div>79231 PRAHECQ CEDEX</div>
+
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 80 (Somme)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 03.22.33.69.16</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>19 bis rue Alexandre Dumas</div>
+                            <div>80096 AMIENS CEDEX 3</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 81 (Tarn)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@tarn.chambagri.fr</div>
+                            <div>tél : 05.63.48.83.91</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Maison des Agriculteurs</div>
+                            <div>96 rue des Agriculteurs - BP 89</div>
+                            <div>81003 ALBI CEDEX</div>
+                        </td>
+                    </tr>
+
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 82 (Tarn-et-Garonne)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@tarn-et-garonne.chambagri.fr</div>
+                            <div>tél : 05.63.63.93.60</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>130 avenue Marcel Unal</div>
+                            <div>82017 MONTAUBAN CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 83 (Var)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél. 04.94.99.74.24</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>70, Avenue du Président WILSON</div>
+                            <div>83550 VIDAUBAN</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 84 (Vaucluse)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@vaucluse.chambagri.fr</div>
+                            <div>tél : 04.90.23.65.58</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Site Agroparc</div>
+                            <div>84912 AVIGNON CEDEX 9</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 85 (Vendée)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@vendee.chambagri.fr</div>
+                            <div>tél : 02 51 36 84 84</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>21, boulevard Réaumur</div>
+                            <div>85013 LA-ROCHE-SUR-YON CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 86 (Vienne)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 05 49 44 74 55</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>2133 Route de Chauvigny</div>
+                            <div>BP 50001</div>
+                            <div>86550 MIGNALOUX-BEAUVOIR</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 87 (Haute-Vienne)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe87@haute-vienne.chambagri.fr</div>
+                            <div>tél : 05.87.50.40.00</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Safran 2, avenue Georges Guingouin </div>
+                            <div>CS 80912 PANAZOL</div>
+                            <div>87017 LIMOGES CEDEX 1</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 88 (Vosges)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 03.29.29.23.11</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>17, rue André VITU</div>
+                            <div>La Colombière</div>
+                            <div>88026 EPINAL CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 89 (Yonne)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@yonne.chambagri.fr</div>
+                            <div>tél : 03.86.94.21.96</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>14 bis rue Guynemer</div>
+                            <div>CS 50289</div>
+                            <div>89005 AUXERRE CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 971 (Guadeloupe)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@guadeloupe.chambagri.fr</div>
+                            <div>tél : 05 90 25 17 17 - 05.90.25.11.08</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Espace régional agricole de convenance</div>
+                            <div>BP 35</div>
+                            <div>97122 BAIE MAHAULT CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 973 (Guyane)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>tél : 0594.29.61.95 </div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>1 avenue des Jardins de Sainte Agathe</div>
+                            <div>97 355 MACOURIA TONATE</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 972 (Martinique)</td>
+                        <td data-th="Email - Tel">
+                            <div>cfe@martinique.chambagri.fr</div>
+                            <div>tél : 05 96 51 91 67</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Place d'Armes</div>
+                            <div>BP 312</div>
+                            <div>97 286 LE LAMENTIN CEDEX 2</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">CA 974 (Réunion) CFE nord</td>
+                        <td data-th="Email - Tel">
+                            <div>cfenord@reunion.chambagri.fr</div>
+                            <div>tél : 02 62 94 25 82</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>24 rue de la Source</div>
+                            <div>BP 134</div>
+                            <div>97 463 SAINT DENIS CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content bg-grey-APCA">
+                        <td data-th="Département">CA 974 (Réunion)CFE sud</td>
+                        <td data-th="Email - Tel">
+                            <div>cfesud@reunion.chambagri.fr</div>
+                            <div>tél : 02 62 94 25 82</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>24 rue de la Source</div>
+                            <div>BP 134</div>
+                            <div>97 463 SAINT DENIS CEDEX</div>
+                        </td>
+                    </tr>
+                    <!-- - - - - - - - - - - -->
+                    <tr class="annuaire-table-content">
+                        <td data-th="Département">976 (Mayotte)</td>
+                        <td data-th="Email - Tel">
+                            <div>&nbsp;</div>
+                            <div>&nbsp;</div>
+                        </td>
+                        <td data-th="Adresse postale">
+                            <div>Place Mariage</div>
+                            <div>BP F 82</div>
+                            <div>97600 MAMOUDZOU</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- content-->
+
+    <!-- - - - - - - - - - - - Footer - - - - - - - - - - - -->
+    <div class="footer bg-green-APCA">
+        <div class="nomargin row footer-content text-center padding-col text-white-APCA">
+            <h4 class="col-md-5 footer-apca footer-links1">2018 - APCA</h4>
+            <h5 class="col-md-3 footer-apca footer-links1">
+                <a href="#" class="text-white-APCA underline">ACCÈS CFE</a>
+            </h5>
+            <div class="col-md-4 footer-links">
+                <div>
+                    <a href="./cgv_cgu.html" class="text-white-APCA">Conditions générales d'utilisation et de vente</a>
+                </div>
+                <div>
+                    <a href="./annuaire.html" class="text-white-APCA">Annuaire des CFE</a>
+                </div>
+                <div>
+                    <a href="./plan_du_site.html" class="text-white-APCA">Plan du site</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - Javascript Chargement Différé - - - - - - - - - - - -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -103,6 +103,16 @@ class IndexController extends Controller
     }
 
     /**
+     * @Route("/Projects", name="projectspage")
+     */
+    public function projectsAction()
+    {
+        return $this->render(
+            'portal/projects.html.twig'
+        );
+    }
+
+    /**
      * @return array
      */
     private function getBlogsArrayFromDB()

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>APCA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- - - - - - - - - - - - Topbar - - - - - - - - - - - -->
+    <div class="topbar text-white-APCA">
+        <div class="logo">
+            <img src="./img/logo_apca.png" class="logo-img" alt="logo">
+            <span class="logo-title vertical-middle-APCA">BIENVENUE SUR VOTRE ESPACE DÉDIÉ REGISTRE DES ACTIFS AGRICOLES</span>
+        </div>
+        <div class="connection">
+            <span id="lastname_login" class="vertical-middle-APCA name-conn">NOM</span>
+            <span id="firstname_login" class="vertical-middle-APCA name-conn">PRÉNOM</span>
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="logout">exit_to_app</i>
+                <span>Déconnexion</span>
+            </div>
+        </div>
+        <div class="connection deconnection">
+            <div id="button_deconn" class="vertical-middle-APCA text-center button-deconn cursor-pointer">
+                <i class="material-icons" id="login">exit_to_app</i>
+                <span>Se connecter</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - Content - - - - - - - - - - - -->
+    <div class="content">
+        <!-- - - - -  Sidebar  - - - - -->
+        <div class="sidebar text-white-APCA">
+            <div class="text-center title-sidebar">CHAMBRE AGRICULTURE</div>
+            <div class="text-left taps-sidebar">
+                <a id="accueil_page" href="./index.html" class="tap-sidebar text-white-APCA">ACCUEIL</a>
+                <a id="consultation_page" href="./consultation.html" class="tap-sidebar text-white-APCA sidebar-active">CONSULTATION / CORRECTION</a>
+                <a id="fiches_en_erreur_page" href="./fiches_en_erreur.html" class="tap-sidebar text-white-APCA">FICHES EN ERREUR</a>
+                <a id="extraction_page" href="./extraction.html" class="tap-sidebar text-white-APCA">EXTRACTION</a>
+            </div>
+        </div>
+
+        <!-- - - - -  Page  - - - - -->
+        <div class="page">
+            <div class="header-page text-white-APCA text-center">CONSULTATION / CORRECTION</div>
+            <div class="back-page">
+                <div class="content-page bg-white-APCA text-grey-APCA">
+                    <div class="title-page text-center">
+                        <span class="text-grey-APCA">
+                            RESULTATS DE RECHERCHE (3)
+                        </span>
+                        <select id="consultation_res_trier" name="consultation_res_trier" class="bg-white-APCA input-border consultation-res-select">
+                            <option disabled selected value="">TRIER</option>
+                            <option value="nom">NOM</option>
+                            <option value="prenom">PRÉNOM</option>
+                            <option value="commune">COMMUNE</option>
+                            <option value="siren">SIREN</option>
+                            <option value="categorie_juridique">CATÉGORIE JURIDIQUE</option>
+                            <option value="code_naf">CODE NAF</option>
+                        </select>
+                    </div>
+                    <div class="consultation-res-tip bg-white-APCA text-blue-APCA">
+                        <div>
+                            <img class="consultation-res-table-icon2" src="./img/icon_eye.png" alt="VISUALISATION">VISUALISATION
+                        </div>
+                        <div class="margin-top-10">
+                            <img class="consultation-res-table-icon2" src="./img/icon_modif.png" alt="CORRECTION">CORRECTION
+                        </div>
+                        <div class="margin-top-10">
+                            <img class="consultation-res-table-icon2" src="./img/picto_extrait.png" alt="ATTESTATION D'INSCRIPTION">ATTESTATION D'INSCRIPTION
+                        </div>
+                        <div class="margin-top-10">
+                            <img class="consultation-res-table-icon2" src="./img/picto_copie_int.png" alt="COPIE INTÉGRALE">COPIE INTÉGRALE
+                        </div>
+                        <div class="margin-top-20">Cliquez sur l'icone correspondante pour editer le document</div>
+                    </div>
+                    <table class="consultation-res-table text-center" id="consultation_res_table">
+                        <thead>
+                            <tr class="bg-grey-dark-APCA text-white-APCA">
+                                <th>NOM</th>
+                                <th>PRÉNOM</th>
+                                <th>COMMUNE</th>
+                                <th>SIREN</th>
+                                <th>CATÉGORIE JURIDIQUE</th>
+                                <th>CODE NAF</th>
+                                <th>ACTIONS
+                                    <i class="material-icons consultation-res-icon" id="consultation_res_icon">help</i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>SARL</td>
+                                <td>0111Z</td>
+                                <td>
+                                    <a href="./visualisation.html" target="_blank">
+                                        <img class="consultation-res-table-icon" id="visualisation_1" src="./img/icon_eye.png" alt="Visualisation">
+                                    </a>
+                                    <a href="./correction.html" target="_blank">
+                                        <img class="consultation-res-table-icon" id="correction_1" src="./img/icon_modif.png" alt="Correction">
+                                    </a>
+                                    <img class="consultation-res-table-icon" id="attestation_1" src="./img/picto_extrait.png" alt="Attestation d'inscription">
+                                    <img class="consultation-res-table-icon" id="copie_1" src="./img/picto_copie_int.png" alt="Copie intégrale">
+                                </td>
+                            </tr>
+                            <tr class="bg-grey-APCA">
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>SARL</td>
+                                <td>0111Z</td>
+                                <td>
+                                    <a href="./visualisation.html" target="_blank">
+                                        <img class="consultation-res-table-icon" id="visualisation_2" src="./img/icon_eye.png" alt="Visualisation">
+                                    </a>
+
+                                    <a href="./correction.html" target="_blank">
+                                        <img class="consultation-res-table-icon" id="correction_2" src="./img/icon_modif.png" alt="Correction">
+                                    </a>
+                                    <img class="consultation-res-table-icon" id="attestation_2" src="./img/picto_extrait.png" alt="Attestation d'inscription">
+                                    <img class="consultation-res-table-icon" id="copie_2" src="./img/picto_copie_int.png" alt="Copie intégrale">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Martin</td>
+                                <td>Jean</td>
+                                <td>Vincennes (94)</td>
+                                <td>123465789</td>
+                                <td>SARL</td>
+                                <td>0111Z</td>
+                                <td>
+                                    <a href="./visualisation.html" target="_blank">
+                                        <img class="consultation-res-table-icon" id="visualisation_3" src="./img/icon_eye.png" alt="Visualisation">
+                                    </a>
+                                    <a href="./correction.html" target="_blank">
+                                        <img class="consultation-res-table-icon" id="correction_3" src="./img/icon_modif.png" alt="Correction">
+                                    </a>
+                                    <img class="consultation-res-table-icon" id="attestation_3" src="./img/picto_extrait.png" alt="Attestation d'inscription">
+                                    <img class="consultation-res-table-icon" id="copie_3" src="./img/picto_copie_int.png" alt="Copie intégrale">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="consultation-res-pages-block">
+                        <div class="consultation-res-pages text-center">
+                            <div></div>
+                            <div class="consultation-res-line text-blue-APCA">
+                                <span class="">Résultats par page</span>
+                                <span class="a active" id="page_25">25</span>
+                                <span class="b" id="page_50">50</span>
+                                <span class="c" id="page_100">100</span>
+                            </div>
+                        </div>
+                        <div class="consultation-res-pages text-center">
+                            <div></div>
+                            <div class="consultation-res-marks text-blue-APCA">
+                                <span class="a cursor-pointer">
+                                    <i class="material-icons page-icons">keyboard_arrow_left</i>
+                                </span>
+                                <span class="a cursor-pointer active" id="page_1">1</span>
+                                <span class="a cursor-pointer" id="page_2">2</span>
+                                <span class="a cursor-pointer" id="page_3">3</span>
+                                <span class="a cursor-pointer" id="page_4">4</span>
+                                <span class="a cursor-pointer" id="page_5">5</span>
+                                <span class="a cursor-pointer">
+                                    <i class="material-icons page-icons">keyboard_arrow_right</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Content -->
+
+
+    <!-- - - - - - - - - - - - Javascript Chargement Différé - - - - - - - - - - - -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>

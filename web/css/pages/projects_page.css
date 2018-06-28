@@ -1,0 +1,24 @@
+/*===== Colors =====//*/
+/*===== Font Family =====//*/
+/*===== Line Height =====//*/
+/*===== Radius  =====//*/
+/*==== Font size =====//*/
+/*===== Border color ======//*/
+/*===== Alerts color  =====//*/
+/*===== Social Colors =====//*/
+/* Layouts*/
+.projects_page .container {
+  padding-top: 60px;
+  padding-bottom: 60px; }
+  .projects_page .container .project_line {
+    margin: 50px auto; }
+    .projects_page .container .project_line .project {
+      cursor: pointer;
+      padding: 50px;
+      border: 1px solid #81ad7b;
+      border-radius: 8px;
+      box-shadow: 6px 5px 10px 3px #81ad7b; }
+      .projects_page .container .project_line .project:active {
+        box-shadow: 1px 2px 7px 1px #81ad7b; }
+
+/*# sourceMappingURL=projects_page.css.map */
