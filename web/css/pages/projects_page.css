@@ -15,10 +15,10 @@
     .projects_page .container .project_line .project {
       cursor: pointer;
       padding: 50px;
-      border: 1px solid #81ad7b;
+      border: 1px solid #51a7f9;
       border-radius: 8px;
-      box-shadow: 6px 5px 10px 3px #81ad7b; }
+      box-shadow: 6px 5px 10px 3px #51a7f9; }
       .projects_page .container .project_line .project:active {
-        box-shadow: 1px 2px 7px 1px #81ad7b; }
+        box-shadow: 1px 2px 7px 1px #51a7f9; }
 
 /*# sourceMappingURL=projects_page.css.map */
