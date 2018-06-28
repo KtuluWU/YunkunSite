@@ -5,7 +5,7 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/pages/error_page.css') }}"/>
 {% endblock %}
-
+{% set bg_image = 'bg-image--13' %}
 {% set bradcaump_title = 'summury.error.title1'|trans %}
 {% set breadcrumb_item = 'summury.error.title2'|trans %}
 {% block content %}
