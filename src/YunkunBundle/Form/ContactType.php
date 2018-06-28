@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -17,7 +17,7 @@ class ContactType extends AbstractType {
             ->add('contact_username', null, array('translation_domain' => 'FOSUserBundle'))
             ->add('contact_email', null, array('translation_domain' => 'FOSUserBundle'))
             ->add('contact_subject', null, array('translation_domain' => 'FOSUserBundle'))
-            ->add('contact_message', null, array('translation_domain' => 'FOSUserBundle'));
+            ->add('contact_message', TextareaType::class, array('translation_domain' => 'FOSUserBundle'));
             ;
     }
 
