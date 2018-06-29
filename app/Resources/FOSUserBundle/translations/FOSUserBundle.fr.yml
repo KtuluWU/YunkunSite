@@ -148,7 +148,7 @@ user_page:
 profile_page:
     username: Nom d’utilisateur
     truename: Vrai nom
-    sex: État civil
+    sex: Civilité
     role: Niveau d'accès
     email: Email
     lastlogin: Dernière connexion
