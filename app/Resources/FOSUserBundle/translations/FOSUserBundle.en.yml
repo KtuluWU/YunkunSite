@@ -268,3 +268,9 @@ contact_page:
     message: Message
     btn: Send
     email_direct: Or email us directly
+
+copyright:
+    yun: Yun WU
+    kun: Kun XU
+    rights: All Rights Reserved
+    develop: Develop by Yun and Kun
