@@ -104,13 +104,13 @@
       justify-content: space-around; }
       .pr__blog__details .container .modal__conrfim__delete .window .lang-block .lang {
         margin: 0 20px;
-        border: 2px solid #81ad7b;
+        border: 2px solid #51a7f9;
         border-radius: 5px;
         padding: 5px 10px;
         transition: .4s;
         cursor: pointer; }
         .pr__blog__details .container .modal__conrfim__delete .window .lang-block .lang:hover {
-          background: #81ad7b; }
+          background: #51a7f9; }
 @media only screen and (max-width: 1000px) {
   .pr__blog__details .container .modal__conrfim__delete .window {
     left: calc(40% - 40% / 2);
