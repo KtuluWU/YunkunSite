@@ -3884,7 +3884,7 @@ div[id^='flash_'] {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(129, 173, 123, 0.4); }
+  background: rgba(81, 167, 249, 0.4); }
 .modal-lang .window {
   position: fixed;
   z-index: 1001;
@@ -3908,13 +3908,13 @@ div[id^='flash_'] {
     justify-content: space-around; }
     .modal-lang .window .lang-block .lang {
       margin: 0 20px;
-      border: 2px solid rgba(129, 173, 123, 0.4);
+      border: 2px solid rgba(81, 167, 249, 0.4);
       border-radius: 5px;
       padding: 5px 10px;
       transition: .4s;
       cursor: pointer; }
       .modal-lang .window .lang-block .lang:hover {
-        background: rgba(129, 173, 123, 0.4); }
+        background: rgba(81, 167, 249, 0.4); }
 
 @media only screen and (max-width: 1000px) {
   .modal-lang .window {

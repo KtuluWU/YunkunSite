@@ -35,9 +35,9 @@
                                     <li>
                                         <a href="/">{{'summury.home'|trans}}</a>
                                     </li>
-                                    <li>
+                                    {#<li>
                                         <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
-                                    </li>
+                                    </li>#}
                                     {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
                                     <li class="drop">
                                         <a href="/Blog">{{'summury.blog'|trans}}</a>
@@ -129,9 +129,9 @@
                                     <li>
                                         <a href="/">{{'summury.home'|trans}}</a>
                                     </li>
-                                    <li>
+                                    {#<li>
                                         <a href="/AboutUs">{{'summury.aboutus'|trans}}</a>
-                                    </li>
+                                    </li>#}
                                     {% if app.user %} {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN' %}
                                     <li class="drop">
                                         <a href="/Blog">{{'summury.blog'|trans}}</a>
@@ -418,6 +418,12 @@
                     <li><img src="{{ asset('images/footer/4.png') }}" alt="yunkun blog"></li>
                     <li><img src="{{ asset('images/footer/5.png') }}" alt="yunkun blog"></li>
                     <li><img src="{{ asset('images/footer/6.png') }}" alt="yunkun blog"></li>
+                    <li><img src="{{ asset('images/footer/7.png') }}" alt="yunkun blog"></li>
+                    <li><img src="{{ asset('images/footer/8.png') }}" alt="yunkun blog"></li>
+                    <li><img src="{{ asset('images/footer/9.png') }}" alt="yunkun blog"></li>
+                    <li><img src="{{ asset('images/footer/10.png') }}" alt="yunkun blog"></li>
+                    <li><img src="{{ asset('images/footer/11.png') }}" alt="yunkun blog"></li>
+                    <li><img src="{{ asset('images/footer/12.png') }}" alt="yunkun blog"></li>
                 </ul>
                 {# <div class="instagram__title">
                     <h2>Follow Us On instagram</h2>
