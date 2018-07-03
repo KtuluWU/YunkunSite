@@ -102,7 +102,7 @@ summury:
     blog: 博客
     addblog: 添加博客
     editblog: 编辑博客
-    projects: 网站项目展示
+    projects: 项目及设计作品展示
     contactus: 联系我们
     cv: 个人简历
     error: 
@@ -268,3 +268,12 @@ copyright:
     kun: 许堃
     rights: 版权所有
     develop: 由吴云许堃共同设计开发
+
+projects_page:
+    title1: 项目
+    title2: 设计
+    text1: 此网站的LOGO为吴云亲自设计并绘制。运用到Photoshop及Illustrator等工具。
+    text2: Logo的设计理念围绕着吴云许堃二人的名字拼音首字母，因为我们住在法国巴黎，所以就以法国标志菲尔铁塔为题材，以Yun的首字母Y，Kun的首字母K，通过变形组合成铁塔的轮廓。同时，通过毛笔的效果来加入我们的国籍中国的元素。
+    text3: 通过Illustrator工具绘制SVG矢量图，包括文字。设计思路中的LOGO不仅包含我们名字拼音首字母，还要有中文和拼音全称。为保证字体不侵权，全部经过设计后手动绘制出矢量图文字。
+    text4: 然后，使用法国国旗的蓝白红颜色，添加一些模糊效果加以点缀：
+    text5: 通过Photoshop对Illustrator导出的LOGO进行装饰，得到最后的成品：

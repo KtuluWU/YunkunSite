@@ -1,19 +1,46 @@
 @import '../variables';
-
 .projects_page {
     .container {
         padding-top: 60px;
         padding-bottom: 60px;
-        .project_line {
-            margin: 50px auto;
-            .project {
-                cursor: pointer;
-                padding: 50px;
-                border: 1px solid $theme-color;
-                border-radius: 8px;
-                box-shadow: 6px 5px 10px 3px $theme-color;
-                &:active {
-                    box-shadow: 1px 2px 7px 1px $theme-color;
+        .block {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            .design-text {
+                p {
+                    margin-bottom: 0;
+                }
+                .image {
+                    text-align: center;
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                }
+            }
+            h2 {
+                position: relative;
+                padding-bottom: 28px;
+                text-transform: uppercase;
+                &::before {
+                    background: #3e3e3e none repeat scroll 0 0;
+                    bottom: 0;
+                    content: "";
+                    height: 3px;
+                    left: 0;
+                    position: absolute;
+                    width: 100px;
+                }
+            }
+            .project_line {
+                margin: 50px auto;
+                .project {
+                    cursor: pointer;
+                    padding: 50px;
+                    border: 1px solid $theme-color;
+                    border-radius: 8px;
+                    box-shadow: 6px 5px 10px 3px $theme-color;
+                    &:active {
+                        box-shadow: 1px 2px 7px 1px $theme-color;
+                    }
                 }
             }
         }

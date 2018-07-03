@@ -11,20 +11,38 @@
 {% block content %}
     <div class="projects_page">
         <div class="container">
-            <div class="row text-center">
-                <div class="project_line col-lg-6 col-md-6 col-sm-6">
-                    <a class="project" href="{{ asset('projects/Datawarehouse/index.php') }}" target="_blank"><img src="{{ asset('images/projects/datawarehouse.png') }}" style="width:50%;" class=""></a>
+            <div class="block">
+                <h2>{{'projects_page.title1'|trans}}</h2>
+                <div class="row text-center">
+                    <div class="project_line col-lg-6 col-md-6 col-sm-6">
+                        <a class="project" href="{{ asset('projects/Datawarehouse/index.php') }}" target="_blank"><img src="{{ asset('images/projects/datawarehouse.png') }}" style="width:50%;" class=""></a>
+                    </div>
+                    <div class="project_line col-lg-6 col-md-6 col-sm-6">
+                        <a class="project" href="{{ asset('projects/Securigreffe/index.html') }}" target="_blank"><img src="{{ asset('images/projects/securigreffe.png') }}" style="width:50%;" class=""></a>
+                    </div>
                 </div>
-                <div class="project_line col-lg-6 col-md-6 col-sm-6">
-                    <a class="project" href="{{ asset('projects/Securigreffe/index.html') }}" target="_blank"><img src="{{ asset('images/projects/securigreffe.png') }}" style="width:50%;" class=""></a>
+                <div class="row text-center">
+                    <div class="project_line col-lg-6 col-md-6 col-sm-6">
+                        <a class="project" href="{{ asset('projects/Apca_Front/index.html') }}" target="_blank"><img src="{{ asset('images/projects/apca_front.png') }}" style="width:50%;" class=""></a>
+                    </div>
+                    <div class="project_line col-lg-6 col-md-6 col-sm-6">
+                        <a class="project" href="{{ asset('projects/Apca_Back/index.html') }}" target="_blank"><img src="{{ asset('images/projects/apca_back.png') }}" style="width:50%;" class=""></a>
+                    </div>
                 </div>
             </div>
-            <div class="row text-center">
-                <div class="project_line col-lg-6 col-md-6 col-sm-6">
-                    <a class="project" href="{{ asset('projects/Apca_Front/index.html') }}" target="_blank"><img src="{{ asset('images/projects/apca_front.png') }}" style="width:50%;" class=""></a>
-                </div>
-                <div class="project_line col-lg-6 col-md-6 col-sm-6">
-                    <a class="project" href="{{ asset('projects/Apca_Back/index.html') }}" target="_blank"><img src="{{ asset('images/projects/apca_back.png') }}" style="width:50%;" class=""></a>
+            <div class="block">
+                <h2>{{'projects_page.title2'|trans}}</h2>
+                <div class="design-text text-justify">
+                    <p>{{'projects_page.text1'|trans}}</p>
+                    <p>{{'projects_page.text2'|trans}}</p>
+                    <div class="image"><img src="{{ asset('images/projects/1.png') }}" style="height: 200px;"></div>
+                    <p>{{'projects_page.text3'|trans}}</p>
+                    <div class="image"><img src="{{ asset('images/projects/2.png') }}" style="height: 50px;"><img src="{{ asset('images/projects/3.png') }}" style="height: 40px;"></div>
+                    <p>{{'projects_page.text4'|trans}}</p>
+                    <div class="image"><img src="{{ asset('images/projects/4.png') }}" style="height: 200px;"></div>
+                    <div class="image"><img src="{{ asset('images/projects/5.png') }}" style="height: 200px;"></div>
+                    <p>{{'projects_page.text5'|trans}}</p>
+                    <div class="image"><img src="{{ asset('images/logo/yunkun_logo.png') }}" style="height: 300px;"></div>
                 </div>
             </div>
         </div>
