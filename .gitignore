@@ -21,8 +21,8 @@
 !web/uploads/.gitkeep
 /web/uploads/files/*
 !web/uploads/files/.gitkeep
-/web/uploads/images/*
-!web/uploads/images/.gitkeep
+/web/uploads/images/blog/*
+!web/uploads/images/blog/.gitkeep
 /web/css/.sass-cache
 /web/css/scss/.sass-cache
 /web/css/scss/pages/.sass-cache
