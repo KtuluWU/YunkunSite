@@ -257,6 +257,7 @@ class BlogController extends Controller
         $fileSystem = new Filesystem();
         $em = $this->getDoctrine()->getManager();
         $blog_db = $em->getRepository('YunkunBundle:Blog')->findByTitle($blog_title);
+        $blog_comments_db = $em->getRepository('YunkunBundle:BlogComment')->findByTitle($blog_title);
 
         $imageName1 = $blog_db[0]->getImage();
         $imageName2 = $blog_db[0]->getImage2();
@@ -270,6 +271,10 @@ class BlogController extends Controller
             $fileSystem->remove($image1);
             $fileSystem->remove($image2);
             $fileSystem->remove($image3);
+        }
+
+        foreach ($blog_comments_db as $value) {
+            $em->remove($value);
         }
         
         $em->remove($blog_db[0]);
