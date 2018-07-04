@@ -222,9 +222,20 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="activation--1 owl-carousel owl-theme poss--relative">
-                    {% if blogs|length > 3 %}
+                    {% if blogs|length >= 3 %}
                     <!-- Start Single Slide -->
                     <div class="slide bg-image--1 slider__fixed--height">
+                        <div class="slide__inner">
+                            <div class="contentbox">
+                                <h1>{{blogs[0]['title']}}</h1>
+                                <p>{{blogs[0]['pre_html']|raw}}</p>
+                                <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[0]['title']}}">{{'index_page.readmore'|trans}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Slide -->
+                    <!-- Start Single Slide -->
+                    <div class="slide bg-image--2 slider__fixed--height">
                         <div class="slide__inner">
                             <div class="contentbox">
                                 <h1>{{blogs[1]['title']}}</h1>
@@ -235,23 +246,12 @@
                     </div>
                     <!-- End Single Slide -->
                     <!-- Start Single Slide -->
-                    <div class="slide bg-image--2 slider__fixed--height">
+                    <div class="slide bg-image--3 slider__fixed--height">
                         <div class="slide__inner">
                             <div class="contentbox">
                                 <h1>{{blogs[2]['title']}}</h1>
                                 <p>{{blogs[2]['pre_html']|raw}}</p>
                                 <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[2]['title']}}">{{'index_page.readmore'|trans}}</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Slide -->
-                    <!-- Start Single Slide -->
-                    <div class="slide bg-image--3 slider__fixed--height">
-                        <div class="slide__inner">
-                            <div class="contentbox">
-                                <h1>{{blogs[3]['title']}}</h1>
-                                <p>{{blogs[3]['pre_html']|raw}}</p>
-                                <a class="slider__btn pr__btn btn--large" href="/Blog/Blog-detail/{{blogs[3]['title']}}">{{'index_page.readmore'|trans}}</a>
                             </div>
                         </div>
                     </div>
