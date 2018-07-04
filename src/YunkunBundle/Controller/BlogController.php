@@ -13,6 +13,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse; /* Json别忘了声明 */
 use Symfony\Component\Translation\Translator;
 use Symfony\Component\Translation\Loader\ArrayLoader;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 /**
  * Blog controller.
@@ -252,9 +254,24 @@ class BlogController extends Controller
      */
     public function deleteblogAction(Request $request, $blog_title=-1)
     {
+        $fileSystem = new Filesystem();
         $em = $this->getDoctrine()->getManager();
         $blog_db = $em->getRepository('YunkunBundle:Blog')->findByTitle($blog_title);
 
+        $imageName1 = $blog_db[0]->getImage();
+        $imageName2 = $blog_db[0]->getImage2();
+        $imageName3 = $blog_db[0]->getImage3();
+
+        $image1 = ($this->getParameter('blog_images'))."/".$imageName1;
+        $image2 = ($this->getParameter('blog_images'))."/".$imageName2;
+        $image3 = ($this->getParameter('blog_images'))."/".$imageName3;
+
+        if (file_exists($image1) && file_exists($image2) && file_exists($image3)) {
+            $fileSystem->remove($image1);
+            $fileSystem->remove($image2);
+            $fileSystem->remove($image3);
+        }
+        
         $em->remove($blog_db[0]);
         $em->flush();
         return $this->redirectToRoute('blogpage');

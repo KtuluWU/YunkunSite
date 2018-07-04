@@ -68,8 +68,6 @@ class BlogComment
         return $this->id;
     }
 
-
-
     /**
      * Set title.
      *
