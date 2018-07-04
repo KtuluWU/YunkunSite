@@ -50,7 +50,8 @@ class IndexController extends Controller
             $username = $contact->getContactUsername();
             $email = $contact->getContactEmail();
             $subject = $contact->getContactSubject();
-            $message = $contact->getContactMessage();
+            $message_nobr = $contact->getContactMessage();
+            $message = nl2br($message_nobr);
 
             $subject_to_send = "Contact YunKun: ".$subject;
 
