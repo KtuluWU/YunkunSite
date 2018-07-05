@@ -14,9 +14,9 @@ class BlogEditType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            // ->add('title', null, array('label' => 'form.blog.title', 'translation_domain' => 'FOSUserBundle', 'value' => ));
-            // ->add('article_text', null, array('label' => 'form.blog.article', 'translation_domain' => 'FOSUserBundle'))
-            // ->add('image', FileType::class, array('label' => 'form.blog.image1', 'translation_domain' => 'FOSUserBundle'))
+            // ->add('title', null, array('label' => 'form.blog.title', 'translation_domain' => 'Yunkun', 'value' => ));
+            // ->add('article_text', null, array('label' => 'form.blog.article', 'translation_domain' => 'Yunkun'))
+            // ->add('image', FileType::class, array('label' => 'form.blog.image1', 'translation_domain' => 'Yunkun'))
             ;
     }
 

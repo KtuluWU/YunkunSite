@@ -14,10 +14,10 @@ class ContactType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('contact_username', null, array('translation_domain' => 'FOSUserBundle'))
-            ->add('contact_email', null, array('translation_domain' => 'FOSUserBundle'))
-            ->add('contact_subject', null, array('translation_domain' => 'FOSUserBundle'))
-            ->add('contact_message', TextareaType::class, array('translation_domain' => 'FOSUserBundle'));
+            ->add('contact_username', null, array('translation_domain' => 'Yunkun'))
+            ->add('contact_email', null, array('translation_domain' => 'Yunkun'))
+            ->add('contact_subject', null, array('translation_domain' => 'Yunkun'))
+            ->add('contact_message', TextareaType::class, array('translation_domain' => 'Yunkun'));
             ;
     }
 

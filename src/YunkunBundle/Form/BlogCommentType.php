@@ -18,14 +18,14 @@ class BlogCommentType extends AbstractType {
                 'attr' => array(
                     'placeholder' => 'blog_page.comment.name',
                 ) ,
-                'translation_domain' => 'FOSUserBundle'))
+                'translation_domain' => 'Yunkun'))
             ->add('comment', TextareaType::class, array(
                 'attr' => array(
                     'class' => 'blog-comment',
                     'name' => 'blog_comment',
                     'placeholder' => 'blog_page.comment.comment'
                 ) ,
-                'translation_domain' => 'FOSUserBundle'))
+                'translation_domain' => 'Yunkun'))
             ;
     }
 
