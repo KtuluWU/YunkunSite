@@ -1,100 +1,3 @@
-group:
-    edit:
-        submit: 'Mettre à jour le groupe'
-    show:
-        name: 'Nom du groupe'
-    new:
-        submit: 'Créer le groupe'
-    flash:
-        updated: 'Le groupe a été mis à jour.'
-        created: 'Le groupe a été créé.'
-        deleted: 'Le groupe a été supprimé.'
-security:
-    login:
-        username: 'Nom d''utilisateur'
-        password: 'Mot de passe'
-        remember_me: 'Se souvenir de moi'
-        submit: Connexion
-profile:
-    show:
-        username: 'Nom d''utilisateur'
-        email: 'Adresse e-mail'
-    edit:
-        submit: 'Mettre à jour'
-    flash:
-        updated: 'Le profil a été mis à jour.'
-change_password:
-    submit: 'Modifier le mot de passe'
-    flash:
-        success: 'Le mot de passe a été modifié.'
-
-registration:
-    check_email: 'Un e-mail a été envoyé à l''adresse %email%. Il contient un lien d''activation sur lequel il vous faudra cliquer afin d''activer votre compte.'
-    confirmed: 'Félicitations %username%, votre compte est maintenant activé.'
-    back: 'Retour à la page d''origine.'
-    submit: 'Créer un compte'
-    flash:
-        user_created: 'L''utilisateur a été créé avec succès.'
-    email:
-        subject: 'Bienvenue %username% !'
-        message: |
-            Bonjour %username% !
-
-            Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%
-
-            Ce lien ne peut être utilisé qu'une seule fois pour valider votre compte.
-
-            Cordialement,
-            L'équipe Yunkun
-
-resetting:
-    check_email1: Un e-mail a été envoyé. Il contient un lien sur lequel il vous faudra cliquer pour réinitialiser votre mot de passe.
-    check_email2: Si vous ne recevez pas un email, vérifiez votre dossier spam ou essayez à nouveau.
-
-    request:
-        username: 'Nom d''utilisateur ou adresse e-mail'
-        submit: 'Réinitialiser le mot de passe'
-    reset:
-        submit: 'Modifier le mot de passe'
-    flash:
-        success: 'Le mot de passe a été réinitialisé avec succès.'
-    email:
-        subject: 'Réinitialisation de votre mot de passe'
-        message: |
-            Bonjour %username% !
-
-            Pour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%
-
-            Cordialement,
-            L'équipe YunKun
-
-layout:
-    logout: Déconnexion
-    login: Connexion
-    register: Inscription
-    logged_in_as: 'Connecté en tant que %username%'
-form:
-    group_name: 'Nom du groupe'
-    username: 'Nom d''utilisateur'
-    email: 'Adresse e-mail'
-    current_password: 'Mot de passe actuel'
-    password: 'Mot de passe'
-    password_confirmation: 'Répéter le mot de passe'
-    new_password: 'Nouveau mot de passe'
-    new_password_confirmation: 'Répéter le nouveau mot de passe'
-    ##################### Yunkun
-    phone: Tél
-    firstname: Prénom
-    lastname: Nom
-    blog: 
-        title: Titre
-        article: Article
-        image1: Image principale
-        image2: Image gauche
-        image3: Image droite
-        category: Catégorie
-    #####################
-
 #######################
 #    Yunkun pages     #
 #######################
@@ -119,8 +22,7 @@ summury:
     login: 
         email_or_username: Nom d’utilisateur ou Email
     lang: Langue/语言
-label_next: Suivante
-label_previous: Précedente
+
 variables:
     sex:
         M: Monsieur
@@ -154,9 +56,12 @@ profile_page:
     lastlogin: Dernière connexion
     phone: Tél
     registerdate: Date d'enregistrement
-    edit: Modifier les informations
+    edit: 
+        edit: Modifier les informations
+        submit: Mettre à jour
     back: Retour
     change_password: Modifier le mot de passe
+    change_password_submit: Modifier le mot de passe
 
 reset_page: 
     title1: Modifier le mot de passe
@@ -278,3 +183,30 @@ projects_page:
     text3: Créé des graphiques vectoriels SVG, y compris du texte, à l'aide de l'outil Adobe Illustrator. L'idée de conception du logo contient non seulement les lettres initiales de nos prénoms, mais aussi nos noms complets en chinois et pinyin. Afin d'éviter de l'envahissement du droit du font, tous les textes sont dessinés manuellement.
     text4: "Ensuite, en utilisant les couleurs bleue et rouge du drapeau français, avec l'effet flou pour embellir :"
     text5: "Obtenir le logo final via Photoshop : "
+
+layout:
+    logout: Déconnexion
+    login: Connexion
+    register: Inscription
+    logged_in_as: 'Connecté en tant que %username%'
+form:
+  group_name: 'Nom du groupe'
+  username: 'Nom d''utilisateur'
+  email: 'Adresse e-mail'
+  current_password: 'Mot de passe actuel'
+  password: 'Mot de passe'
+  password_confirmation: 'Répéter le mot de passe'
+  new_password: 'Nouveau mot de passe'
+  new_password_confirmation: 'Répéter le nouveau mot de passe'
+  ##################### Yunkun
+  phone: Tél
+  firstname: Prénom
+  lastname: Nom
+  blog: 
+      title: Titre
+      article: Article
+      image1: Image principale
+      image2: Image gauche
+      image3: Image droite
+      category: Catégorie
+  #####################

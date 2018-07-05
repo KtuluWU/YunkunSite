@@ -19,7 +19,7 @@
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
             {% endif %}
             <div class="login-input-line row">
-                <label for="username" class="col-sm-4 col-md-4">{{ 'summury.login.email_or_username'|trans }}</label>
+                <label for="username" class="col-sm-4 col-md-4">{{ 'summury.login.email_or_username'|trans({},'Yunkun') }}</label>
                 <input type="text" id="username" name="_username" class="col-sm-8 col-md-8" value="{{ last_username }}" required="required" autocomplete="username"/>
             </div>
 

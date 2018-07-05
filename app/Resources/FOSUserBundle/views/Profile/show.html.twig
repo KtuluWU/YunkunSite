@@ -1,4 +1,4 @@
-{% trans_default_domain 'FOSUserBundle' %} {% extends 'base_yun.html.twig' %} {% block stylesheets %} {{ parent() }}
+{% trans_default_domain 'Yunkun' %} {% extends 'base_yun.html.twig' %} {% block stylesheets %} {{ parent() }}
 <link rel="stylesheet" href="{{ asset('css/pages/profile_page.css') }}" /> {% endblock %} {% set bg_image = 'bg-image--11' %} {% set bradcaump_title = 'user_page.title1' | trans %} {% set breadcrumb_item = 'user_page.title2' | trans
 %} {% block content %}
 <!-- Start Profile PAge -->
@@ -41,7 +41,7 @@
         </table>
     </div>
     <div class="text-center">
-        <a href="edit" class="pr__btn">{{'profile_page.edit'|trans}}</a>
+        <a href="edit" class="pr__btn">{{'profile_page.edit.edit'|trans}}</a>
         <a href="change-password" class="pr__btn">{{'profile_page.change_password'|trans}}</a>
     </div>
     {% endif %}
