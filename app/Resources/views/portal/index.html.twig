@@ -1,4 +1,4 @@
-{% trans_default_domain 'FOSUserBundle' %} 
+{% trans_default_domain 'Yunkun' %} 
 {% extends 'base_yun.html.twig' %} 
 {% block stylesheets %} 
 {{ parent() }}
@@ -71,13 +71,11 @@
                             {% elseif app.user %}
                             <li class="drop">
                                 <a>
-                                    <b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%': app.user.lastname},
-                                        'FOSUserBundle')}}</b>
+                                    <b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%': app.user.lastname})}}</b>
                                 </a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a class="drop_a">{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')},
-                                            'FOSUserBundle')}}
+                                        <a class="drop_a">{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')})}}
                                             <br> {{'summury.admin.text3'|trans}}
                                         </a>
                                     </li>
@@ -169,13 +167,11 @@
                             {% elseif app.user %}
                             <li class="drop">
                                 <a>
-                                    <b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%': app.user.lastname},
-                                        'FOSUserBundle')}}</b>
+                                    <b>{{'summury.admin.text1'|trans({'%firstname%': app.user.firstname, '%lastname%': app.user.lastname})}}</b>
                                 </a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a class="drop_a">{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')},
-                                            'FOSUserBundle')}}
+                                        <a class="drop_a">{{'summury.admin.text2'|trans({'%lastlogin%': app.user.lastLogin|date('Y-m-d H:i:s')})}}
                                             <br> {{'summury.admin.text3'|trans}}
                                         </a>
                                     </li>
