@@ -4,7 +4,7 @@ namespace YunkunBundle\Controller;
 use YunkunBundle\Entity\Lang;
 use YunkunBundle\Form\ContactType;
 use YunkunBundle\Entity\Contact;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route; /* 路由 */
+use Symfony\Component\Routing\Annotation\Route; /* 路由 */
 use Symfony\Bundle\FrameworkBundle\Controller\Controller; /* 基类 */
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response; /* Json别忘了声明 */

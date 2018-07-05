@@ -6,7 +6,7 @@ use YunkunBundle\Form\BlogEditType;
 use YunkunBundle\Form\BlogCommentType;
 use YunkunBundle\Entity\Blog;
 use YunkunBundle\Entity\BlogComment;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route; /* 路由 */
+use Symfony\Component\Routing\Annotation\Route; /* 路由 */
 use Symfony\Bundle\FrameworkBundle\Controller\Controller; /* 基类 */
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
