@@ -16,17 +16,31 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
-/web/bundles/
-/web/uploads/*
-!web/uploads/.gitkeep
-/web/uploads/files/*
-!web/uploads/files/.gitkeep
-/web/uploads/images/blog/*
-!web/uploads/images/blog/.gitkeep
-/web/css/.sass-cache
-/web/css/scss/.sass-cache
-/web/css/scss/pages/.sass-cache
-/web/css/*.map
-/web/css/pages/*.map
-/src/YunkunBundle/Controller/UserController.php
-/app/Resources/views/test
+/public/bundles/
+/public/uploads/*
+!public/uploads/.gitkeep
+/public/uploads/files/*
+!public/uploads/files/.gitkeep
+/public/uploads/images/blog/*
+!public/uploads/images/blog/.gitkeep
+/public/css/.sass-cache
+/public/css/scss/.sass-cache
+/public/css/scss/pages/.sass-cache
+/public/css/*.map
+/public/css/pages/*.map
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> symfony/framework-bundle ###
+/.env
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
