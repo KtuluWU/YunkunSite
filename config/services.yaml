@@ -28,8 +28,6 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
 
     app.form.profile:
         class: App\Form\ProfileType
@@ -63,6 +61,6 @@ services:
     #          - { name: kernel.event_subscriber }
                 
     App\EventSubscriber\LocaleSubscriber:
-            arguments: ['%kernel.default_locale%']
-            # redundant if you're using autoconfigure
-            tags: [kernel.event_subscriber]
+        arguments: ['%kernel.default_locale%']
+        # redundant if you're using autoconfigure
+        tags: [kernel.event_subscriber]

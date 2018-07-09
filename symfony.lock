@@ -47,6 +47,9 @@
     "egulias/email-validator": {
         "version": "2.1.4"
     },
+    "fig/link-util": {
+        "version": "1.0.0"
+    },
     "friendsofsymfony/user-bundle": {
         "version": "v2.1.2"
     },
@@ -74,6 +77,9 @@
     "psr/container": {
         "version": "1.0.0"
     },
+    "psr/link": {
+        "version": "1.0.0"
+    },
     "psr/log": {
         "version": "1.0.2"
     },
@@ -91,6 +97,15 @@
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.1.1"
+    },
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "c82bead70f9a4f656354a193df7bf0ca2114efa0"
+        }
     },
     "symfony/asset": {
         "version": "v4.1.1"
@@ -194,6 +209,9 @@
     "symfony/polyfill-apcu": {
         "version": "v1.8.0"
     },
+    "symfony/polyfill-ctype": {
+        "version": "v1.8.0"
+    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.8.0"
     },
@@ -245,8 +263,17 @@
             "ref": "3db029c03e452b4a23f7fc45cec7c922c2247eb8"
         }
     },
+    "symfony/symfony": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "d9ffde95d60fa64c4e39752016ee534460b7c691"
+        }
+    },
     "symfony/templating": {
-        "version": "v3.4.2"
+        "version": "v4.1.1"
     },
     "symfony/translation": {
         "version": "3.3",
