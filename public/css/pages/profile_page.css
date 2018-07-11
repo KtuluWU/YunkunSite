@@ -34,4 +34,35 @@
       height: 35px;
       text-align: center; }
 
+@media only screen and (max-width: 767px) {
+  .profile_container {
+    width: 60%;
+    margin: 50px auto; }
+
+  .profile_edit_container {
+    width: 60%;
+    margin: 50px auto; }
+    .profile_edit_container table input {
+      width: 100%; } }
+@media only screen and (max-width: 575px) {
+  .profile_container {
+    width: 90%;
+    margin: 50px auto; }
+    .profile_container .profile_button {
+      display: flex;
+      flex-direction: column; }
+      .profile_container .profile_button a {
+        margin-top: 20px; }
+
+  .profile_edit_container {
+    width: 90%;
+    margin: 50px auto; }
+    .profile_edit_container table input {
+      width: 100%; }
+    .profile_edit_container .profile_button {
+      display: flex;
+      flex-direction: column; }
+      .profile_edit_container .profile_button a, .profile_edit_container .profile_button input {
+        margin-top: 20px; } }
+
 /*# sourceMappingURL=profile_page.css.map */

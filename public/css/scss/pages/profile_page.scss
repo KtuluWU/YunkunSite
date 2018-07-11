@@ -32,3 +32,50 @@
         }
     }
 }
+
+@media #{$sm-layout} {
+    .profile_container {
+        width: 60%;
+        margin: 50px auto;
+    }
+
+    .profile_edit_container {
+        width: 60%;
+        margin: 50px auto;
+        table input {
+            width: 100%;
+        }
+    }
+}
+
+@media #{$xs-layout} {
+    .profile_container {
+        width: 90%;
+        margin: 50px auto;
+        .profile_button {
+            display: flex;
+            flex-direction: column;
+            a {
+                margin-top: 20px;
+            }
+        }
+        
+    }
+
+    .profile_edit_container {
+        width: 90%;
+        margin: 50px auto;
+        table input {
+            width: 100%;
+        }
+        .profile_button {
+            display: flex;
+            flex-direction: column;
+            a,input {
+                margin-top: 20px;
+            }
+        }
+    }
+
+
+}
