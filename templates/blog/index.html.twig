@@ -1,6 +1,6 @@
 {% trans_default_domain 'Yunkun' %}
 {% extends 'base_yun.html.twig' %}
-{% block title %}Yunkun Blog{% endblock %}
+{% block title %}{{'title.blog.index'|trans}}{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/pages/blog_page.css') }}"/>

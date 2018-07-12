@@ -6,11 +6,15 @@ $(document).ready(function () {
     var date = day + "/" + mon + "/" + year;
     console.log(date);
 
-    $('.links__edit__delete #delete_confirm').click(function () {    // Animation de la "div" de Recherche Avancée
+    $('.pr__blog__details .links__edit__delete #delete_confirm').click(function () {
         $('.modal__conrfim__delete').toggle();
     });
 
-    $('.modal__conrfim__delete #cancel_delete').click(function () {    // Animation de la "div" de Recherche Avancée
+    $('.user_page #delete_confirm').click(function () {
+        $('.modal__conrfim__delete').toggle();
+    });
+
+    $('.modal__conrfim__delete #cancel_delete').click(function () {
         $('.modal__conrfim__delete').toggle();
     });
 })
