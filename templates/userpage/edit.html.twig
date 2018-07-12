@@ -1,0 +1,73 @@
+{% trans_default_domain 'Yunkun' %}
+{% extends 'base_yun.html.twig' %}
+{% block title %}{{'title.user_page'|trans}}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pages/user_page.css') }}"/>
+{% endblock %}
+{% set bg_image = 'bg-image--12' %}
+{% set bradcaump_title = 'summury.admin.text4'|trans %}
+{% set breadcrumb_item = 'summury.admin.text4'|trans %}
+{% block content %} 
+<div class="editUser_page">
+    <div class="container">
+        <form method="POST" action="/Userpage/update/{{username}}">
+            <table>
+                <tr>
+                    <th><label for="user_edit_username">{{'user_page.table.thead1'|trans}} * </label></th>
+                    <td><input type="text" id="user_edit_username" name="user_edit_username" placeholder="{{username}}" value="{{username}}"></td>
+                </tr>
+                <tr>
+                    <th><label for="user_edit_firstname">{{'user_page.table.thead2'|trans}} </label></th>
+                    <td><input type="text" id="user_edit_firstname" name="user_edit_firstname" placeholder="{{firstname}}" value="{{firstname}}"></td>
+                </tr>
+                <tr>
+                    <th><label for="user_edit_lastname">{{'user_page.table.thead3'|trans}} </label></th>
+                    <td><input type="text" id="user_edit_lastname" name="user_edit_lastname" placeholder="{{lastname}}" value="{{lastname}}"></td>
+                </tr>
+                <tr>
+                    <th><label for="user_edit_sex">{{'user_page.table.thead4'|trans}} </label></th>
+                    <td><input type="text" id="user_edit_sex" name="user_edit_sex" placeholder="{{sex}}" value="{{sex}}"></td>
+                </tr>
+                <tr>
+                    <th><label for="user_edit_email">{{'user_page.table.thead5'|trans}} * </label></th>
+                    <td><input type="text" id="user_edit_email" name="user_edit_email" placeholder="{{email}}" value="{{email}}"></td>
+                </tr>
+                <tr>
+                    <th><label for="user_edit_phone">{{'user_page.table.thead6'|trans}} </label></th>
+                    <td><input type="text" id="user_edit_phone" name="user_edit_phone" placeholder="{{phone}}" value="{{phone}}"></td>
+                </tr>
+                <tr>
+                    <th><label for="user_edit_roles">{{'user_page.table.thead7'|trans}}</label></th>
+                    <td>
+                        <select id="user_edit_roles" name="user_edit_roles">
+                            {% if role[0] == "ROLE_USER" %} <option value="ROLE_USER" selected>{{'variables.roles.ROLE_USER'|trans}}</option> {% else %} <option value="ROLE_USER">{{'variables.roles.ROLE_USER'|trans}}</option> {% endif %}
+                            {% if role[0] == "ROLE_RECRUITER" %} <option value="ROLE_RECRUITER" selected>{{'variables.roles.ROLE_RECRUITER'|trans}}</option> {% else %} <option value="ROLE_RECRUITER">{{'variables.roles.ROLE_RECRUITER'|trans}}</option> {% endif %}
+                            {% if role[0] == "ROLE_ADMIN" %} <option value="ROLE_ADMIN" selected>{{'variables.roles.ROLE_ADMIN'|trans}}</option> {% else %} <option value="ROLE_ADMIN">{{'variables.roles.ROLE_ADMIN'|trans}}</option> {% endif %}
+                            {% if role[0] == "ROLE_SUPER_ADMIN" %} <option value="ROLE_SUPER_ADMIN" selected>{{'variables.roles.ROLE_SUPER_ADMIN'|trans}}</option> {% else %} <option value="ROLE_SUPER_ADMIN">{{'variables.roles.ROLE_SUPER_ADMIN'|trans}}</option> {% endif %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="user_edit_enable">{{'user_page.table.thead10'|trans}}</label></th>
+                    <td>
+                        <select id="user_edit_enable" name="user_edit_enable">
+                            {% if enable %} 
+                            <option value=1 selected>{{'user_page.edit.enabled.y'|trans}}</option> 
+                            <option value=0>{{'user_page.edit.enabled.n'|trans}}</option> 
+                            {% else %}
+                            <option value=1>{{'user_page.edit.enabled.y'|trans}}</option> 
+                            <option value=0 selected>{{'user_page.edit.enabled.n'|trans}}</option> 
+                            {% endif %}
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="text-center">
+                <a href="/Userpage" class="pr__btn">返回</a>
+                <input type="submit" class="pr__btn" value="{{'user_page.edit.valid'|trans}}">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

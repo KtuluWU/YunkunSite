@@ -102,6 +102,11 @@
                                             <li>
                                                 <a href="/profile" class="drop_a">{{'user_page.title1'|trans}}</a>
                                             </li>
+                                            {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' %}
+                                            <li>
+                                                <a href="/Userpage" class="drop_a">{{'summury.admin.text4'|trans}}</a>
+                                            </li>
+                                            {% endif %}
                                             <li>
                                                 <a href="/logout" class="drop_a">{{'layout.logout'|trans}}</a>
                                             </li>
@@ -196,6 +201,11 @@
                                             <li>
                                                 <a href="/profile" class="drop_a">{{'user_page.title1'|trans}}</a>
                                             </li>
+                                            {% if app.user.roles[0] == 'ROLE_SUPER_ADMIN' %}
+                                            <li>
+                                                <a href="/Userpage" class="drop_a">{{'summury.admin.text4'|trans}}</a>
+                                            </li>
+                                            {% endif %}
                                             <li>
                                                 <a href="/logout" class="drop_a">{{'layout.logout'|trans}}</a>
                                             </li>

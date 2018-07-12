@@ -14,7 +14,7 @@ security:
         username: 'Nom d''utilisateur'
         password: 'Mot de passe'
         remember_me: 'Se souvenir de moi'
-        submit: Connexion
+        submit: Connecter
 profile:
     show:
         username: 'Nom d''utilisateur'
@@ -69,8 +69,8 @@ resetting:
             L'équipe YunKun
 
 layout:
-    logout: Déconnexion
-    login: Connexion
+    logout: Déconnecter
+    login: Connecter
     register: Inscription
     logged_in_as: 'Connecté en tant que %username%'
 form:

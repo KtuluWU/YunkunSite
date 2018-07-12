@@ -1,0 +1,151 @@
+/*===== Colors =====//*/
+/*===== Font Family =====//*/
+/*===== Line Height =====//*/
+/*===== Radius  =====//*/
+/*==== Font size =====//*/
+/*===== Border color ======//*/
+/*===== Alerts color  =====//*/
+/*===== Social Colors =====//*/
+/* Layouts*/
+.user_page {
+  width: 90%;
+  margin: 50px auto; }
+  .user_page .bg_grey {
+    background-color: #eee; }
+  .user_page .a {
+    text-align: center; }
+  .user_page a {
+    cursor: pointer !important;
+    color: #fff !important; }
+  .user_page .blue_btn {
+    background-color: #51a7f9 !important; }
+    .user_page .blue_btn:hover {
+      background-color: #444444 !important; }
+  .user_page .red_btn {
+    background-color: #d9534f !important; }
+    .user_page .red_btn:hover {
+      background-color: #444444 !important; }
+  .user_page .modal__conrfim__delete a {
+    cursor: pointer; }
+  .user_page .modal__conrfim__delete {
+    display: none; }
+    .user_page .modal__conrfim__delete .backgroud {
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(81, 167, 249, 0.4); }
+    .user_page .modal__conrfim__delete .window {
+      position: fixed;
+      z-index: 1001;
+      top: 128px;
+      left: calc(50% - 40% / 2);
+      right: calc(50% - 40% / 2);
+      max-width: 40%;
+      max-height: 500px;
+      padding: 24px;
+      background: #fefefe;
+      border-radius: 4px; }
+      .user_page .modal__conrfim__delete .window .title {
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-bottom: 30px; }
+      .user_page .modal__conrfim__delete .window .lang-block {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: space-around; }
+        .user_page .modal__conrfim__delete .window .lang-block .lang {
+          margin: 0 20px;
+          border: 2px solid #51a7f9;
+          border-radius: 5px;
+          padding: 5px 10px;
+          transition: .4s;
+          cursor: pointer; }
+          .user_page .modal__conrfim__delete .window .lang-block .lang:hover {
+            background: #51a7f9; }
+  @media only screen and (max-width: 1000px) {
+    .user_page .modal__conrfim__delete .window {
+      left: calc(40% - 40% / 2);
+      right: calc(40% - 40% / 2);
+      max-width: 70%; }
+      .user_page .modal__conrfim__delete .window .options {
+        display: inline; } }
+
+@media only screen and (min-width: 1450px) {
+  .user_page table th,
+  .user_page table td {
+    padding: 8px 10px; } }
+@media only screen and (max-width: 1299px) {
+  .user_page table,
+  .user_page thead,
+  .user_page tbody,
+  .user_page th,
+  .user_page td,
+  .user_page tr {
+    display: block; }
+  .user_page thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; }
+  .user_page tr {
+    border: 1px solid #ccc; }
+  .user_page td {
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+    padding-left: 50%; }
+    .user_page td::before {
+      position: absolute;
+      top: 11px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap; }
+  .user_page .user_table td:before {
+    content: attr(data-th); }
+  .user_page .user_table .user_table_tr {
+    margin: 20px auto; }
+  .user_page .user_table .a {
+    text-align: left; } }
+.editUser_page {
+  width: 50%;
+  margin: 50px auto;
+  text-align: center; }
+  .editUser_page label {
+    margin: 0 !important; }
+  .editUser_page table {
+    line-height: 35px; }
+    .editUser_page table td,
+    .editUser_page table th {
+      border-top: 1px solid #ededed;
+      padding: 6px 10px 6px 5%; }
+    .editUser_page table input {
+      border: 1px solid #ededed;
+      border-radius: 5px;
+      width: 60%;
+      height: 35px;
+      text-align: center; }
+
+@media only screen and (max-width: 767px) {
+  .editUser_page {
+    width: 60%;
+    margin: 50px auto; }
+    .editUser_page table input {
+      width: 100%; } }
+@media only screen and (max-width: 575px) {
+  .editUser_page {
+    width: 90%;
+    margin: 50px auto; }
+    .editUser_page table input {
+      width: 100%; }
+    .editUser_page .profile_button {
+      display: flex;
+      flex-direction: column; }
+      .editUser_page .profile_button a, .editUser_page .profile_button input {
+        margin-top: 20px; } }
+
+/*# sourceMappingURL=user_page.css.map */

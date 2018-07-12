@@ -19,6 +19,7 @@ summury:
         text1: Bonjour %firstname% %lastname%
         text2: Dernière connexion %lastlogin%
         text3: (Paris UTC+2)
+        text4: Liste utilisateur
     login: 
         email_or_username: Nom d’utilisateur ou Email
     lang: Langue/语言
@@ -32,6 +33,9 @@ variables:
         ROLE_ADMIN: Administrateur
         ROLE_RECRUITER: Recruteur
         ROLE_USER: Utilisateur
+    enable:
+        y: Activé
+        n: Désactivé
     
 error_page: 
     text1: Désolé！La page que vous voulez visiter n'existe pas...
@@ -41,11 +45,6 @@ error_page:
     text5: Désolé！Vous n'êtes pas autorisé à accéder à cette page...
     text6: Cette page est reservée aux recruteurs et administrateurs, veuillez contacter
     text7: pour demander un compte de recruteur.
-
-user_page:
-    title1: Profil
-    title2: Profil
-    title3: Modification du profil
 
 profile_page:
     username: Nom d’utilisateur
@@ -185,8 +184,8 @@ projects_page:
     text5: "Obtenir le logo final via Photoshop : "
 
 layout:
-    logout: Déconnexion
-    login: Connexion
+    logout: Déconnecter
+    login: Connecter
     register: Inscription
     logged_in_as: 'Connecté en tant que %username%'
 form:
@@ -210,3 +209,50 @@ form:
       image3: Image droite
       category: Catégorie
   #####################
+
+title: 
+    blog: 
+        index: Yunkun云堃 Blog
+        add: Yunkun云堃 Ajouter un blog
+        edit: Yunkun云堃 Modifier un blog
+        detai: Yunkun云堃 %blogtitle%
+    fos_user:
+        change_password: Yunkun云堃 Modifier le mot de passe
+        edit_profile: Yunkun云堃 Modifier le profile
+        show_profile: Yunkun云堃 Profile
+        reset: Yunkun云堃 Réinitialiser le mot de passe
+        login: Yunkun云堃 Connecter
+    projects: Yunkun云堃 Projets
+    cv: Yunkun云堃 CV
+    contact: Yunkun云堃 Nous contacter
+    user_page: Yunkun云堃 Liste utilisateur
+
+user_page:
+    title1: Profil
+    title2: Profil
+    title3: Modification du profil
+    title4: Liste utilisateur
+    modal:
+        delete_confirm: Êtes-vous sûr de vouloir supprimer cette utilisateur? Cette opération ne peut pas être reprise.
+        y: Supprimer
+        n: Annuler
+    table:
+        thead1: Nom d'utilisateur
+        thead2: Prénom
+        thead3: Nom
+        thead4: Civilité
+        thead5: Email
+        thead6: Tél
+        thead7: Niveau d'accès
+        thead8: Dernière connexion
+        thead9: Date d'enregistrement
+        thead10: Activé
+        thead11: Options
+        edit: Modifier
+        delete: Supprimer
+    edit:
+        enabled: 
+            y: Activer
+            n: Désactiver
+        valid: Valider
+            

@@ -19,6 +19,7 @@ summury:
         text1: 您好 %firstname% %lastname%
         text2: 上次登录时间：%lastlogin%
         text3: (巴黎时间 UTC+2)
+        text4: 用户名单
     login: 
         email_or_username: 用户名或邮箱
     lang: 语言/Language
@@ -32,6 +33,9 @@ variables:
         ROLE_ADMIN: 管理员
         ROLE_RECRUITER: 招聘者
         ROLE_USER: 普通用户
+    enable:
+        y: 激活
+        n: 未激活
 
 error_page: 
     text1: 抱歉！ 您访问的页面不存在...
@@ -41,11 +45,6 @@ error_page:
     text5: 抱歉！您无权访问当前页面...
     text6: 该页面仅供招聘者或者管理员访问，请联系
     text7: 申请招聘者账户。
-    
-user_page:
-    title1: 个人主页
-    title2: 个人主页
-    title3: 信息修改
 
 profile_page:
     username: 用户名：
@@ -210,3 +209,50 @@ form:
         image3: 右子图
         category: 分类
     #####################
+
+title: 
+    blog: 
+        index: Yunkun云堃 博客
+        add: Yunkun云堃 添加博客
+        edit: Yunkun云堃 编辑博客
+        detai: Yunkun云堃 %blogtitle%
+    fos_user:
+        change_password: Yunkun云堃 修改密码
+        edit_profile: Yunkun云堃 修改个人主页
+        show_profile: Yunkun云堃 个人主页
+        reset: Yunkun云堃 重置密码
+        login: Yunkun云堃 登录
+    projects: Yunkun云堃 项目及设计作品展示
+    cv: Yunkun云堃 个人简历
+    contact: Yunkun云堃 联系我们
+    user_page: Yunkun云堃 用户名单
+        
+user_page:
+    title1: 个人主页
+    title2: 个人主页
+    title3: 信息修改
+    title4: 用户名单
+    modal:
+        delete_confirm: 确定删除该用户吗？此操作无法恢复
+        y: 删除
+        n: 取消
+    table:
+        thead1: 用户名
+        thead2: 名字
+        thead3: 姓氏
+        thead4: 性别
+        thead5: 电子邮件
+        thead6: 电话
+        thead7: 访问权限
+        thead8: 上次登录
+        thead9: 注册时间
+        thead10: 是否激活
+        thead11: 选项
+        edit: 编辑
+        delete: 删除
+    edit:
+        enabled: 
+            y: 激活
+            n: 禁用
+        valid: 更新
+            

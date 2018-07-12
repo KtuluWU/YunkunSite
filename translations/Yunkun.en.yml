@@ -19,6 +19,7 @@ summury:
         text1: Hi %firstname% %lastname%
         text2: Last connection%lastlogin%
         text3: (Paris UTC+2)
+        text4: Users list
     login: 
         email_or_username: Username or Email
     lang: Language/语言
@@ -32,6 +33,9 @@ variables:
         ROLE_ADMIN: Administrator
         ROLE_RECRUITER: Recruiter
         ROLE_USER: User
+    enable:
+        y: enabled
+        n: disabled
 
 error_page: 
     text1: Try the search below to find matching pages...
@@ -41,11 +45,6 @@ error_page:
     text5: Sorry！You are not allowed to access the current page...
     text6: This page is reserved for recruiters and administrators, please contact
     text7: to apply a recruiter account.
-
-user_page:
-    title1: Profile
-    title2: Profile
-    title3: Profile modification
 
 profile_page:
     username: Username
@@ -211,3 +210,49 @@ form:
         image3: Right image
         category: Category
     #####################
+
+title: 
+    blog: 
+        index: Yunkun云堃 Blog
+        add: Yunkun云堃 Add a blog
+        edit: Yunkun云堃 Edit a blog
+        detai: Yunkun云堃 %blogtitle%
+    fos_user:
+        change_password: Yunkun云堃 Change password
+        edit_profile: Yunkun云堃 Edit profile
+        show_profile: Yunkun云堃 Profile
+        reset: Yunkun云堃 Reset password
+        login: Yunkun云堃 Login
+    projects: Yunkun云堃 Projects
+    cv: Yunkun云堃 CV
+    contact: Yunkun云堃 Contact us
+    user_page: Yunkun云堃 Users list
+
+user_page:
+    title1: Profile
+    title2: Profile
+    title3: Edit profile
+    title4: Users list
+    modal:
+        delete_confirm: Are you sure you want to delete this user? This operation can not be resumed.
+        y: Delete
+        n: Cancel
+    table:
+        thead1: Username
+        thead2: Firstname
+        thead3: Lastname
+        thead4: Sex
+        thead5: Email
+        thead6: Phone
+        thead7: Access level
+        thead8: Last connection
+        thead9: Registration date
+        thead10: Enable
+        thead11: Options
+        edit: Edit
+        delete: Delete
+    edit:
+        enabled: 
+            y: Enable
+            n: Disable
+        valid: Update
