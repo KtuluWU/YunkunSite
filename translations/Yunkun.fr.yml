@@ -106,7 +106,7 @@ cv_page:
     today: "~"
     projects: Projets
     presentation1: Nous vivons et travaillons à Paris, en CDI.
-    presentation2: Le métier de Yun est développeur Web Full-Stack, réalisé plusieurs gros projets sur Front-end, Back-end, ainsi que les deux ensemble (Full-Stack). Bonne capacité de travailler en seul et en équipe, très bonne communication avec l'équipe, et la responsabilité des projets.
+    presentation2: Le métier de Yun est développeur Web Front-end, réalisé plusieurs gros projets sur Front-end, Back-end, ainsi que les deux ensemble (Full-Stack). Bonne capacité de travailler en seul et en équipe, très bonne communication avec l'équipe, et la responsabilité des projets.
     presentation3: Le métier de Kun est assistante commerciale, réalisé des projets de développement de marketing Asiatique et Européen, très bonne capacité d'adaptabilité et comptétences sociales, ainsi très bonne communication internationale.
     counterup1: Les villes que nous sommes allées
     counterup2: Nos jours à Paris
@@ -117,7 +117,7 @@ cv_page:
         skill1: Capacité de gestion de projets
         skill2: Capacité de travailler en équipe
         skill3: "Front-end: Javascript, HTML5, CSS3, SCSS, Vue.js, jQuery, Bootstrap4 ..."
-        skill4: "Back-end: PHP7, Symfony 4(或者3), Laravel, Database, MySQL, PostgreSQL ..."
+        skill4: "Back-end: PHP7, Symfony 4(或者3), Zend Framework, Python, MySQL, PostgreSQL ..."
         skill5: "Web design: Photoshop"
     kun_skills:
         title: Compétence de Kun
@@ -132,13 +132,15 @@ cv_page:
         date2: 2016/03
         date3: 2016/09
         date4: 2016/01
-        work1: Développeur Web Full-Stack (CDI)
+        work1: Développeur Web Front-End (CDI)
         work2: Développeur Web (Stage)
         work3: Conception Socket communication réseau (Projet fin d'étude)
         company1: G.I.E Infogreffe (Île-de-France Vincennes)
         company2: FWA (Paris)
         company3: Laboratoire de Recherches en Informatique (Île-de-France Orsay)
-        download: Télécharger le CV complet de Yun(pdf)
+        download1: Télécharger le CV en chinois de Yun(pdf)
+        download2: Télécharger le CV en français de Yun(pdf)
+        download3: Télécharger le CV en anglais de Yun(pdf)
     kun_exp: 
         title: Expériences de Kun
         date1: 2017/02
@@ -152,7 +154,9 @@ cv_page:
         company1: IFFEN (Île-de-France)
         company2: SEMEX (Lyon)
         company3: Carrefour (Lyon)
-        download: Télécharger le CV complet de Kun(pdf)
+        download1: Télécharger le CV en chinois de Kun(pdf)
+        download2: Télécharger le CV en français de Kun(pdf)
+        download3: Télécharger le CV en anglais de Kun(pdf)
     quote: 
         quote1: Il y a un spectacle plus grand que la mer, c'est le ciel; Il y a un spectacle plus grand que le ciel, c'est l'intérieur de l'âme.
         quote2: "L'esprit de l'homme a trois clefs qui ouvrent tout : le chiffre, la lettre, la note. Savoir, penser, rêver. Tout est là."

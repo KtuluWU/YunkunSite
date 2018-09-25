@@ -106,7 +106,7 @@ cv_page:
     today: "~"
     projects: Projects
     presentation1: We live and work in Paris, on permanent contract.
-    presentation2: Yun's job is Full-Stack Web Developer, realized several big projects on Front-end, Back-end, as well as both together (Full-Stack). Good ability to work alone and in a team, very good communication with the team, and project responsibility.
+    presentation2: Yun's job is Web Front-end Developer, realized several big projects on Front-end, Back-end, as well as both together (Full-Stack). Good ability to work alone and in a team, very good communication with the team, and project responsibility.
     presentation3: Kun's job is Commercial Assistant, realized several projects on Asian and European marketing development, good ability of adaptability and social skills, and good international communication.
     counterup1: The cities we walk through
     counterup2: Our days in Paris
@@ -117,7 +117,7 @@ cv_page:
         skill1: Project management capability
         skill2: Ability to work in a team
         skill3: "Front-end: Javascript, HTML5, CSS3, SCSS, Vue.js, jQuery, Bootstrap4 ..."
-        skill4: "Back-end: PHP7, Symfony 4(or 3), Laravel, Database, MySQL, PostgreSQL ..."
+        skill4: "Back-end: PHP7, Symfony 4(or 3), Zend Framework, Python, MySQL, PostgreSQL ..."
         skill5: "Web design: Photoshop"
     kun_skills:
         title: Kun's skills
@@ -132,13 +132,15 @@ cv_page:
         date2: 2016/03
         date3: 2016/09
         date4: 2016/01
-        work1: Web Full-Stack Developer (Permanent)
+        work1: Web Front-end Developer (Permanent)
         work2: Web Developer (Internship)
         work3: Socket network communication design (End of studies project)
         company1: G.I.E Infogreffe (France Paris)
         company2: FWA (France Paris)
         company3: Computer Research Laboratory (France Paris)
-        download: Download Yun's CV (pdf)
+        download1: Download Yun's chinese CV (pdf)
+        download2: Download Yun's french CV (pdf)
+        download3: Download Yun's english CV (pdf)
     kun_exp: 
         title: Kun's experiences
         date1: 2017/02
@@ -152,7 +154,9 @@ cv_page:
         company1: IFFEN (France Paris)
         company2: SEMEX (France Lyon)
         company3: Carrefour (France Lyon)
-        download: Download Kun's CV (pdf)
+        download1: Download Kun's chinese CV (pdf)
+        download2: Download Kun's french CV (pdf)
+        download3: Download Kun's english CV (pdf)
     quote: 
         quote1: There is one spectacle grander than the sea, that is the sky; There is one spectacle grander than the sky, that is the interior of the soul.
         quote2: "The mind of man has three keys which open everything: the number, the letter, the note. Know, think, dream. Everything is here."
